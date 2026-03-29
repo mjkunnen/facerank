@@ -4,12 +4,12 @@ import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 const STATS = [
-  { score: "8.1", label: "Jawline", visible: true, labelVisible: false },
-  { score: "7.8", label: "Eyes", visible: true, labelVisible: false },
-  { score: "7.4", label: "Harmony", visible: true, labelVisible: true },
-  { score: "7.2", label: "Cheeks", visible: true, labelVisible: false },
-  { score: "6.9", label: "Nose", visible: false, labelVisible: false },
-  { score: "6.5", label: "Skin", visible: false, labelVisible: false },
+  { score: "8.1", label: "Jawline", visible: true, labelVisible: false, pct: 81 },
+  { score: "7.8", label: "Eyes", visible: true, labelVisible: false, pct: 78 },
+  { score: "7.4", label: "Harmony", visible: true, labelVisible: true, pct: 74 },
+  { score: "7.2", label: "Cheeks", visible: true, labelVisible: false, pct: 72 },
+  { score: "6.9", label: "\u2588\u2588\u2588\u2588\u2588", visible: false, labelVisible: false, pct: 69 },
+  { score: "6.5", label: "\u2588\u2588\u2588\u2588\u2588", visible: false, labelVisible: false, pct: 65 },
 ];
 
 const COUNTRIES = [
@@ -36,14 +36,21 @@ export default function ResultsPage() {
   };
 
   return (
-    <main className="bg-[#08080C] text-white font-body min-h-dvh">
+    <main className="bg-[#08080C] text-white font-body selection:bg-[#7C4DFF]/30">
       {/* Top AppBar */}
       <header className="fixed top-0 w-full z-50 flex items-center justify-between px-7 h-24 max-w-[400px] mx-auto left-1/2 -translate-x-1/2 bg-[#08080C]/80 backdrop-blur-xl">
         <div className="flex items-center gap-4">
           <span className="material-symbols-outlined text-white/60 hover:opacity-80 transition-opacity cursor-pointer">menu</span>
           <h1 className="text-xl font-black tracking-tighter text-white uppercase font-headline">FACERANK</h1>
         </div>
-        <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10 bg-white/5"></div>
+        <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10 bg-white/5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            alt="User profile"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgsbs8x3hE9vkfVN6LM8g0s9pzj90D2dPg8trH_LhKkXE07Hh8Sl_FVnqDGP6nkXh3ka5rmMxpDt3-SK_DVGyDWUDB7pUZME-zOQPpnTPNSK9DLJxkBCzUQ1gFIPNtR2dhPOj5yspAIkKgYvfwsZHpW4Ua6Dd8evbSrzG6OC7TSZoccLlpMOSOSAY4vDcrLYfcmP-EgubPkJwCrBNfW9nVSqO992_b-Tw3oPYn6m_gemLCncgfE0gdDq8OoUOfHhK8-P2rbAby467C"
+            className="w-full h-full object-cover"
+          />
+        </div>
       </header>
 
       {/* Main Content Scroll Area */}
@@ -73,20 +80,19 @@ export default function ResultsPage() {
               <p className="text-[10px] text-white/25 uppercase tracking-[0.2em] font-label">Your best scores</p>
               <div className="grid grid-cols-2 gap-x-8 gap-y-6" onClick={scrollToUnlock}>
                 {STATS.map((s) => {
-                  const num = parseFloat(s.score);
                   const isBlurred = !s.visible;
                   return (
-                    <div key={s.label} className="space-y-2">
+                    <div key={s.label + s.score} className="space-y-2">
                       <div className="flex items-center gap-2">
                         <span className={`text-sm font-bold ${isBlurred ? "text-white/40 text-blur" : "text-white"} font-label`}>{s.score}</span>
                         <span className={`text-[10px] ${s.labelVisible ? "text-white/60 font-medium" : "text-white/40 text-blur"}`}>
-                          {isBlurred ? "\u2588\u2588\u2588\u2588\u2588" : s.label}
+                          {isBlurred ? s.label : (s.labelVisible ? s.label : s.label)}
                         </span>
                       </div>
-                      <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
+                      <div className={`h-[3px] w-full bg-white/5 rounded-full overflow-hidden ${isBlurred ? "opacity-30" : ""}`}>
                         <div
-                          className={`h-full ${isBlurred ? "bg-white/20 opacity-30" : "bg-gradient-to-r from-[#7C4DFF] to-[#448AFF]"}`}
-                          style={{ width: `${(num / 10) * 100}%` }}
+                          className={`h-full ${isBlurred ? "bg-white/20" : "bg-gradient-to-r from-[#7C4DFF] to-[#448AFF]"}`}
+                          style={{ width: `${s.pct}%` }}
                         ></div>
                       </div>
                     </div>
@@ -99,7 +105,7 @@ export default function ResultsPage() {
 
             {/* Countries Section */}
             <div className="space-y-5" onClick={scrollToUnlock}>
-              <p className="text-[10px] text-white/25 uppercase tracking-[0.2em] font-label">Top 5 Countries</p>
+              <p className="text-[10px] text-white/25 uppercase tracking-[0.2em] font-label">{"\u{1F30D}"} Top 5 Countries</p>
               <div className="space-y-4">
                 {COUNTRIES.map((c, i) => (
                   <div key={i} className="flex items-center justify-between">
@@ -117,7 +123,7 @@ export default function ResultsPage() {
 
             {/* Heritage Section */}
             <div className="space-y-4" onClick={scrollToUnlock}>
-              <p className="text-[10px] text-white/25 uppercase tracking-[0.2em] font-label">Heritage</p>
+              <p className="text-[10px] text-white/25 uppercase tracking-[0.2em] font-label">{"\u{1F9EC}"} Heritage</p>
               <div className="flex items-center gap-3 text-[13px] font-medium overflow-hidden whitespace-nowrap">
                 <span className="flex items-center gap-1.5">{"\u{1F1EC}\u{1F1F7}"} <span className="text-white/80">34%</span></span>
                 <span className="text-white/10">&middot;</span>
@@ -131,14 +137,20 @@ export default function ResultsPage() {
             <div className="mt-10 space-y-3">
               {/* Heat Map Card */}
               <div className="relative h-[60px] w-full rounded-2xl overflow-hidden border border-white/5 group cursor-pointer" onClick={scrollToUnlock}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  alt="Heatmap overlay"
+                  className="absolute inset-0 w-full h-full object-cover blur-xl opacity-40 scale-110"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuChRqe3-LUOaMmPgKPqoTr6gsLaEVsUUf6D5fDGEk-we73Xzxpv5xt1QJ4VQ3W6hCsY2aJRc_GqQXstjVVeUOLIvfLizMazo39_lt0AzH3xR6nVc49Q66sEGcu9_gnOp5U4jTCcXqDIWIM4BL9J1OlfZ4GyyEVTXrH8YU5KeQEpnpXiyQE1wG8hLXnCcbInJwcBa3YN77F0aRhNLCf4jGow0nkZISbZbGC4026woG4wfdx4L0OHifJVR8bfgFNgnFulNe4S7cm2E7dc"
+                />
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-between px-5">
-                  <span className="text-[11px] font-bold uppercase tracking-widest font-label">Heat Map</span>
+                  <span className="text-[11px] font-bold uppercase tracking-widest font-label">{"\u{1F525}"} Heat Map</span>
                   <span className="material-symbols-outlined text-sm text-white/40">lock</span>
                 </div>
               </div>
               {/* Glow Up Card */}
               <div className="flex items-center justify-between px-5 h-12 rounded-2xl bg-white/[0.03] border border-white/5 cursor-pointer" onClick={scrollToUnlock}>
-                <span className="text-[11px] font-bold uppercase tracking-widest font-label">Glow-Up</span>
+                <span className="text-[11px] font-bold uppercase tracking-widest font-label">{"\u{1F4C8}"} Glow-Up</span>
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-label text-white/60">7.<span className="text-blur">8</span> &rarr; 8.<span className="text-blur">2</span> potential</span>
                   <span className="material-symbols-outlined text-sm text-white/40">lock</span>
@@ -146,7 +158,7 @@ export default function ResultsPage() {
               </div>
               {/* Hairstyle Card */}
               <div className="flex items-center justify-between px-5 h-12 rounded-2xl bg-white/[0.03] border border-white/5 cursor-pointer" onClick={scrollToUnlock}>
-                <span className="text-[11px] font-bold uppercase tracking-widest font-label">Hairstyle</span>
+                <span className="text-[11px] font-bold uppercase tracking-widest font-label">{"\u{1F487}"} Hairstyle</span>
                 <div className="flex items-center gap-3">
                   <span className="text-[10px] text-white/20 text-blur">{"\u2588\u2588"}</span>
                   <span className="text-[10px] font-medium text-[#7C4DFF]">#2 Textured Fringe</span>
@@ -173,6 +185,22 @@ export default function ResultsPage() {
           </button>
         </div>
       </div>
+
+      {/* Hidden Navigation Shell */}
+      <nav className="fixed bottom-0 w-full z-40 flex justify-around items-center px-8 pb-8 pt-4 max-w-[400px] left-1/2 -translate-x-1/2 opacity-0 pointer-events-none">
+        <div className="flex flex-col items-center justify-center text-white/30 p-3">
+          <span className="material-symbols-outlined">genetics</span>
+        </div>
+        <div className="flex flex-col items-center justify-center bg-gradient-to-br from-[#7C4DFF] to-[#448AFF] text-white rounded-2xl p-3 shadow-[0_0_15px_rgba(124,77,255,0.4)]">
+          <span className="material-symbols-outlined">style</span>
+        </div>
+        <div className="flex flex-col items-center justify-center text-white/30 p-3">
+          <span className="material-symbols-outlined">star</span>
+        </div>
+        <div className="flex flex-col items-center justify-center text-white/30 p-3">
+          <span className="material-symbols-outlined">person</span>
+        </div>
+      </nav>
     </main>
   );
 }

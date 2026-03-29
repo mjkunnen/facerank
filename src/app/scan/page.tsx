@@ -64,14 +64,6 @@ const FEATURES = [
   { icon: "grid_view", title: "Heat Map", desc: "Your strongest facial zones" },
 ];
 
-const RANKINGS = [
-  { rank: 1, flag: "\u{1F1E7}\u{1F1F7}", country: "Brazil", score: "8.9", reason: "Strong jawline" },
-  { rank: 2, flag: "\u{1F1EE}\u{1F1F9}", country: "Italy", score: "8.7", reason: "Facial symmetry" },
-  { rank: 3, flag: "\u{1F1EA}\u{1F1F8}", country: "Spain", score: "8.4", reason: "Hunter eyes" },
-  { rank: 4, flag: "\u{1F1F9}\u{1F1F7}", country: "Turkey", score: "8.1", reason: "Bone structure" },
-  { rank: 5, flag: "\u{1F1EC}\u{1F1F7}", country: "Greece", score: "7.9", reason: "Classical proportions" },
-];
-
 const HERITAGE = [
   { name: "Greek", pct: 34 },
   { name: "Italian", pct: 28 },
@@ -263,8 +255,9 @@ export default function ScanPage() {
                   </div>
                 </button>
               </div>
-              {/* Contextual Hint */}
+              {/* Decorative Spacer */}
               <div className="flex-grow"></div>
+              {/* Contextual Hint */}
               <div className="text-center mt-12 px-4">
                 <p className="font-body text-[12px] text-white/30 tracking-wide leading-relaxed italic">
                   Our neural engine requires gender identification to accurately map 128 unique facial landmarks.
@@ -279,9 +272,15 @@ export default function ScanPage() {
           const q = QUIZ[1];
           return (
             <>
+              {/* Progress Bar Section */}
+              <div className="w-full h-[3px] bg-white/10 rounded-full mb-[60px] relative">
+                <div className="absolute top-0 left-0 h-full w-1/4 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] rounded-full progress-glow"></div>
+              </div>
+              {/* Headline */}
               <div className="mb-[32px]">
                 <h2 className="text-[24px] font-semibold text-white tracking-tight leading-tight">How old are you?</h2>
               </div>
+              {/* Age Options Container */}
               <div className="flex flex-col gap-3 flex-grow">
                 {q.options.map((opt) => {
                   const sel = answers[q.key] === opt.label;
@@ -301,6 +300,12 @@ export default function ScanPage() {
               </div>
               {/* Bottom CTA */}
               <div className="mt-auto pt-8">
+                <button
+                  onClick={() => { if (answers[q.key]) advance(); }}
+                  className="w-full h-[56px] rounded-xl bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] flex items-center justify-center font-semibold text-white tracking-wide active:scale-[0.98] transition-all shadow-[0_8px_24px_rgba(124,77,255,0.3)]"
+                >
+                  Continue
+                </button>
                 <p className="text-[11px] text-white/20 text-center mt-4 font-label uppercase tracking-widest">Step 1 of 4</p>
               </div>
             </>
@@ -312,6 +317,11 @@ export default function ScanPage() {
           const q = QUIZ[2];
           return (
             <>
+              {/* Progress Bar Section */}
+              <div className="w-full h-[3px] bg-white/10 rounded-full mb-[60px] relative">
+                <div className="absolute top-0 left-0 h-full w-2/4 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] rounded-full progress-glow"></div>
+              </div>
+              {/* Headline */}
               <div className="mb-[32px]">
                 <h2 className="text-[24px] font-semibold text-white tracking-tight leading-tight">What&apos;s your goal?</h2>
               </div>
@@ -344,6 +354,11 @@ export default function ScanPage() {
           const q = QUIZ[3];
           return (
             <>
+              {/* Progress Bar Section */}
+              <div className="w-full h-[3px] bg-white/10 rounded-full mb-[60px] relative">
+                <div className="absolute top-0 left-0 h-full w-3/4 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] rounded-full progress-glow"></div>
+              </div>
+              {/* Headline */}
               <div className="mb-[32px]">
                 <h2 className="text-[24px] font-semibold text-white tracking-tight leading-tight">What interests you?</h2>
                 <p className="text-[13px] text-white/25 mt-1">Pick as many as you like</p>
@@ -383,7 +398,7 @@ export default function ScanPage() {
           );
         })()}
 
-        {/* ════════ STEP 4: FEATURES OVERVIEW ════════ */}
+        {/* ════════ STEP 4: SCORE OVERVIEW (04_score_overview.html) ════════ */}
         {isFeatures && (
           <>
             {/* Header Section */}
@@ -409,7 +424,7 @@ export default function ScanPage() {
                 <p className="text-[12px] text-white/20 font-label tracking-widest uppercase mt-2">Ready for analysis</p>
               </div>
             </div>
-            {/* Fixed Bottom CTA */}
+            {/* Bottom CTA */}
             <div className="mt-auto pt-8">
               <button
                 onClick={advance}
@@ -422,71 +437,71 @@ export default function ScanPage() {
           </>
         )}
 
-        {/* ════════ STEP 5: WORLD RANKINGS ════════ */}
+        {/* ════════ STEP 5: WORLD MAP (05_world_map.html) ════════ */}
         {isRankings && (
           <>
-            <section className="text-center mb-6">
-              <h2 className="text-[18px] font-semibold tracking-[-0.035em] text-white opacity-90">Where you&apos;d rank highest</h2>
+            {/* Header Section */}
+            <section className="mb-[48px]">
+              <h1 className="text-[22px] font-semibold text-white mb-2 leading-tight tracking-tight">Where you&apos;d score highest</h1>
+              <p className="text-[13px] text-white/40 leading-relaxed font-normal">Based on your features, hair color, eye color and facial structure</p>
             </section>
-            {/* World Map Visual */}
-            <section className="w-full h-[140px] relative mb-6">
-              <div className="w-full h-full rounded-xl overflow-hidden bg-white/[0.03] border border-white/[0.05] relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-4/5 h-3/5 border border-[#7C4DFF]/20 rounded-full animate-pulse flex items-center justify-center">
-                    <div className="w-1/2 h-1/2 border border-[#448AFF]/20 rounded-full"></div>
-                  </div>
+            {/* Hero Map Element */}
+            <section className="relative aspect-[16/10] w-full mb-[56px] group">
+              <div className="absolute inset-0 bg-gradient-to-b from-[#7C4DFF]/5 to-transparent rounded-3xl blur-3xl opacity-20"></div>
+              {/* Stylized World Map SVG Container */}
+              <div className="relative w-full h-full glass-card rounded-2xl flex items-center justify-center p-6 overflow-hidden border border-white/[0.03]">
+                <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)", backgroundSize: "24px 24px" }}></div>
+                {/* Placeholder for the stylized Mercator Map */}
+                <div className="relative w-full h-full flex items-center justify-center">
+                  {/* Glow Overlays (Absolute Positioned Markers) */}
+                  <div className="absolute top-[65%] left-[28%] w-12 h-12 bg-[#7C4DFF]/40 rounded-full blur-xl" style={{ filter: "drop-shadow(0 0 12px rgba(124, 77, 255, 0.4))" }}></div>
+                  <div className="absolute top-[40%] left-[52%] w-10 h-10 bg-[#448AFF]/40 rounded-full blur-xl" style={{ filter: "drop-shadow(0 0 12px rgba(68, 138, 255, 0.4))" }}></div>
+                  <div className="absolute top-[48%] left-[62%] w-8 h-8 bg-[#26A69A]/40 rounded-full blur-xl" style={{ filter: "drop-shadow(0 0 12px rgba(38, 166, 154, 0.4))" }}></div>
+                  {/* Data Scan Line */}
+                  <div className="absolute inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#7C4DFF]/50 to-transparent top-1/2 -translate-y-1/2 animate-pulse"></div>
                 </div>
               </div>
-            </section>
-            {/* Diagnostic Chips */}
-            <section className="flex flex-wrap justify-center gap-2 mb-8">
-              <div className="px-3 py-1.5 bg-white/[0.03] border border-[#7C4DFF]/30 rounded-full flex items-center gap-1.5 transition-all active:scale-95">
-                <span className="text-[11px] font-label font-medium text-white/80">Blue eyes</span>
-                <span className="text-[11px] font-label font-bold text-[#7C4DFF]">+0.5</span>
-              </div>
-              <div className="px-3 py-1.5 bg-white/[0.03] border border-[#448AFF]/30 rounded-full flex items-center gap-1.5 transition-all active:scale-95">
-                <span className="text-[11px] font-label font-medium text-white/80">Curly hair</span>
-                <span className="text-[11px] font-label font-bold text-[#448AFF]">+0.3</span>
-              </div>
-              <div className="px-3 py-1.5 bg-white/[0.03] border border-emerald-500/30 rounded-full flex items-center gap-1.5 transition-all active:scale-95">
-                <span className="text-[11px] font-label font-medium text-white/80">Square jawline</span>
-                <span className="text-[11px] font-label font-bold text-emerald-400">+0.8</span>
-              </div>
-              <div className="px-3 py-1.5 bg-white/[0.03] border border-orange-500/30 rounded-full flex items-center gap-1.5 transition-all active:scale-95">
-                <span className="text-[11px] font-label font-medium text-white/80">Hunter eyes</span>
-                <span className="text-[11px] font-label font-bold text-orange-400">+0.6</span>
+              {/* Lat/Long Labels (Scientific Aesthetic) */}
+              <div className="absolute -bottom-6 left-0 flex justify-between w-full px-2">
+                <span className="text-[9px] font-label text-white/20 tracking-widest uppercase">SCAN_MODE_ACTIVE</span>
+                <span className="text-[9px] font-label text-white/20 tracking-widest uppercase">LAT: 34.0522 N</span>
               </div>
             </section>
-            {/* Ranked List */}
-            <section className="w-full flex flex-col gap-2">
-              {RANKINGS.map((r) => (
-                <div key={r.rank} className="flex items-center justify-between p-3.5 bg-white/[0.03] rounded-xl border border-white/[0.02] active:bg-white/[0.06] transition-colors">
-                  <div className="flex items-center gap-4">
-                    <span className="text-xl">{r.flag}</span>
-                    <div>
-                      <p className="text-[15px] font-medium text-white opacity-90 leading-none">{r.country}</p>
-                      <p className="text-[12px] text-white opacity-40 mt-1 uppercase tracking-wider">{r.reason}</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <span className="font-label font-bold text-[17px] text-white">{r.score}</span>
-                  </div>
-                </div>
-              ))}
+            {/* Insights Section */}
+            <section className="space-y-4 mb-[48px]">
+              <div className="glass-card p-4 rounded-xl border border-white/[0.03] flex items-center gap-4 group hover:bg-white/[0.06] transition-all">
+                <div className="w-2 h-2 rounded-full bg-[#7C4DFF] shadow-[0_0_8px_rgba(124,77,255,0.6)]"></div>
+                <p className="text-[15px] font-medium text-white/70">
+                  <span className="text-white font-semibold">Blonde hair</span> scores <span className="text-[#7C4DFF]">+2.1</span> in South America
+                </p>
+              </div>
+              <div className="glass-card p-4 rounded-xl border border-white/[0.03] flex items-center gap-4 group hover:bg-white/[0.06] transition-all">
+                <div className="w-2 h-2 rounded-full bg-[#448AFF] shadow-[0_0_8px_rgba(68,138,255,0.6)]"></div>
+                <p className="text-[15px] font-medium text-white/70">
+                  <span className="text-white font-semibold">Blue eyes</span> valued highly in Southern Europe
+                </p>
+              </div>
+              <div className="glass-card p-4 rounded-xl border border-white/[0.03] flex items-center gap-4 group hover:bg-white/[0.06] transition-all">
+                <div className="w-2 h-2 rounded-full bg-[#26A69A] shadow-[0_0_8px_rgba(38,166,154,0.6)]"></div>
+                <p className="text-[15px] font-medium text-white/70">
+                  <span className="text-white font-semibold">Sharp jawline</span> preferred in Middle East
+                </p>
+              </div>
             </section>
-            {/* CTA */}
-            <section className="w-full mt-auto pt-8">
+            {/* Footer & Action */}
+            <footer className="text-center mt-auto">
+              <p className="text-[12px] text-white/25 mb-8 font-label tracking-wide">YOUR TOP 10 COUNTRIES REVEALED AFTER SCAN</p>
               <button
                 onClick={advance}
-                className="w-full h-[56px] rounded-xl bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] text-white font-semibold text-[16px] shadow-[0_0_20px_rgba(124,77,255,0.3)] active:scale-95 transition-transform duration-200"
+                className="w-full h-[56px] rounded-full bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] text-white font-semibold text-[16px] shadow-[0_10px_30px_rgba(124,77,255,0.3)] active:scale-95 transition-transform duration-200"
               >
                 Continue
               </button>
-            </section>
+            </footer>
           </>
         )}
 
-        {/* ════════ STEP 6: HERITAGE ════════ */}
+        {/* ════════ STEP 6: HERITAGE (06_heritage.html) ════════ */}
         {isHeritage && (
           <>
             <div className="text-center mb-10">
@@ -496,9 +511,11 @@ export default function ScanPage() {
             {/* Hero Visual: DNA Helix */}
             <div className="relative h-[200px] w-full flex items-center justify-center mb-[16px]">
               <div className="relative w-full h-full flex justify-center items-center opacity-90">
+                {/* DNA Strands Simulation */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="w-32 h-48 border-l-4 border-r-4 border-[#7C4DFF]/20 rounded-[40%] rotate-12"></div>
                   <div className="absolute w-32 h-48 border-l-4 border-r-4 border-[#448AFF]/20 rounded-[40%] -rotate-12"></div>
+                  {/* Nodes */}
                   <div className="absolute w-full h-full flex flex-col justify-between items-center py-4">
                     <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF]"></div>
                     <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF] translate-x-8"></div>
@@ -507,25 +524,97 @@ export default function ScanPage() {
                     <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF] -translate-x-4"></div>
                   </div>
                 </div>
+                {/* Center Core Glow */}
                 <div className="w-24 h-24 rounded-full bg-[#7C4DFF]/10 blur-[40px] animate-pulse"></div>
                 <span className="material-symbols-outlined text-[80px] text-[#7C4DFF]" style={{ fontVariationSettings: "'FILL' 1" }}>genetics</span>
               </div>
             </div>
-            {/* Heritage Cards */}
+            {/* Heritage Cards Container */}
             <div className="flex flex-col gap-[10px] flex-grow">
-              {HERITAGE.map((h) => (
-                <div key={h.name} className="bg-white/[0.03] p-3 rounded-xl flex flex-col gap-2">
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-2">
-                      <span className="text-[15px] font-medium text-white/60">{h.name}</span>
+              {/* Greek Card */}
+              <div className="bg-white/[0.03] p-3 rounded-xl flex flex-col gap-2">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-4 bg-blue-600 rounded-sm overflow-hidden relative">
+                      <div className="absolute inset-0 bg-white flex items-center justify-center">
+                        <div className="w-full h-[2px] bg-blue-600"></div>
+                        <div className="h-full w-[2px] bg-blue-600 absolute"></div>
+                      </div>
                     </div>
-                    <span className="font-label text-[15px] text-white">{h.pct}%</span>
+                    <span className="text-[15px] font-medium text-white/60">Greek</span>
                   </div>
-                  <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
-                    <div className="h-full progress-gradient" style={{ width: `${h.pct}%` }}></div>
-                  </div>
+                  <span className="font-label text-[15px] text-white">34%</span>
                 </div>
-              ))}
+                <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-full progress-gradient w-[34%]"></div>
+                </div>
+              </div>
+              {/* Italian Card */}
+              <div className="bg-white/[0.03] p-3 rounded-xl flex flex-col gap-2">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-4 flex rounded-sm overflow-hidden">
+                      <div className="w-1/3 h-full bg-green-600"></div>
+                      <div className="w-1/3 h-full bg-white"></div>
+                      <div className="w-1/3 h-full bg-red-600"></div>
+                    </div>
+                    <span className="text-[15px] font-medium text-white/60">Italian</span>
+                  </div>
+                  <span className="font-label text-[15px] text-white">28%</span>
+                </div>
+                <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-full progress-gradient w-[28%]"></div>
+                </div>
+              </div>
+              {/* Turkish Card */}
+              <div className="bg-white/[0.03] p-3 rounded-xl flex flex-col gap-2">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-4 bg-red-600 rounded-sm overflow-hidden relative">
+                      <div className="absolute inset-0 flex items-center justify-center text-[10px] text-white">{"\u263E"}</div>
+                    </div>
+                    <span className="text-[15px] font-medium text-white/60">Turkish</span>
+                  </div>
+                  <span className="font-label text-[15px] text-white">18%</span>
+                </div>
+                <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-full progress-gradient w-[18%]"></div>
+                </div>
+              </div>
+              {/* Spanish Card */}
+              <div className="bg-white/[0.03] p-3 rounded-xl flex flex-col gap-2">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-4 flex flex-col rounded-sm overflow-hidden">
+                      <div className="h-1/4 bg-red-600 w-full"></div>
+                      <div className="h-2/4 bg-yellow-500 w-full"></div>
+                      <div className="h-1/4 bg-red-600 w-full"></div>
+                    </div>
+                    <span className="text-[15px] font-medium text-white/60">Spanish</span>
+                  </div>
+                  <span className="font-label text-[15px] text-white">12%</span>
+                </div>
+                <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-full progress-gradient w-[12%]"></div>
+                </div>
+              </div>
+              {/* French Card */}
+              <div className="bg-white/[0.03] p-3 rounded-xl flex flex-col gap-2">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <div className="w-6 h-4 flex rounded-sm overflow-hidden">
+                      <div className="w-1/3 h-full bg-blue-800"></div>
+                      <div className="w-1/3 h-full bg-white"></div>
+                      <div className="w-1/3 h-full bg-red-600"></div>
+                    </div>
+                    <span className="text-[15px] font-medium text-white/60">French</span>
+                  </div>
+                  <span className="font-label text-[15px] text-white">8%</span>
+                </div>
+                <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-full progress-gradient w-[8%]"></div>
+                </div>
+              </div>
             </div>
             {/* Continue Button */}
             <button
@@ -537,7 +626,7 @@ export default function ScanPage() {
           </>
         )}
 
-        {/* ════════ STEP 7: HEAT MAP ════════ */}
+        {/* ════════ STEP 7: HEAT MAP (07_diagnostic.html) ════════ */}
         {isHeatmap && (
           <>
             <div className="text-center mb-10">
@@ -546,9 +635,11 @@ export default function ScanPage() {
             </div>
             {/* Heat Map Canvas */}
             <div className="relative w-full aspect-[3/4] flex items-center justify-center mb-10">
+              {/* Background Decorative Glow */}
               <div className="absolute inset-0 bg-glow-purple rounded-full"></div>
+              {/* Face Wireframe Container */}
               <div className="relative w-72 h-96 border border-white/10 rounded-[120px] flex items-center justify-center overflow-visible">
-                {/* SVG Wireframe */}
+                {/* SVG Wireframe (Technical Grid) */}
                 <svg className="absolute inset-0 w-full h-full opacity-20 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
                   <path d="M50 10 Q 85 10 85 45 T 50 95 T 15 45 T 50 10" fill="none" stroke="white" strokeWidth="0.5"/>
                   <path d="M25 35 Q 50 30 75 35" fill="none" stroke="white" strokeWidth="0.2"/>
@@ -557,41 +648,54 @@ export default function ScanPage() {
                   <line x1="50" y1="10" x2="50" y2="95" stroke="white" strokeWidth="0.2"/>
                 </svg>
                 {/* Thermal Zones */}
+                {/* Forehead: Green (Strong) */}
                 <div className="absolute top-12 w-40 h-16 bg-[#4ADE80] thermal-glow opacity-30 rounded-full"></div>
+                {/* Eyes: Orange (Average) */}
                 <div className="absolute top-36 left-14 w-12 h-6 bg-[#F59E0B] thermal-glow opacity-40 rounded-full"></div>
                 <div className="absolute top-36 right-14 w-12 h-6 bg-[#F59E0B] thermal-glow opacity-40 rounded-full"></div>
+                {/* Nose: Green (Strong) */}
                 <div className="absolute top-[168px] w-8 h-24 bg-[#4ADE80] thermal-glow opacity-40 rounded-full"></div>
+                {/* Cheekbones: Red (Weak) */}
                 <div className="absolute top-[208px] left-10 w-14 h-14 bg-[#EF4444] thermal-glow opacity-30 rounded-full"></div>
                 <div className="absolute top-[208px] right-10 w-14 h-14 bg-[#EF4444] thermal-glow opacity-30 rounded-full"></div>
+                {/* Jawline: Orange (Average) */}
                 <div className="absolute bottom-10 w-48 h-12 bg-[#F59E0B] thermal-glow opacity-30 rounded-full"></div>
-                {/* Labels */}
+                {/* Labels and Pointers */}
+                {/* Forehead Label */}
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex flex-col items-center">
                   <span className="zone-label text-[#4ADE80]">Forehead</span>
                   <div className="w-[1px] h-6 bg-[#4ADE80]/40 mt-1"></div>
                 </div>
+                {/* Eyes Label */}
                 <div className="absolute top-32 -left-12 flex items-center">
                   <span className="zone-label text-[#F59E0B]">Eyes</span>
                   <div className="w-8 h-[1px] bg-[#F59E0B]/40 ml-1"></div>
                 </div>
+                {/* Cheekbones Label */}
                 <div className="absolute top-56 -right-16 flex items-center">
                   <div className="w-8 h-[1px] bg-[#EF4444]/40 mr-1"></div>
                   <span className="zone-label text-[#EF4444]">Cheekbones</span>
                 </div>
+                {/* Skin Label */}
                 <div className="absolute top-1/2 -left-12 -translate-y-1/2 flex items-center">
                   <span className="zone-label text-[#4ADE80]">Skin</span>
                   <div className="w-6 h-[1px] bg-[#4ADE80]/40 ml-1"></div>
                 </div>
+                {/* Nose Label */}
                 <div className="absolute top-1/2 -right-12 -translate-y-1/2 flex items-center">
                   <div className="w-6 h-[1px] bg-[#4ADE80]/40 mr-1"></div>
                   <span className="zone-label text-[#4ADE80]">Nose</span>
                 </div>
+                {/* Jawline Label */}
                 <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center">
                   <div className="w-[1px] h-6 bg-[#F59E0B]/40 mb-1"></div>
                   <span className="zone-label text-[#F59E0B]">Jawline</span>
                 </div>
               </div>
+              {/* Scanning Line Effect */}
+              <div className="absolute inset-x-4 h-[2px] bg-gradient-to-r from-transparent via-[#7C4DFF]/60 to-transparent shadow-[0_0_15px_rgba(124,77,255,0.5)] z-10 pointer-events-none" style={{ animation: "scan-heatmap 3s linear infinite" }}></div>
             </div>
-            {/* Legend */}
+            {/* Simplified Legend Section */}
             <div className="w-full grid grid-cols-3 gap-3 mb-8">
               <div className="flex flex-col items-center p-3 bg-white/[0.03] rounded-xl border border-white/5">
                 <div className="w-2.5 h-2.5 rounded-full bg-[#4ADE80] shadow-[0_0_8px_#4ADE80] mb-2"></div>
@@ -609,7 +713,7 @@ export default function ScanPage() {
                 <span className="font-label text-lg font-bold text-white leading-none">1</span>
               </div>
             </div>
-            {/* CTA */}
+            {/* Primary CTA */}
             <div className="mt-auto pt-4">
               <button
                 onClick={advance}
@@ -621,22 +725,25 @@ export default function ScanPage() {
           </>
         )}
 
-        {/* ════════ STEP 8: GLOW-UP ════════ */}
+        {/* ════════ STEP 8: GLOW-UP (08_glowup.html) ════════ */}
         {isGlowup && (
           <>
+            {/* Header Section */}
             <section className="mb-12">
               <h2 className="text-[22px] font-semibold tracking-tight text-white mb-2">Your glow-up roadmap</h2>
               <p className="text-[13px] text-white/40 leading-relaxed">Personalized steps to maximize your potential</p>
             </section>
-            {/* Score Comparison */}
+            {/* Score Comparison Section */}
             <section className="mb-16 relative">
               <div className="flex items-center justify-between relative">
+                {/* Current Score */}
                 <div className="flex flex-col items-center">
                   <span className="text-[11px] font-label font-medium uppercase tracking-[0.1em] text-white/25 mb-3">Now</span>
                   <div className="w-24 h-24 rounded-full border border-white/5 flex items-center justify-center glass-card">
                     <span className="text-[32px] font-label font-semibold text-white/90">7.4</span>
                   </div>
                 </div>
+                {/* Connector Line */}
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-full px-20">
                   <div className="w-full h-[1px] bg-gradient-to-r from-white/5 via-[#7C4DFF]/40 to-white/5 relative">
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1">
@@ -644,6 +751,7 @@ export default function ScanPage() {
                     </div>
                   </div>
                 </div>
+                {/* Potential Score */}
                 <div className="flex flex-col items-center">
                   <span className="text-[11px] font-label font-medium uppercase tracking-[0.1em] text-[#7C4DFF] mb-3">Potential</span>
                   <div className="w-24 h-24 rounded-full border border-[#7C4DFF]/20 flex items-center justify-center glass-card shadow-[0_0_30px_rgba(124,77,255,0.15)]">
@@ -652,7 +760,7 @@ export default function ScanPage() {
                 </div>
               </div>
             </section>
-            {/* Improvement Cards */}
+            {/* Improvement Cards Stack */}
             <section className="space-y-4">
               {GLOWUP_CARDS.map((card) => (
                 <div key={card.title} className="glass-card rounded-xl p-5 border border-white/[0.02] flex items-start gap-4 hover:bg-white/[0.05] transition-colors duration-300">
@@ -669,7 +777,7 @@ export default function ScanPage() {
                 </div>
               ))}
             </section>
-            {/* AI Analysis badge */}
+            {/* Subtle AI Analysis visualization */}
             <section className="mt-16 text-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.05]">
                 <div className="flex -space-x-2">
@@ -693,12 +801,18 @@ export default function ScanPage() {
           </>
         )}
 
-        {/* ════════ STEP 9: UPLOAD ════════ */}
+        {/* ════════ STEP 9: UPLOAD (09_selfie_upload.html) ════════ */}
         {isUpload && (
           <div className="flex-1 flex flex-col items-center">
             {!preview ? (
               <>
-                {/* Headline */}
+                {/* Progress Indicator */}
+                <div className="w-full mb-20">
+                  <div className="w-full h-[3px] bg-white/5 rounded-full overflow-hidden">
+                    <div className="h-full w-[80%] bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] rounded-full"></div>
+                  </div>
+                </div>
+                {/* Headline Section */}
                 <div className="text-center mb-12">
                   <h2 className="text-[22px] font-semibold tracking-[-0.035em] text-white">One selfie. Instant results.</h2>
                   <p className="text-[13px] text-white/40 mt-1">Takes 2 seconds — get your full analysis immediately</p>
@@ -709,9 +823,10 @@ export default function ScanPage() {
                     <span className="material-symbols-outlined text-white/20 mb-3 text-3xl">add_a_photo</span>
                     <span className="text-[13px] font-medium text-white/40">Tap to upload</span>
                   </div>
+                  {/* Visual Accent: Glass Reflection */}
                   <div className="absolute inset-0 rounded-[24px] pointer-events-none bg-gradient-to-br from-white/5 to-transparent opacity-50"></div>
                 </div>
-                {/* Secondary Actions */}
+                {/* Secondary Actions & Trust */}
                 <div className="mt-8 flex flex-col items-center gap-6">
                   <button onClick={useDemo} className="text-[12px] font-medium text-white/15 hover:text-white/40 transition-colors uppercase tracking-widest">
                     Try with demo photo
@@ -731,8 +846,9 @@ export default function ScanPage() {
                     </div>
                   </div>
                 </div>
-                {/* Privacy */}
+                {/* Filler Space to push footer */}
                 <div className="flex-grow min-h-[120px]"></div>
+                {/* Privacy Disclaimer */}
                 <footer className="pb-12 pt-8">
                   <p className="text-[10px] text-white/10 text-center tracking-tight">
                     Your photo is analyzed locally and never saved

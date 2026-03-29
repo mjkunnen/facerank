@@ -12,7 +12,7 @@ export default function PricingPage() {
 
   return (
     <main className="bg-[#08080C] text-white font-body min-h-dvh">
-      {/* Step 0: Price Guess */}
+      {/* Step 0: Price Guess (11_price_guess.html) */}
       <div
         className="flex flex-col items-center"
         style={{
@@ -47,11 +47,11 @@ export default function PricingPage() {
             </div>
             <div className="flex justify-between items-center px-5 py-4 bg-white/[0.03] rounded-xl border border-white/[0.05]">
               <span className="text-[15px] font-medium text-white/60">Face scanning apps</span>
-              <span className="text-[15px] font-bold text-white tracking-tight">$49–99/year</span>
+              <span className="text-[15px] font-bold text-white tracking-tight">$49&ndash;99/year</span>
             </div>
             <div className="flex justify-between items-center px-5 py-4 bg-white/[0.03] rounded-xl border border-white/[0.05]">
               <span className="text-[15px] font-medium text-white/60">Professional analysis</span>
-              <span className="text-[15px] font-bold text-white tracking-tight">$200–500</span>
+              <span className="text-[15px] font-bold text-white tracking-tight">$200&ndash;500</span>
             </div>
           </section>
 
@@ -89,7 +89,7 @@ export default function PricingPage() {
         </div>
       </div>
 
-      {/* Step 1: Free Reveal */}
+      {/* Step 1: Free Reveal (12_free_reveal.html) */}
       <div
         style={{
           opacity: step === 1 ? 1 : 0,
@@ -101,15 +101,15 @@ export default function PricingPage() {
       >
         {/* Top Navigation */}
         <header className="fixed top-0 left-1/2 -translate-x-1/2 flex justify-between items-center w-full px-7 h-24 max-w-[400px] bg-[#08080C] z-50">
-          <button className="text-white hover:opacity-80 transition-opacity duration-300 active:scale-95">
+          <button className="text-white hover:opacity-80 transition-opacity duration-300 active:scale-95 transition-transform">
             <span className="material-symbols-outlined text-[26px]">close</span>
           </button>
-          <h1 className="font-headline font-semibold text-[26px] tracking-[-0.035em] text-[#7C4DFF]">Reveal Result</h1>
+          <h1 className="font-['Sora'] font-semibold text-[26px] tracking-[-0.035em] text-[#7C4DFF]">Reveal Result</h1>
           <div className="w-[26px]"></div>
         </header>
 
         {/* Main Canvas */}
-        <div className="min-h-screen flex flex-col justify-center items-center px-[28px] py-[96px] max-w-[400px] mx-auto text-center">
+        <div className="min-h-screen flex flex-col justify-center items-center px-[28px] py-[96px] max-w-[400px] mx-auto text-center max-h-[844px]">
           {/* Decorative Glow Background */}
           <div className="fixed inset-0 pointer-events-none overflow-hidden flex justify-center items-center">
             <div className="w-[300px] h-[300px] bg-[#7C4DFF]/10 rounded-full blur-[120px]"></div>
@@ -147,7 +147,7 @@ export default function PricingPage() {
             <div className="w-full space-y-[16px] pt-[32px]">
               <button
                 onClick={() => router.push("/results")}
-                className="w-full h-[56px] premium-gradient text-white font-semibold text-[16px] rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-[0.98]"
+                className="w-full h-[56px] premium-gradient text-white font-semibold text-[16px] rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-[0.98] transition-transform"
               >
                 Go to your results
                 <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
@@ -162,11 +162,21 @@ export default function PricingPage() {
         {/* Footer */}
         <footer className="w-full max-w-[400px] mx-auto px-7 pb-12 flex flex-col items-center gap-4 bg-transparent">
           <div className="flex gap-6">
-            <a className="font-headline text-[13px] text-white/25 hover:text-white/50 transition-colors" href="#">Privacy</a>
-            <a className="font-headline text-[13px] text-white/25 hover:text-white/50 transition-colors" href="#">Terms</a>
+            <a className="font-['Sora'] text-[13px] text-white/25 hover:text-white/50 transition-colors" href="#">Privacy</a>
+            <a className="font-['Sora'] text-[13px] text-white/25 hover:text-white/50 transition-colors" href="#">Terms</a>
           </div>
-          <p className="font-headline text-[13px] text-white/25">&copy; 2024 FACERANK AI</p>
+          <p className="font-['Sora'] text-[13px] text-white/25">&copy; 2024 FACERANK AI</p>
         </footer>
+
+        {/* Aesthetic Decorative Image */}
+        <div className="fixed bottom-0 left-0 w-full h-1/3 pointer-events-none opacity-20 overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="w-full h-full object-cover"
+            alt="abstract flowing liquid shapes in deep purple and indigo"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAil74rquhyBCDU0wDwz5gCFEjVJA8L2hK4fon4XK3pT9Oho7ofBPUzRAoUKvgrOXD1SimEj_NtXRWNHb0R0XQ-YKvhRzZ9x8UXJak0CiABpSF7GcIvGFj1u-d0AGJtZH_C5XIUCuy8n1mCKJ-LNPMrvlLS-yM8X_AY_CLvL0zWBDkk8N9U1qDQicX7v7prBteWWU8D2dZwN1iWseyo_j4gK3KnxAGHsJmx0njfP73eo9RzUhg5l8xFLpp4EUU6SuyFlTrhWhg-7Tz0"
+          />
+        </div>
       </div>
     </main>
   );

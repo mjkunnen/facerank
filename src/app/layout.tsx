@@ -43,7 +43,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-dvh font-body">{children}</body>
+      <body className="font-body antialiased">{children}</body>
     </html>
   );
 }

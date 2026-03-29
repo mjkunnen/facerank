@@ -10,7 +10,9 @@ body {
   font-family: "Sora", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow: hidden;
+  height: 100vh;
+  min-height: max(884px, 100dvh);
 }
 
 /* Particle Background Simulation */
@@ -32,7 +34,7 @@ body::before {
 
 /* Material Symbols */
 .material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
 /* Font utilities for Tailwind v4 compat */
@@ -62,15 +64,13 @@ body::before {
 
 /* Ambient glow */
 .ambient-glow {
-  background: radial-gradient(circle, rgba(124, 77, 255, 0.15) 0%, rgba(124, 77, 255, 0) 70%);
-  width: 400px;
-  height: 400px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -60%);
-  z-index: 0;
-  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(124, 77, 255, 0.15) 0%, rgba(8, 8, 12, 0) 70%);
+}
+
+/* Gradient CTA */
+.gradient-cta {
+  background: linear-gradient(135deg, #7C4DFF 0%, #448AFF 100%);
+  box-shadow: 0 0 20px rgba(124, 77, 255, 0.3);
 }
 
 /* CTA gradient */
@@ -272,6 +272,13 @@ body::before {
   10% { opacity: 1; }
   90% { opacity: 1; }
   100% { transform: translateY(144px); opacity: 0; }
+}
+
+/* Scan animation for heatmap */
+@keyframes scan-heatmap {
+  0% { transform: translateY(-20px); opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { transform: translateY(400px); opacity: 0; }
 }
 .scan-line-analyzing {
   animation: scan 2s linear infinite;

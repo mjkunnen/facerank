@@ -4,69 +4,85 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-between text-white min-h-dvh">
-      {/* Top Navigation */}
-      <header className="fixed top-0 w-full z-50 flex justify-center items-center h-20 px-8">
-        <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-[#7C4DFF]" style={{ fontVariationSettings: "'FILL' 1" }}>face_5</span>
-          <span className="font-headline font-black tracking-widest text-[#7C4DFF] uppercase text-xl">FACERANK</span>
+    <div className="font-body antialiased">
+      {/* TopAppBar */}
+      <header className="fixed top-0 w-full z-50 bg-[#08080C]/80 backdrop-blur-md">
+        <div className="flex justify-between items-center px-7 py-6 max-w-[400px] mx-auto">
+          <div className="flex items-center gap-2">
+            <span className="material-symbols-outlined text-[#7C4DFF]">flare</span>
+            <h1 className="text-2xl font-black tracking-tighter text-white uppercase font-headline">FACERANK</h1>
+          </div>
+          <div className="flex gap-4">
+            <span className="material-symbols-outlined text-white/60 hover:text-[#7C4DFF] transition-colors duration-300">menu</span>
+          </div>
         </div>
       </header>
 
-      <div className="ambient-glow"></div>
+      {/* Main Canvas (Fixed Height, No Scroll) */}
+      <main className="relative h-full w-full flex flex-col items-center justify-center px-7 max-w-[400px] mx-auto text-center" style={{ maxHeight: "844px" }}>
+        {/* Ambient Glow Orb */}
+        <div className="absolute inset-0 ambient-glow pointer-events-none -z-10"></div>
 
-      {/* Main Content Canvas */}
-      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 text-center w-full">
         {/* Hero Section */}
         <div className="flex flex-col items-center">
-          <h1 className="font-sora text-[30px] font-[800] leading-[1.1] tracking-tighter text-white">
+          <h2 className="text-[30px] font-extrabold tracking-tighter text-white leading-tight mb-1.5 font-headline">
             How attractive are you, really?
-          </h1>
+          </h2>
 
-          {/* Features Row */}
-          <div className="mt-[6px] flex flex-wrap justify-center gap-2">
-            <div className="bg-white/[0.04] backdrop-blur-md px-3 py-1 rounded-full border border-white/[0.03]">
-              <span className="font-label text-[11px] text-white/40 uppercase tracking-wider">World ranking</span>
+          {/* Feature Pills Row */}
+          <div className="flex flex-wrap justify-center gap-2 mt-1.5 mb-1">
+            <div className="px-3 py-1 rounded-full bg-white/5 border border-white/5 flex items-center gap-1.5">
+              <span className="material-symbols-outlined text-[14px] text-primary">language</span>
+              <span className="text-[11px] font-medium tracking-wide text-white/80">World ranking</span>
             </div>
-            <div className="bg-white/[0.04] backdrop-blur-md px-3 py-1 rounded-full border border-white/[0.03]">
-              <span className="font-label text-[11px] text-white/40 uppercase tracking-wider">Your genetics</span>
+            <div className="px-3 py-1 rounded-full bg-white/5 border border-white/5 flex items-center gap-1.5">
+              <span className="material-symbols-outlined text-[14px] text-primary">genetics</span>
+              <span className="text-[11px] font-medium tracking-wide text-white/80">Your genetics</span>
             </div>
-            <div className="bg-white/[0.04] backdrop-blur-md px-3 py-1 rounded-full border border-white/[0.03]">
-              <span className="font-label text-[11px] text-white/40 uppercase tracking-wider">Glow-up plan</span>
+            <div className="px-3 py-1 rounded-full bg-white/5 border border-white/5 flex items-center gap-1.5">
+              <span className="material-symbols-outlined text-[14px] text-primary">trending_up</span>
+              <span className="text-[11px] font-medium tracking-wide text-white/80">Glow-up plan</span>
             </div>
           </div>
 
-          {/* AI Stat */}
-          <p className="mt-[4px] font-body text-[13px] text-white/35 font-medium">
+          {/* Subtext */}
+          <p className="text-[13px] font-medium text-white/35 mt-1 tracking-tight">
             AI scans 47 features in 30 seconds
           </p>
-
-          {/* Call to Action */}
-          <div className="mt-[48px] flex flex-col items-center w-full max-w-[320px]">
-            <Link
-              href="/scan"
-              className="cta-gradient w-full h-[56px] rounded-full flex items-center justify-center shadow-[0_0_40px_-10px_rgba(124,77,255,0.4)] hover:shadow-[0_0_50px_-5px_rgba(124,77,255,0.6)] transition-all active:scale-95 no-underline"
-            >
-              <span className="font-label font-bold text-black text-sm uppercase tracking-widest">Find out now</span>
-            </Link>
-            {/* Subtext */}
-            <p className="mt-[10px] font-label text-[11px] text-white/20 tracking-wide">
-              2.8M+ ANALYZED WORLDWIDE · 100% ANONYMOUS
-            </p>
-          </div>
         </div>
+
+        {/* Spacer */}
+        <div className="h-[48px]"></div>
+
+        {/* CTA & Social Proof */}
+        <div className="w-full flex flex-col items-center">
+          <Link
+            href="/scan"
+            className="gradient-cta w-full h-[56px] rounded-full text-white font-bold text-base tracking-tight transition-transform active:scale-95 duration-200 shadow-lg flex items-center justify-center no-underline"
+          >
+            Find out now
+          </Link>
+          <p className="text-[11px] font-medium text-white/20 mt-[10px] tracking-tight">
+            2.8M+ analyzed worldwide · 100% anonymous
+          </p>
+        </div>
+
+        {/* Decorative Background Element */}
+        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-64 h-64 opacity-20 blur-3xl rounded-full bg-primary/20 pointer-events-none -z-20"></div>
       </main>
 
-      {/* Aesthetic Decorative Element */}
-      <div className="w-full px-6 pb-12 opacity-40">
-        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-      </div>
-
       {/* Footer */}
-      <footer className="w-full py-8 border-t border-white/10 flex flex-col items-center gap-2">
-        <span className="font-label text-[10px] uppercase tracking-[0.2em] text-white/40">
-          &copy; 2024 FACERANK. THE NEON CARTOGRAPHER ELITE.
-        </span>
+      <footer className="fixed bottom-0 w-full bg-[#08080C] border-t border-white/5">
+        <div className="flex flex-col items-center gap-8 px-7 pb-12 pt-12 w-full max-w-[400px] mx-auto">
+          <div className="flex gap-6">
+            <a className="font-headline text-[13px] tracking-tight text-white/25 hover:text-white transition-opacity" href="#">Privacy</a>
+            <a className="font-headline text-[13px] tracking-tight text-white/25 hover:text-white transition-opacity" href="#">Terms</a>
+            <a className="font-headline text-[13px] tracking-tight text-white/25 hover:text-white transition-opacity" href="#">Science</a>
+          </div>
+          <p className="font-headline text-[13px] tracking-tight text-white/25 uppercase text-center">
+            &copy; 2024 FACERANK AI. UNCOMPROMISING ANALYSIS.
+          </p>
+        </div>
       </footer>
     </div>
   );
