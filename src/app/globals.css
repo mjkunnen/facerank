@@ -1,26 +1,6 @@
-@import "tailwindcss";
-
-@theme {
-  --color-bg: #08080C;
-  --color-surface: #111116;
-  --color-card: #16161C;
-  --color-border: rgba(255, 255, 255, 0.05);
-  --color-text: #EDEDF0;
-  --color-primary: #7C4DFF;
-  --color-secondary: #448AFF;
-  --color-accent: #7C4DFF;
-  --color-accent-end: #448AFF;
-  --color-background: #08080C;
-  --color-darkest: #08080C;
-  --color-status-strong: #4ADE80;
-  --color-status-average: #F59E0B;
-  --color-status-weak: #EF4444;
-  --font-headline: "Sora", sans-serif;
-  --font-body: "Sora", sans-serif;
-  --font-label: "Space Grotesk", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
-  --font-sora: "Sora", sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -82,10 +62,10 @@ body::before {
 
 /* Ambient glow */
 .ambient-glow {
-  background: radial-gradient(circle, rgba(182, 160, 255, 0.15) 0%, rgba(182, 160, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(124, 77, 255, 0.15) 0%, rgba(124, 77, 255, 0) 70%);
   width: 400px;
   height: 400px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -60%);

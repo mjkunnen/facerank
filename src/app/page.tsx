@@ -8,8 +8,8 @@ export default function Home() {
       {/* Top Navigation */}
       <header className="fixed top-0 w-full z-50 flex justify-center items-center h-20 px-8">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-[#b6a0ff]" style={{ fontVariationSettings: "'FILL' 1" }}>face_5</span>
-          <span className="font-headline font-black tracking-widest text-[#b6a0ff] uppercase text-xl">FACERANK</span>
+          <span className="material-symbols-outlined text-[#7C4DFF]" style={{ fontVariationSettings: "'FILL' 1" }}>face_5</span>
+          <span className="font-headline font-black tracking-widest text-[#7C4DFF] uppercase text-xl">FACERANK</span>
         </div>
       </header>
 
@@ -45,7 +45,7 @@ export default function Home() {
           <div className="mt-[48px] flex flex-col items-center w-full max-w-[320px]">
             <Link
               href="/scan"
-              className="cta-gradient w-full h-[56px] rounded-full flex items-center justify-center shadow-[0_0_40px_-10px_rgba(182,160,255,0.4)] hover:shadow-[0_0_50px_-5px_rgba(182,160,255,0.6)] transition-all active:scale-95 no-underline"
+              className="cta-gradient w-full h-[56px] rounded-full flex items-center justify-center shadow-[0_0_40px_-10px_rgba(124,77,255,0.4)] hover:shadow-[0_0_50px_-5px_rgba(124,77,255,0.6)] transition-all active:scale-95 no-underline"
             >
               <span className="font-label font-bold text-black text-sm uppercase tracking-widest">Find out now</span>
             </Link>
