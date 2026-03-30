@@ -174,22 +174,24 @@ export default function ResultsPage() {
             <p className="text-[11px] font-label text-green-400 uppercase tracking-widest font-bold">Strong points</p>
             <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-green-500/10">
               <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_6px_#4ADE80]"></div>
-              <span className="text-[13px] text-white/70">Eyes — symmetry &amp; depth</span>
-              <span className="text-[12px] font-label text-green-400 ml-auto">8.1</span>
+              <span className="text-[13px] text-white/70">Eye area</span>
+              <span className="text-[13px] text-white/70 heavy-blur ml-1">— symmetry &amp; depth</span>
+              <span className="text-[12px] font-label text-green-400 ml-auto heavy-blur">8.1</span>
             </div>
             <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-green-500/10">
               <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_6px_#4ADE80]"></div>
-              <span className="text-[13px] text-white/70">Forehead — proportional</span>
-              <span className="text-[12px] font-label text-green-400 ml-auto">7.9</span>
+              <span className="text-[13px] text-white/70 heavy-blur">Forehead — proportional</span>
+              <span className="text-[12px] font-label text-green-400 ml-auto heavy-blur">7.9</span>
             </div>
           </div>
-          {/* Weak Points (blurred) */}
+          {/* Weak Points */}
           <div className="space-y-2">
             <p className="text-[11px] font-label text-red-400 uppercase tracking-widest font-bold">Weak points</p>
-            <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-red-500/10 heavy-blur">
-              <div className="w-2 h-2 rounded-full bg-red-400"></div>
-              <span className="text-[13px]">Jawline — definition lacking</span>
-              <span className="text-[12px] font-label ml-auto">5.8</span>
+            <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-red-500/10">
+              <div className="w-2 h-2 rounded-full bg-red-400 shadow-[0_0_6px_#EF4444]"></div>
+              <span className="text-[13px] text-white/70">Mid face area</span>
+              <span className="text-[13px] text-white/70 heavy-blur ml-1">— proportion imbalance</span>
+              <span className="text-[12px] font-label text-red-400 ml-auto heavy-blur">5.8</span>
             </div>
             <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-red-500/10 heavy-blur">
               <div className="w-2 h-2 rounded-full bg-red-400"></div>
@@ -198,7 +200,7 @@ export default function ResultsPage() {
             </div>
             <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-red-500/10 heavy-blur opacity-50">
               <div className="w-2 h-2 rounded-full bg-red-400"></div>
-              <span className="text-[13px]">Nose bridge — asymmetry</span>
+              <span className="text-[13px]">Jawline — definition lacking</span>
               <span className="text-[12px] font-label ml-auto">6.0</span>
             </div>
           </div>
@@ -228,17 +230,23 @@ export default function ResultsPage() {
             <div className="p-4 glass-card rounded-2xl border border-white/[0.02]">
               <div className="flex items-center justify-between">
                 <span className="text-[14px] text-white">Debloat</span>
-                <span className="text-[10px] font-label px-3 py-1 bg-green-500/10 text-green-400 rounded-full uppercase tracking-tighter">Easy</span>
+                <span className="text-[13px] font-label font-bold text-green-400">+0.4</span>
               </div>
-              <p className="text-[12px] text-white/40 mt-2">Use gua sha facial massages and you will reach +0.7</p>
+              <p className="text-[12px] text-white/40 mt-2">Use gua sha facial massages</p>
             </div>
-            <div className="flex items-center justify-between p-4 glass-card rounded-2xl border border-white/[0.02]">
-              <span className="text-[14px] heavy-blur">Optimize Skin Clarity</span>
-              <span className="text-[10px] font-label px-3 py-1 bg-orange-500/10 text-orange-400 rounded-full uppercase tracking-tighter">Medium</span>
+            <div className="p-4 glass-card rounded-2xl border border-white/[0.02]">
+              <div className="flex items-center justify-between">
+                <span className="text-[14px] heavy-blur">Optimize Skin Clarity</span>
+                <span className="text-[13px] font-label font-bold text-green-400">+0.7</span>
+              </div>
+              <p className="text-[12px] text-white/40 mt-2 heavy-blur">Retinol + SPF daily routine for 8 weeks</p>
             </div>
-            <div className="flex items-center justify-between p-4 glass-card rounded-2xl border border-white/[0.02]">
-              <span className="text-[14px] heavy-blur">Facial Fat Reduction</span>
-              <span className="text-[10px] font-label px-3 py-1 bg-red-500/10 text-red-400 rounded-full uppercase tracking-tighter">Hard</span>
+            <div className="p-4 glass-card rounded-2xl border border-white/[0.02]">
+              <div className="flex items-center justify-between">
+                <span className="text-[14px] heavy-blur">Facial Fat Reduction</span>
+                <span className="text-[13px] font-label font-bold text-green-400">+1.1</span>
+              </div>
+              <p className="text-[12px] text-white/40 mt-2 heavy-blur">Targeted exercises and diet adjustments</p>
             </div>
           </div>
         </section>
@@ -248,21 +256,25 @@ export default function ResultsPage() {
         {/* SECTION 7: BEST HAIRSTYLE */}
         <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
           <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">💇 Best Hairstyle</h3>
+          <p className="text-[12px] text-white/40 -mt-2">These hairstyles fit you best based on our full analysis</p>
           <div className="space-y-3">
-            <div className="p-4 glass-card rounded-2xl opacity-40 heavy-blur">
-              Buzz Cut — masculine aesthetic
+            <div className="flex items-center gap-3 p-4 glass-card rounded-2xl opacity-40 heavy-blur">
+              <span className="text-[12px] font-bold font-label text-white/60">#1</span>
+              <span className="text-[14px]">Buzz Cut — masculine aesthetic</span>
+            </div>
+            <div className="flex items-center gap-3 p-4 glass-card rounded-2xl opacity-40 heavy-blur">
+              <span className="text-[12px] font-bold font-label text-white/60">#2</span>
+              <span className="text-[14px]">Slicked Back — sharp professional</span>
             </div>
             <div className="p-5 glass-card rounded-2xl border border-primary/20 bg-primary/[0.02] shadow-[0_0_15px_rgba(124,77,255,0.05)]">
               <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-primary">check_circle</span>
+                <span className="text-[12px] font-bold font-label text-primary">#3</span>
+                <span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
                 <div>
                   <p className="text-[15px] font-semibold">Textured Fringe</p>
                   <p className="text-[11px] opacity-40">Perfect for oval face shape</p>
                 </div>
               </div>
-            </div>
-            <div className="p-4 glass-card rounded-2xl opacity-40 heavy-blur">
-              Slicked Back — sharp professional
             </div>
           </div>
         </section>
