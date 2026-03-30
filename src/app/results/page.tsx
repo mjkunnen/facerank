@@ -10,7 +10,7 @@ export default function ResultsPage() {
       <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-7 h-24 max-w-[400px] mx-auto bg-[#08080C] border-none">
         <div className="flex items-center gap-4">
           <span className="material-symbols-outlined text-[#7C4DFF]">menu</span>
-          <h1 className="text-xl font-black tracking-tighter text-white uppercase font-headline">FACERANK</h1>
+          <h1 className="text-xl font-black tracking-tighter text-white uppercase font-headline">PRIMEMOG</h1>
         </div>
         <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10">
           <img

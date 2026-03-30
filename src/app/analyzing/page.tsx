@@ -38,15 +38,6 @@ export default function AnalyzingPage() {
 
   return (
     <main className="bg-[#08080C] text-white font-body antialiased min-h-screen overflow-hidden">
-      {/* TopAppBar */}
-      <header className="fixed top-0 left-0 w-full z-50 px-7 pt-12 flex justify-between items-center">
-        <button className="text-[#7C4DFF] hover:opacity-100 transition-opacity active:scale-95 duration-200">
-          <span className="material-symbols-outlined">close</span>
-        </button>
-        <h1 className="font-['Sora'] font-semibold tracking-[-0.035em] uppercase text-[13px] opacity-25 text-white">ANALYZING</h1>
-        <div className="w-6"></div>
-      </header>
-
       {/* Main Scanning Canvas */}
       <div className="flex flex-col items-center justify-center min-h-screen max-w-[400px] mx-auto px-7 relative">
         {/* Photo Scanner Container */}
@@ -78,22 +69,6 @@ export default function AnalyzingPage() {
           <span className="font-mono text-[12px] text-white/40 tracking-widest">{Math.round(progress)}%</span>
         </div>
       </div>
-
-      {/* BottomNavBar */}
-      <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-8 pb-12 max-w-[400px] mx-auto bg-transparent">
-        {/* History (Inactive) */}
-        <button className="flex flex-col items-center justify-center text-white/20 hover:text-white/60 transition-colors">
-          <span className="material-symbols-outlined text-[28px]">history</span>
-        </button>
-        {/* Face (Active) */}
-        <button className="flex flex-col items-center justify-center text-white drop-shadow-[0_0_10px_rgba(124,77,255,0.5)] scale-110 duration-300">
-          <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>face</span>
-        </button>
-        {/* Settings (Inactive) */}
-        <button className="flex flex-col items-center justify-center text-white/20 hover:text-white/60 transition-colors">
-          <span className="material-symbols-outlined text-[28px]">settings</span>
-        </button>
-      </nav>
 
       {/* Background Decoration */}
       <div className="fixed inset-0 pointer-events-none z-0">

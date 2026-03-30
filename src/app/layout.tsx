@@ -2,11 +2,11 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "FaceRank — AI Face Analysis",
+  title: "PrimeMog — AI Face Analysis",
   description:
     "Upload your selfie. See your face score, heat map, and personalized glow-up plan.",
   openGraph: {
-    title: "FaceRank — AI Face Analysis",
+    title: "PrimeMog — AI Face Analysis",
     description:
       "See your face score, find out where you're a 10, and get your glow-up plan.",
     type: "website",

@@ -13,20 +13,8 @@ export default function FlowPage() {
   // Step 0: Gender (02_gender.html)
   if (step === 0) return (
     <div className="font-body">
-      {/* Top Navigation Shell */}
-      <header className="fixed top-0 w-full z-50 px-7 h-[96px] flex items-center justify-between max-w-[400px] left-1/2 -translate-x-1/2">
-        <div className="flex items-center justify-center w-10 h-10 cursor-pointer hover:opacity-80 transition-opacity active:scale-95">
-          <span className="material-symbols-outlined text-white opacity-40">close</span>
-        </div>
-        <h1 className="font-headline font-black text-xl tracking-widest bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] bg-clip-text text-transparent uppercase">FaceRank</h1>
-        <div className="w-10"></div>
-        {/* Progress Bar */}
-        <div className="absolute bottom-0 left-0 w-full h-[2px] bg-white/5">
-          <div className="h-full progress-bar-gradient transition-all duration-1000 ease-in-out shadow-[0_0_10px_rgba(124,77,255,0.5)]" style={{ width: "25%" }}></div>
-        </div>
-      </header>
       {/* Main Content */}
-      <main className="max-w-[400px] mx-auto px-7 pt-[110px] pb-[48px] min-h-dvh flex flex-col items-center">
+      <main className="max-w-[400px] mx-auto px-7 pt-[60px] pb-[48px] min-h-dvh flex flex-col items-center">
         {/* Dramatic Headline */}
         <div className="w-full mb-8 text-left">
           <p className="text-[#7C4DFF] font-label font-bold text-[11px] uppercase tracking-[0.3em] mb-2 opacity-80">Identification</p>
@@ -76,33 +64,14 @@ export default function FlowPage() {
           </p>
         </div>
       </main>
-      {/* Footer */}
-      <footer className="w-full py-8 px-7 flex flex-col items-center space-y-6 max-w-[400px] mx-auto">
-        <div className="flex space-x-8">
-          <a className="font-label text-[10px] uppercase font-bold text-white/20 hover:text-white/50 transition-colors tracking-widest" href="#">Privacy</a>
-          <a className="font-label text-[10px] uppercase font-bold text-white/20 hover:text-white/50 transition-colors tracking-widest" href="#">Terms</a>
-          <a className="font-label text-[10px] uppercase font-bold text-white/20 hover:text-white/50 transition-colors tracking-widest" href="#">Support</a>
-        </div>
-        <p className="font-label text-[9px] font-black text-[#7C4DFF] uppercase tracking-[0.4em] opacity-40">
-          Engineered for Excellence
-        </p>
-      </footer>
     </div>
   );
 
   // Step 1: Age (03_age.html)
   if (step === 1) return (
     <div className="antialiased font-body">
-      {/* Top Navigation Anchor */}
-      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-[28px] py-6 max-w-[400px] left-1/2 -translate-x-1/2 bg-[#08080C]">
-        <div className="flex items-center gap-4">
-          <span className="material-symbols-outlined text-[#7C4DFF] cursor-pointer active:scale-95 transition-transform" onClick={() => setStep(0)}>arrow_back</span>
-          <h1 className="font-headline font-semibold text-[26px] tracking-tight text-white">FaceRank</h1>
-        </div>
-        <div className="hidden"></div>
-      </header>
       {/* Main Canvas */}
-      <main className="relative w-full max-w-[390px] h-[844px] mx-auto flex flex-col pt-[96px] pb-[48px] px-[28px] overflow-hidden">
+      <main className="relative w-full max-w-[390px] mx-auto flex flex-col pt-[60px] px-[28px] pb-[120px] min-h-dvh overflow-hidden">
         {/* Progress Bar Section */}
         <div className="w-full h-[3px] bg-white/10 rounded-full mb-[60px] relative">
           <div className="absolute top-0 left-0 h-full w-1/4 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] rounded-full progress-glow"></div>
@@ -113,39 +82,32 @@ export default function FlowPage() {
         </div>
         {/* Age Options Container */}
         <div className="flex flex-col gap-3 flex-grow">
-          {/* Option 1 */}
           <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">12 – 15</span>
           </button>
-          {/* Option 2 */}
           <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">16 – 20</span>
           </button>
-          {/* Option 3 */}
           <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">21 – 25</span>
           </button>
-          {/* Option 4 */}
           <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">26 – 30</span>
           </button>
-          {/* Option 5 */}
           <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">31 – 40</span>
           </button>
-          {/* Option 6 */}
           <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">40+</span>
           </button>
         </div>
-        {/* Bottom CTA */}
-        <div className="mt-auto pt-8">
-          <button className="btn-glow w-full h-[56px] rounded-xl bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] flex items-center justify-center font-semibold text-white tracking-wide active:scale-[0.98] transition-all shadow-[0_8px_24px_rgba(124,77,255,0.3)]" onClick={next}>
-            Continue
-          </button>
-          <p className="text-[11px] text-white/20 text-center mt-4 font-label uppercase tracking-widest">Step 1 of 4</p>
-        </div>
       </main>
+      {/* Floating CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 px-7 pb-8 pt-4 bg-gradient-to-t from-[#08080C] via-[#08080C]/90 to-transparent max-w-[400px] mx-auto">
+        <button className="btn-glow w-full h-14 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] rounded-2xl font-semibold text-white active:scale-95 transition-all" onClick={next}>
+          Continue
+        </button>
+      </div>
       {/* Background Decorative Elements */}
       <div className="fixed top-[-10%] right-[-10%] w-[300px] h-[300px] bg-[#7C4DFF]/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
       <div className="fixed bottom-[-5%] left-[-5%] w-[250px] h-[250px] bg-[#448AFF]/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
@@ -155,14 +117,8 @@ export default function FlowPage() {
   // Step 2: Heritage (04_heritage.html)
   if (step === 2) return (
     <div className="font-body">
-      {/* Top Navigation (Shell) */}
-      <header className="bg-[#08080C] flex items-center justify-between w-full px-[28px] py-6 max-w-[400px] mx-auto fixed top-0 left-0 right-0 z-50">
-        <span className="material-symbols-outlined text-white/60 hover:opacity-80 transition-opacity duration-300 cursor-pointer active:scale-95" onClick={() => setStep(1)}>arrow_back</span>
-        <h1 className="font-headline font-semibold text-[26px] tracking-[-0.035em] text-white">Heritage Match</h1>
-        <div className="w-6"></div>
-      </header>
       {/* Main Canvas */}
-      <main className="relative w-[390px] h-[844px] mx-auto overflow-hidden bg-[#08080C] flex flex-col pt-[96px] pb-[48px] px-[28px]">
+      <main className="relative w-full max-w-[390px] mx-auto overflow-hidden bg-[#08080C] flex flex-col pt-[60px] pb-[120px] px-[28px] min-h-dvh">
         {/* Header Text */}
         <div className="text-center mb-10">
           <h2 className="text-[20px] font-semibold text-white tracking-tight mb-2">Discover your heritage</h2>
@@ -170,13 +126,10 @@ export default function FlowPage() {
         </div>
         {/* Hero Visual: DNA Helix */}
         <div className="relative h-[160px] w-full flex items-center justify-center mb-[16px]">
-          {/* Stylized DNA Graphic */}
           <div className="relative w-full h-full flex justify-center items-center opacity-90 dna-animate">
-            {/* DNA Strands Simulation */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-32 h-48 border-l-4 border-r-4 border-primary/20 rounded-[40%] rotate-12"></div>
               <div className="absolute w-32 h-48 border-l-4 border-r-4 border-secondary/20 rounded-[40%] -rotate-12"></div>
-              {/* Nodes */}
               <div className="absolute w-full h-full flex flex-col justify-between items-center py-4">
                 <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF] dna-node-1"></div>
                 <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF] dna-node-2"></div>
@@ -185,7 +138,6 @@ export default function FlowPage() {
                 <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF] dna-node-5"></div>
               </div>
             </div>
-            {/* Center Core Glow */}
             <div className="w-24 h-24 rounded-full bg-primary/10 blur-[40px] animate-pulse"></div>
             <span className="material-symbols-outlined text-[80px] text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>genetics</span>
           </div>
@@ -277,34 +229,28 @@ export default function FlowPage() {
             </div>
           </div>
         </div>
-        {/* Continue Button */}
-        <button className="btn-glow w-full h-14 bg-gradient-to-r from-primary to-secondary rounded-xl font-semibold text-white mt-12 mb-4 hover:opacity-90 active:scale-[0.98] transition-all" onClick={next}>
+      </main>
+      {/* Floating CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 px-7 pb-8 pt-4 bg-gradient-to-t from-[#08080C] via-[#08080C]/90 to-transparent max-w-[400px] mx-auto">
+        <button className="btn-glow w-full h-14 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] rounded-2xl font-semibold text-white active:scale-95 transition-all" onClick={next}>
           Continue
         </button>
-      </main>
+      </div>
     </div>
   );
 
   // Step 3: World Rankings (05_world.html)
   if (step === 3) return (
     <div className="flex items-center justify-center min-h-dvh">
-      {/* Mobile Container (Fixed Size 390x844) */}
-      <main className="relative w-[390px] h-[844px] bg-[#08080C] overflow-hidden flex flex-col">
-        {/* TopAppBar */}
-        <header className="flex items-center justify-between px-7 pt-12 w-full max-w-[400px] mx-auto z-20">
-          <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/5 transition-colors duration-200 cursor-pointer active:scale-95" onClick={() => setStep(2)}>
-            <span className="material-symbols-outlined text-white">arrow_back</span>
-          </div>
-          <h1 className="font-headline font-semibold text-[20px] tracking-[-0.035em] text-white">Where you&apos;d rank highest</h1>
-          <div className="w-10"></div>
-        </header>
+      <main className="relative w-[390px] min-h-dvh bg-[#08080C] overflow-hidden flex flex-col">
         {/* Content Canvas */}
-        <div className="flex-1 px-7 pt-6 flex flex-col space-y-8 overflow-hidden">
+        <div className="flex-1 px-7 pt-12 pb-[120px] flex flex-col space-y-8 overflow-auto">
+          {/* Title */}
+          <h1 className="font-headline font-semibold text-[20px] tracking-[-0.035em] text-white text-center">Where you&apos;d rank highest</h1>
           {/* Section 1: Map Visualization */}
           <section className="relative w-full aspect-[1.8/1] rounded-2xl overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
             <img alt="Global Ranking Map" className="w-full h-full object-cover opacity-60 grayscale brightness-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVV4M7F297iKPQoWYFlIfuemJiEc41olsWp-x5J8_hGvbG4wU7QLfGe1jbRqI2RrSv9EPXj2FWWFXW26GxTtCfTAZveR3Ohc48EPG88dwhC0k6mTmRNXR-GBickkcpwz1PRvn3E6m51v7bpSwx2MVTeZls_BmxPfOaeRmooXULGxtJTmQKLDMnsz5MUGTe_Q19gwmkkLG4HU4lVJ4sZuv-2Yhw3Fx6478HjtMXB-gfzR-oDjVh8ZbtPsG2rrICFQUjAuS_giyPZn-j" />
-            {/* Animated Hotspots / Glow Overlay */}
             <div className="absolute top-1/4 left-1/3 w-12 h-12 bg-primary/30 blur-2xl rounded-full"></div>
             <div className="absolute bottom-1/3 right-1/4 w-16 h-16 bg-secondary/20 blur-3xl rounded-full"></div>
             <div className="absolute inset-0 flex items-center justify-center">
@@ -335,7 +281,6 @@ export default function FlowPage() {
           </section>
           {/* Section 3: Ranked List */}
           <section className="flex flex-col space-y-3 flex-1">
-            {/* Rank 1 */}
             <div className="flex items-center justify-between p-4 bg-white/[0.03] rounded-xl group transition-all duration-300 hover:bg-white/[0.05]">
               <div className="flex items-center space-x-4">
                 <span className="text-[14px] font-label font-bold text-white/20">#1</span>
@@ -348,7 +293,6 @@ export default function FlowPage() {
               </div>
               <div className="text-[20px] font-label font-bold gradient-text drop-shadow-[0_0_8px_rgba(124,77,255,0.3)]">8.9</div>
             </div>
-            {/* Rank 2 */}
             <div className="flex items-center justify-between p-4 bg-white/[0.02] rounded-xl group transition-all duration-300">
               <div className="flex items-center space-x-4">
                 <span className="text-[14px] font-label font-bold text-white/20">#2</span>
@@ -361,7 +305,6 @@ export default function FlowPage() {
               </div>
               <div className="text-[18px] font-label font-bold text-white/80">8.7</div>
             </div>
-            {/* Rank 3 */}
             <div className="flex items-center justify-between p-4 bg-white/[0.02] rounded-xl group transition-all duration-300">
               <div className="flex items-center space-x-4">
                 <span className="text-[14px] font-label font-bold text-white/20">#3</span>
@@ -374,7 +317,6 @@ export default function FlowPage() {
               </div>
               <div className="text-[18px] font-label font-bold text-white/80">8.4</div>
             </div>
-            {/* Rank 4 */}
             <div className="flex items-center justify-between p-4 bg-white/[0.02] rounded-xl group transition-all duration-300">
               <div className="flex items-center space-x-4">
                 <span className="text-[14px] font-label font-bold text-white/20">#4</span>
@@ -387,7 +329,6 @@ export default function FlowPage() {
               </div>
               <div className="text-[18px] font-label font-bold text-white/80">8.1</div>
             </div>
-            {/* Rank 5 */}
             <div className="flex items-center justify-between p-4 bg-white/[0.02] rounded-xl group transition-all duration-300">
               <div className="flex items-center space-x-4">
                 <span className="text-[14px] font-label font-bold text-white/20">#5</span>
@@ -402,18 +343,12 @@ export default function FlowPage() {
             </div>
           </section>
         </div>
-        {/* Bottom Action */}
-        <footer className="px-7 pt-4 pb-12 w-full flex flex-col items-center">
-          <button className="btn-glow w-full h-[56px] rounded-2xl bg-gradient-to-r from-primary to-secondary text-white font-semibold text-[16px] shadow-[0_8px_24px_rgba(124,77,255,0.3)] active:scale-95 transition-all duration-300" onClick={next}>
+        {/* Floating CTA */}
+        <div className="fixed bottom-0 left-0 right-0 z-50 px-7 pb-8 pt-4 bg-gradient-to-t from-[#08080C] via-[#08080C]/90 to-transparent max-w-[400px] mx-auto">
+          <button className="btn-glow w-full h-14 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] rounded-2xl font-semibold text-white active:scale-95 transition-all" onClick={next}>
             Continue
           </button>
-        </footer>
-        {/* BottomNavBar */}
-        <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[400px] z-50 flex justify-around items-center px-7 pb-4 bg-gradient-to-t from-background to-transparent h-20 pointer-events-none">
-          <div className="w-1 h-1 bg-white/10 rounded-full"></div>
-          <div className="w-1 h-1 bg-white/10 rounded-full"></div>
-          <div className="w-1 h-1 bg-white/10 rounded-full"></div>
-        </nav>
+        </div>
       </main>
     </div>
   );
@@ -421,15 +356,7 @@ export default function FlowPage() {
   // Step 4: Heatmap (06_heatmap.html)
   if (step === 4) return (
     <div className="bg-[#08080C] text-white font-body min-h-screen">
-      {/* Top Navigation Shell */}
-      <header className="fixed top-0 w-full z-50 flex justify-between items-center px-7 h-24 max-w-[400px] mx-auto left-0 right-0 bg-[#08080C]">
-        <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-white/40 hover:opacity-80 transition-opacity active:scale-95 duration-200 cursor-pointer" onClick={() => setStep(3)}>arrow_back</span>
-        </div>
-        <h1 className="font-headline font-semibold text-[26px] tracking-tight text-[#7C4DFF]">FaceRank AI</h1>
-        <div className="w-6"></div>
-      </header>
-      <main className="max-w-[400px] mx-auto pt-32 pb-44 px-7 flex flex-col items-center">
+      <main className="max-w-[400px] mx-auto pt-12 pb-[120px] px-7 flex flex-col items-center">
         {/* Header Section */}
         <div className="text-center mb-10">
           <h2 className="text-[22px] font-semibold tracking-tight text-white mb-2">Diagnostic Heat Map</h2>
@@ -437,11 +364,8 @@ export default function FlowPage() {
         </div>
         {/* Heat Map Canvas */}
         <div className="relative w-full aspect-[3/4] flex items-center justify-center mb-10">
-          {/* Background Decorative Glow */}
           <div className="absolute inset-0 bg-glow-purple rounded-full"></div>
-          {/* Face Wireframe Container */}
           <div className="relative w-72 h-96 border border-white/10 rounded-[120px] flex items-center justify-center overflow-visible">
-            {/* SVG Wireframe (Technical Grid) */}
             <svg className="absolute inset-0 w-full h-full opacity-20 pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
               <path d="M50 10 Q 85 10 85 45 T 50 95 T 15 45 T 50 10" fill="none" stroke="white" strokeWidth="0.5"></path>
               <path d="M25 35 Q 50 30 75 35" fill="none" stroke="white" strokeWidth="0.2"></path>
@@ -449,54 +373,39 @@ export default function FlowPage() {
               <path d="M30 75 Q 50 85 70 75" fill="none" stroke="white" strokeWidth="0.2"></path>
               <line stroke="white" strokeWidth="0.2" x1="50" x2="50" y1="10" y2="95"></line>
             </svg>
-            {/* Thermal Zones */}
-            {/* Forehead: Green (Strong) */}
             <div className="absolute top-12 w-40 h-16 bg-status-strong thermal-glow opacity-30 rounded-full"></div>
-            {/* Eyes: Orange (Average) */}
             <div className="absolute top-36 left-14 w-12 h-6 bg-status-average thermal-glow opacity-40 rounded-full"></div>
             <div className="absolute top-36 right-14 w-12 h-6 bg-status-average thermal-glow opacity-40 rounded-full"></div>
-            {/* Nose: Green (Strong) */}
             <div className="absolute top-42 w-8 h-24 bg-status-strong thermal-glow opacity-40 rounded-full"></div>
-            {/* Cheekbones: Red (Weak) */}
             <div className="absolute top-52 left-10 w-14 h-14 bg-status-weak thermal-glow opacity-30 rounded-full"></div>
             <div className="absolute top-52 right-10 w-14 h-14 bg-status-weak thermal-glow opacity-30 rounded-full"></div>
-            {/* Jawline: Orange (Average) */}
             <div className="absolute bottom-10 w-48 h-12 bg-status-average thermal-glow opacity-30 rounded-full"></div>
-            {/* Labels and Pointers */}
-            {/* Forehead Label */}
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex flex-col items-center">
               <span className="zone-label text-status-strong">Forehead</span>
               <div className="w-[1px] h-6 bg-status-strong/40 mt-1"></div>
             </div>
-            {/* Eyes Label */}
             <div className="absolute top-32 -left-12 flex items-center">
               <span className="zone-label text-status-average">Eyes</span>
               <div className="w-8 h-[1px] bg-status-average/40 ml-1"></div>
             </div>
-            {/* Cheekbones Label */}
             <div className="absolute top-56 -right-16 flex items-center">
               <div className="w-8 h-[1px] bg-status-weak/40 mr-1"></div>
               <span className="zone-label text-status-weak">Cheekbones</span>
             </div>
-            {/* Skin Label */}
             <div className="absolute top-1/2 -left-12 -translate-y-1/2 flex items-center">
               <span className="zone-label text-status-strong">Skin</span>
               <div className="w-6 h-[1px] bg-status-strong/40 ml-1"></div>
             </div>
-            {/* Nose Label */}
             <div className="absolute top-1/2 -right-12 -translate-y-1/2 flex items-center">
               <div className="w-6 h-[1px] bg-status-strong/40 mr-1"></div>
               <span className="zone-label text-status-strong">Nose</span>
             </div>
-            {/* Jawline Label */}
             <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center">
               <div className="w-[1px] h-6 bg-status-average/40 mb-1"></div>
               <span className="zone-label text-status-average">Jawline</span>
             </div>
-            {/* Central UI Element */}
             <img className="w-full h-full object-contain mix-blend-screen opacity-50 pointer-events-none" alt="3D wireframe head" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-eFKIiwPsvT4EGg01JODxWGXDT2FcbKVQgUcuwmd74EO-PZcjmzbOKS9-T4vhFjAH3ZPm-NtXCajV1b0O8lk13J07QT3HqRHifM9VJnJsxsWekob7Anuf5r3OxxDsaBAXAJg043gCQmUKz31aiZ3AU3TmFkwe6HOYI5I2LDrFkiK7hzxazC72L1dxEk2VOzagunE0sZhTsbgGkpqdwgBRK25F7g54wBwQm6U-skm91RaqSv1_cM1GoKAdMmqOLhElVAEzL6e0E4tX" />
           </div>
-          {/* Scanning Line Effect */}
           <div className="absolute inset-x-4 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent shadow-[0_0_15px_rgba(124,77,255,0.5)] animate-scan z-10 pointer-events-none"></div>
         </div>
         {/* Simplified Legend Section */}
@@ -517,28 +426,20 @@ export default function FlowPage() {
             <span className="font-label text-lg font-bold text-white leading-none">1</span>
           </div>
         </div>
-        {/* Primary CTA */}
-        <div className="fixed bottom-32 left-0 right-0 px-7 max-w-[400px] mx-auto z-40">
-          <button className="btn-glow w-full h-14 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] text-white font-semibold rounded-2xl shadow-[0_10px_30px_rgba(124,77,255,0.3)] active:scale-95 transition-all duration-200" onClick={next}>
-            Continue
-          </button>
-        </div>
       </main>
+      {/* Floating CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 px-7 pb-8 pt-4 bg-gradient-to-t from-[#08080C] via-[#08080C]/90 to-transparent max-w-[400px] mx-auto">
+        <button className="btn-glow w-full h-14 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] rounded-2xl font-semibold text-white active:scale-95 transition-all" onClick={next}>
+          Continue
+        </button>
+      </div>
     </div>
   );
 
   // Step 5: Price Guess (07_price.html)
   if (step === 5) return (
-    <div className="font-body flex flex-col items-center" style={{ overflow: "hidden", height: "100dvh", maxHeight: "844px" }}>
-      {/* Top Navigation Bar */}
-      <header className="w-full max-w-[400px] flex items-center justify-between px-[24px] pt-[60px] pb-[20px]">
-        <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-white/40 cursor-pointer" onClick={() => setStep(4)}>close</span>
-        </div>
-        <h1 className="font-headline font-semibold text-[20px] tracking-tight text-white/90">Price Guess</h1>
-        <div className="w-6"></div>
-      </header>
-      <main className="w-full max-w-[400px] flex-1 flex flex-col px-[24px] overflow-hidden">
+    <div className="font-body flex flex-col items-center" style={{ overflow: "hidden", height: "100dvh" }}>
+      <main className="w-full max-w-[400px] flex-1 flex flex-col px-[24px] pt-[60px] pb-[120px] overflow-hidden">
         {/* Header Section */}
         <section className="mb-[24px]">
           <h2 className="text-[24px] font-bold text-white leading-[1.2] mb-3">How much do you think this would normally cost?</h2>
@@ -565,7 +466,6 @@ export default function FlowPage() {
             <span className="text-[48px] font-bold text-white tracking-tighter leading-none">${priceValue}</span>
           </div>
           <div className="w-full relative px-2 mb-4">
-            {/* Custom Slider Track Background */}
             <div className="absolute top-1/2 left-2 right-2 h-[4px] -translate-y-1/2 bg-white/10 rounded-full overflow-hidden">
               <div className="h-full bg-gradient-to-r from-[#7C4DFF] to-[#448AFF]" style={{ width: `${((priceValue - 10) / (249 - 10)) * 100}%` }}></div>
             </div>
@@ -573,29 +473,21 @@ export default function FlowPage() {
           </div>
           <p className="text-[11px] font-bold text-white/30 uppercase tracking-[0.2em] font-label">Drag to guess</p>
         </section>
-        {/* CTA Section */}
-        <footer className="w-full pb-[48px] pt-4">
-          <button className="btn-glow w-full h-[60px] bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] text-white font-bold text-[17px] rounded-full shadow-[0_12px_40px_rgba(124,77,255,0.4)] active:scale-[0.97] transition-all duration-200 flex items-center justify-center gap-2" onClick={next}>
-            Reveal the price →
-          </button>
-        </footer>
       </main>
+      {/* Floating CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 px-7 pb-8 pt-4 bg-gradient-to-t from-[#08080C] via-[#08080C]/90 to-transparent max-w-[400px] mx-auto">
+        <button className="btn-glow w-full h-14 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] rounded-2xl font-semibold text-white active:scale-95 transition-all" onClick={next}>
+          Reveal the price
+        </button>
+      </div>
     </div>
   );
 
   // Step 6: Reveal (08_reveal.html)
   if (step === 6) return (
     <div className="font-body">
-      {/* Top Navigation Shell */}
-      <header className="fixed top-0 left-1/2 -translate-x-1/2 flex justify-between items-center w-full px-7 h-24 max-w-[400px] bg-[#08080C] z-50">
-        <button className="text-white hover:opacity-80 transition-opacity duration-300 active:scale-95" onClick={() => setStep(5)}>
-          <span className="material-symbols-outlined text-[26px]">close</span>
-        </button>
-        <h1 className="font-headline font-semibold text-[26px] tracking-[-0.035em] text-[#7C4DFF]">Reveal Result</h1>
-        <div className="w-[26px]"></div>
-      </header>
       {/* Main Canvas */}
-      <main className="min-h-screen flex flex-col justify-center items-center px-[28px] py-[96px] max-w-[400px] mx-auto text-center" style={{ maxHeight: "844px" }}>
+      <main className="min-h-dvh flex flex-col justify-center items-center px-[28px] pb-[120px] pt-[60px] max-w-[400px] mx-auto text-center">
         {/* Decorative Glow Background */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden flex justify-center items-center">
           <div className="w-[300px] h-[300px] bg-primary/10 rounded-full blur-[120px]"></div>
@@ -626,27 +518,16 @@ export default function FlowPage() {
               We believe everyone deserves to know their face score.
             </p>
           </div>
-          {/* Action Cluster */}
-          <div className="w-full space-y-[16px] pt-[32px]">
-            <button className="btn-glow w-full h-[56px] gradient-bg text-white font-semibold text-[16px] rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-[0.98]" onClick={next}>
-              Go to your scan preview<span className="material-symbols-outlined text-[20px]">arrow_forward</span>
-            </button>
-            <p className="text-[12px] text-white/25 font-label">
-              Free · No credit card needed
-            </p>
-          </div>
         </div>
       </main>
-      {/* Footer Shell */}
-      <footer className="w-full max-w-[400px] mx-auto px-7 pb-12 flex flex-col items-center gap-4 bg-transparent">
-        <div className="flex gap-6">
-          <a className="font-headline text-[13px] text-white/25 hover:text-white/50 transition-colors" href="#">Privacy</a>
-          <a className="font-headline text-[13px] text-white/25 hover:text-white/50 transition-colors" href="#">Terms</a>
-        </div>
-        <p className="font-headline text-[13px] text-white/25">© 2024 FACERANK AI</p>
-      </footer>
+      {/* Floating CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 px-7 pb-8 pt-4 bg-gradient-to-t from-[#08080C] via-[#08080C]/90 to-transparent max-w-[400px] mx-auto">
+        <button className="btn-glow w-full h-14 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] rounded-2xl font-semibold text-white active:scale-95 transition-all" onClick={next}>
+          Go to your scan preview
+        </button>
+      </div>
       {/* Aesthetic Decorative Image */}
-      <div className="fixed bottom-0 left-0 w-full h-1/3 pointer-events-none opacity-20 overflow-hidden">
+      <div className="fixed bottom-0 left-0 w-full h-1/3 pointer-events-none opacity-20 overflow-hidden -z-10">
         <img className="w-full h-full object-cover" alt="abstract flowing liquid shapes in deep purple and indigo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAil74rquhyBCDU0wDwz5gCFEjVJA8L2hK4fon4XK3pT9Oho7ofBPUzRAoUKvgrOXD1SimEj_NtXRWNHb0R0XQ-YKvhRzZ9x8UXJak0CiABpSF7GcIvGFj1u-d0AGJtZH_C5XIUCuy8n1mCKJ-LNPMrvlLS-yM8X_AY_CLvL0zWBDkk8N9U1qDQicX7v7prBteWWU8D2dZwN1iWseyo_j4gK3KnxAGHsJmx0njfP73eo9RzUhg5l8xFLpp4EUU6SuyFlTrhWhg-7Tz0" />
       </div>
     </div>
@@ -655,15 +536,7 @@ export default function FlowPage() {
   // Step 7: Overview / Scan Preview (09_overview.html)
   if (step === 7) return (
     <div className="font-body">
-      {/* Top Navigation Anchor */}
-      <header className="flex justify-between items-center w-full px-[28px] pt-[96px] pb-4 max-w-[400px] mx-auto bg-[#08080C] fixed top-0 left-0 right-0 z-50">
-        <button className="hover:opacity-80 transition-opacity duration-300 active:scale-95" onClick={() => setStep(6)}>
-          <span className="material-symbols-outlined text-white text-[24px]">close</span>
-        </button>
-        <h1 className="font-headline text-[26px] font-semibold tracking-[-0.035em] text-white">Scan Preview</h1>
-        <div className="w-6"></div>
-      </header>
-      <main className="max-w-[400px] mx-auto px-[28px] pt-[160px] pb-[140px]">
+      <main className="max-w-[400px] mx-auto px-[28px] pt-[60px] pb-[120px]">
         {/* Header Section */}
         <section className="mb-[32px]">
           <h2 className="text-[22px] font-semibold tracking-[-0.035em] mb-2">Your complete analysis</h2>
@@ -671,37 +544,31 @@ export default function FlowPage() {
         </section>
         {/* Feature Grid (2x3) */}
         <div className="grid grid-cols-2 gap-[16px]">
-          {/* Face Score */}
           <div className="bg-white/[0.03] p-4 rounded-[12px] transition-all duration-300 card-glow-hover border border-white/[0.02]">
             <span className="material-symbols-outlined text-[#7C4DFF] mb-3 block text-[24px]">shutter_speed</span>
             <h3 className="text-[14px] font-semibold mb-1">Face Score</h3>
             <p className="text-[11px] text-white/40 leading-tight">Rated across 6 attributes</p>
           </div>
-          {/* World Rankings */}
           <div className="bg-white/[0.03] p-4 rounded-[12px] transition-all duration-300 card-glow-hover border border-white/[0.02]">
             <span className="material-symbols-outlined text-[#7C4DFF] mb-3 block text-[24px]">public</span>
             <h3 className="text-[14px] font-semibold mb-1">World Rankings</h3>
             <p className="text-[11px] text-white/40 leading-tight">Top 10 countries for you</p>
           </div>
-          {/* Heritage Match */}
           <div className="bg-white/[0.03] p-4 rounded-[12px] transition-all duration-300 card-glow-hover border border-white/[0.02]">
             <span className="material-symbols-outlined text-[#7C4DFF] mb-3 block text-[24px]">genetics</span>
             <h3 className="text-[14px] font-semibold mb-1">Heritage Match</h3>
             <p className="text-[11px] text-white/40 leading-tight">Your ancestry breakdown</p>
           </div>
-          {/* Glow-Up Plan */}
           <div className="bg-white/[0.03] p-4 rounded-[12px] transition-all duration-300 card-glow-hover border border-white/[0.02]">
             <span className="material-symbols-outlined text-[#7C4DFF] mb-3 block text-[24px]">trending_up</span>
             <h3 className="text-[14px] font-semibold mb-1">Glow-Up Plan</h3>
             <p className="text-[11px] text-white/40 leading-tight">Steps to maximize potential</p>
           </div>
-          {/* Best Hairstyle */}
           <div className="bg-white/[0.03] p-4 rounded-[12px] transition-all duration-300 card-glow-hover border border-white/[0.02]">
             <span className="material-symbols-outlined text-[#7C4DFF] mb-3 block text-[24px]">content_cut</span>
             <h3 className="text-[14px] font-semibold mb-1">Best Hairstyle</h3>
             <p className="text-[11px] text-white/40 leading-tight">AI-matched to your shape</p>
           </div>
-          {/* Heat Map */}
           <div className="bg-white/[0.03] p-4 rounded-[12px] transition-all duration-300 card-glow-hover border border-white/[0.02]">
             <span className="material-symbols-outlined text-[#7C4DFF] mb-3 block text-[24px]">grid_view</span>
             <h3 className="text-[14px] font-semibold mb-1">Heat Map</h3>
@@ -718,43 +585,20 @@ export default function FlowPage() {
           <img className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30" alt="close-up abstract shot of high-tech digital facial scanning grid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrD7r43vBce6e6oYPiRK-PdzHK23tkcNHjEdR1yIFJ59KtobZsXH8IjeKDhDOu-U6IVw_HbbjMh1gGsyhAuMkEyncejUp7SoKWJymb5DdK66B31AOSSto9Swk7LGFRxVp6bXI8x1JRA6S9Nf5_fXlmNhPF37Nk3XvCw7PSzomYw4QJ8KrUXTxvl-jm_PAceaeQOqpeO_tqVBLK8Jp575ZoKNz6DqhO01TgRlrw56rbHRxpBiMsO5Y42KNOk5ybPk_szEldgSYz51H9" />
         </div>
       </main>
-      {/* Fixed Bottom CTA */}
-      <div className="fixed bottom-0 left-0 right-0 max-w-[400px] mx-auto px-[28px] pb-[48px] pt-8 bg-gradient-to-t from-[#08080C] via-[#08080C] to-transparent z-50">
-        <button className="btn-glow w-full premium-gradient h-[56px] rounded-xl flex items-center justify-center gap-2 shadow-[0_12px_24px_-8px_rgba(124,77,255,0.5)] active:scale-95 transition-all duration-200" onClick={next}>
-          <span className="text-[16px] font-semibold tracking-tight">Scan my face</span>
-          <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+      {/* Floating CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 px-7 pb-8 pt-4 bg-gradient-to-t from-[#08080C] via-[#08080C]/90 to-transparent max-w-[400px] mx-auto">
+        <button className="btn-glow w-full h-14 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] rounded-2xl font-semibold text-white active:scale-95 transition-all" onClick={next}>
+          Scan my face
         </button>
       </div>
-      {/* Bottom Navigation Component (Icons Only) */}
-      <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-[28px] pb-[48px] max-w-[400px] mx-auto bg-transparent pointer-events-none">
-        <div className="flex justify-around items-center w-full bg-[#08080C]/80 backdrop-blur-xl rounded-full p-2 pointer-events-auto border border-white/[0.05] hidden">
-          <button className="flex flex-col items-center justify-center bg-white/5 text-[#7C4DFF] rounded-full p-4 shadow-[0_0_15px_rgba(124,77,255,0.2)]">
-            <span className="material-symbols-outlined">shutter_speed</span>
-          </button>
-          <button className="flex flex-col items-center justify-center text-white/20 p-4 hover:text-white/40 transition-colors">
-            <span className="material-symbols-outlined">auto_awesome</span>
-          </button>
-          <button className="flex flex-col items-center justify-center text-white/20 p-4 hover:text-white/40 transition-colors">
-            <span className="material-symbols-outlined">person</span>
-          </button>
-        </div>
-      </nav>
     </div>
   );
 
   // Step 8: Upload (10_upload.html)
   if (step === 8) return (
     <div className="font-body">
-      {/* Top Navigation Shell */}
-      <header className="bg-[#08080C] text-white flex justify-between items-center w-full px-7 pt-12 pb-4 max-w-[400px] mx-auto sticky top-0 z-50">
-        <div className="flex items-center gap-4">
-          <span className="material-symbols-outlined text-white/60 hover:text-white transition-colors cursor-pointer" onClick={() => setStep(7)}>arrow_back</span>
-        </div>
-        <h1 className="font-headline font-semibold text-[26px] tracking-[-0.035em] text-xl font-bold bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] bg-clip-text text-transparent">FaceRank</h1>
-        <div className="w-6"></div>
-      </header>
       {/* Progress Indicator */}
-      <div className="max-w-[400px] mx-auto px-7 mb-20">
+      <div className="max-w-[400px] mx-auto px-7 pt-12 mb-20">
         <div className="w-full h-[3px] bg-white/5 rounded-full overflow-hidden">
           <div className="h-full w-[80%] bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] rounded-full"></div>
         </div>
@@ -772,7 +616,6 @@ export default function FlowPage() {
             <span className="material-symbols-outlined text-white/20 mb-3 text-3xl">add_a_photo</span>
             <span className="text-[13px] font-medium text-white/40">Tap to upload</span>
           </div>
-          {/* Visual Accent: Glass Reflection */}
           <div className="absolute inset-0 rounded-[24px] pointer-events-none bg-gradient-to-br from-white/5 to-transparent opacity-50"></div>
         </div>
         <input type="file" accept="image/*" capture="user" ref={fileInputRef} className="hidden" onChange={(e) => {
@@ -809,27 +652,12 @@ export default function FlowPage() {
         {/* Filler Space */}
         <div className="flex-grow min-h-[120px]"></div>
         {/* Privacy Disclaimer */}
-        <footer className="pb-12 pt-8">
+        <div className="pb-12 pt-8">
           <p className="text-[10px] text-white/10 text-center tracking-tight">
             Your photo is analyzed locally and never saved
           </p>
-        </footer>
+        </div>
       </main>
-      {/* Bottom Navigation Shell */}
-      <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-7 pb-12 h-24 max-w-[400px] left-1/2 -translate-x-1/2 bg-[#08080C]/80 backdrop-blur-xl">
-        <a className="flex items-center justify-center text-white/25 hover:text-white/50 transition-all duration-300 active:translate-y-[-2px]" href="#">
-          <span className="material-symbols-outlined text-2xl">shutter_speed</span>
-        </a>
-        <a className="flex items-center justify-center text-white/25 hover:text-white/50 transition-all duration-300 active:translate-y-[-2px]" href="#">
-          <span className="material-symbols-outlined text-2xl">history</span>
-        </a>
-        <a className="flex items-center justify-center text-white/25 hover:text-white/50 transition-all duration-300 active:translate-y-[-2px]" href="#">
-          <span className="material-symbols-outlined text-2xl">insights</span>
-        </a>
-        <a className="flex items-center justify-center text-white/25 hover:text-white/50 transition-all duration-300 active:translate-y-[-2px]" href="#">
-          <span className="material-symbols-outlined text-2xl">person</span>
-        </a>
-      </nav>
       {/* Decorative Background Elements */}
       <div className="fixed top-[-10%] right-[-10%] w-[60%] aspect-square bg-primary/10 blur-[120px] -z-10 rounded-full"></div>
       <div className="fixed bottom-[-5%] left-[-10%] w-[50%] aspect-square bg-secondary/5 blur-[100px] -z-10 rounded-full"></div>

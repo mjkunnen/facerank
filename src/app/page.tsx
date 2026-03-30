@@ -5,21 +5,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="font-body antialiased">
-      {/* TopAppBar */}
-      <header className="fixed top-0 w-full z-50 bg-[#08080C]/80 backdrop-blur-md">
-        <div className="flex justify-between items-center px-7 py-6 max-w-[400px] mx-auto">
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[#7C4DFF]">flare</span>
-            <h1 className="text-2xl font-black tracking-tighter text-white uppercase font-headline">FACERANK</h1>
-          </div>
-          <div className="flex gap-4">
-            <span className="material-symbols-outlined text-white/60 hover:text-[#7C4DFF] transition-colors duration-300">menu</span>
-          </div>
-        </div>
-      </header>
-
       {/* Main Canvas (Fixed Height, No Scroll) */}
-      <main className="relative h-full w-full flex flex-col items-center justify-center px-7 max-w-[400px] mx-auto text-center" style={{ maxHeight: "844px" }}>
+      <main className="relative h-dvh w-full flex flex-col items-center justify-center px-7 max-w-[400px] mx-auto text-center">
         {/* Ambient Glow Orb */}
         <div className="absolute inset-0 ambient-glow pointer-events-none -z-10"></div>
 
@@ -67,20 +54,6 @@ export default function Home() {
         {/* Decorative Background Element */}
         <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-64 h-64 opacity-20 blur-3xl rounded-full bg-primary/20 pointer-events-none -z-20"></div>
       </main>
-
-      {/* Footer */}
-      <footer className="fixed bottom-0 w-full bg-[#08080C] border-t border-white/5">
-        <div className="flex flex-col items-center gap-8 px-7 pb-12 pt-12 w-full max-w-[400px] mx-auto">
-          <div className="flex gap-6">
-            <a className="font-headline text-[13px] tracking-tight text-white/25 hover:text-white transition-opacity" href="#">Privacy</a>
-            <a className="font-headline text-[13px] tracking-tight text-white/25 hover:text-white transition-opacity" href="#">Terms</a>
-            <a className="font-headline text-[13px] tracking-tight text-white/25 hover:text-white transition-opacity" href="#">Science</a>
-          </div>
-          <p className="font-headline text-[13px] tracking-tight text-white/25 uppercase text-center">
-            &copy; 2024 FACERANK AI. UNCOMPROMISING ANALYSIS.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }
