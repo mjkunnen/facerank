@@ -79,25 +79,32 @@ export default function FlowPage() {
         {/* Headline */}
         <div className="mb-[32px]">
           <h2 className="text-[24px] font-semibold text-white tracking-tight leading-tight">How old are you?</h2>
+          <p className="text-[13px] text-white/30 mt-2">Age affects facial structure scoring — our AI adjusts analysis per age group</p>
         </div>
         {/* Age Options Container */}
         <div className="flex flex-col gap-3 flex-grow">
-          <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+          <button className="tap-bounce w-full h-[52px] glass-card rounded-lg flex items-center px-5 gap-4 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+            <span className="material-symbols-outlined text-[20px] text-primary/60 group-hover:text-primary group-hover:scale-110 transition-all">child_care</span>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">12 – 15</span>
           </button>
-          <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+          <button className="tap-bounce w-full h-[52px] glass-card rounded-lg flex items-center px-5 gap-4 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+            <span className="material-symbols-outlined text-[20px] text-primary/60 group-hover:text-primary group-hover:scale-110 transition-all">school</span>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">16 – 20</span>
           </button>
-          <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+          <button className="tap-bounce w-full h-[52px] glass-card rounded-lg flex items-center px-5 gap-4 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+            <span className="material-symbols-outlined text-[20px] text-primary/60 group-hover:text-primary group-hover:scale-110 transition-all">bolt</span>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">21 – 25</span>
           </button>
-          <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+          <button className="tap-bounce w-full h-[52px] glass-card rounded-lg flex items-center px-5 gap-4 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+            <span className="material-symbols-outlined text-[20px] text-primary/60 group-hover:text-primary group-hover:scale-110 transition-all">workspace_premium</span>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">26 – 30</span>
           </button>
-          <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+          <button className="tap-bounce w-full h-[52px] glass-card rounded-lg flex items-center px-5 gap-4 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+            <span className="material-symbols-outlined text-[20px] text-primary/60 group-hover:text-primary group-hover:scale-110 transition-all">diamond</span>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">31 – 40</span>
           </button>
-          <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+          <button className="tap-bounce w-full h-[52px] glass-card rounded-lg flex items-center px-5 gap-4 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+            <span className="material-symbols-outlined text-[20px] text-primary/60 group-hover:text-primary group-hover:scale-110 transition-all">military_tech</span>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">40+</span>
           </button>
         </div>
@@ -122,7 +129,7 @@ export default function FlowPage() {
         {/* Header Text */}
         <div className="text-center mb-10">
           <h2 className="text-[20px] font-semibold text-white tracking-tight mb-2">Discover your heritage</h2>
-          <p className="text-[13px] text-white/25">AI matches your facial structure to ancestries</p>
+          <p className="text-[13px] text-white/25 leading-relaxed">Our AI compares 47 facial landmarks against global ancestry databases to find your closest genetic matches</p>
         </div>
         {/* Hero Visual: DNA Helix */}
         <div className="relative h-[160px] w-full flex items-center justify-center mb-[16px]">
@@ -158,6 +165,7 @@ export default function FlowPage() {
               </div>
               <span className="font-label text-[15px] text-white">34%</span>
             </div>
+            <p className="text-[11px] text-white/30">Sharp jawline · Straight nose bridge · Deep-set eyes</p>
             <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
               <div className="h-full progress-gradient w-[34%]"></div>
             </div>
@@ -175,6 +183,7 @@ export default function FlowPage() {
               </div>
               <span className="font-label text-[15px] text-white">28%</span>
             </div>
+            <p className="text-[11px] text-white/30">Almond-shaped eyes · Strong brow ridge · Olive undertone</p>
             <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
               <div className="h-full progress-gradient w-[28%]"></div>
             </div>
@@ -190,6 +199,7 @@ export default function FlowPage() {
               </div>
               <span className="font-label text-[15px] text-white">18%</span>
             </div>
+            <p className="text-[11px] text-white/30">Straight brow line · High cheekbones · Angular midface</p>
             <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
               <div className="h-full progress-gradient w-[18%]"></div>
             </div>
@@ -207,6 +217,7 @@ export default function FlowPage() {
               </div>
               <span className="font-label text-[15px] text-white">12%</span>
             </div>
+            <p className="text-[11px] text-white/30">Defined chin · Rounded forehead · Warm skin tone</p>
             <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
               <div className="h-full progress-gradient w-[12%]"></div>
             </div>
@@ -224,6 +235,7 @@ export default function FlowPage() {
               </div>
               <span className="font-label text-[15px] text-white">8%</span>
             </div>
+            <p className="text-[11px] text-white/30">Narrow nose · Soft brow arch · Symmetrical midface</p>
             <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
               <div className="h-full progress-gradient w-[8%]"></div>
             </div>
