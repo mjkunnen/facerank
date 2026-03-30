@@ -324,7 +324,7 @@ export default function FlowPage() {
                   <span className="text-[15px] font-semibold text-white/80 flex items-center gap-2">
                     <span>🇪🇸</span> Spain
                   </span>
-                  <span className="text-[12px] text-white/25 mt-0.5">Eye shape preference</span>
+                  <span className="text-[12px] text-white/25 mt-0.5">Hunter eyes preference</span>
                 </div>
               </div>
               <div className="text-[18px] font-label font-bold text-white/80">8.4</div>
@@ -334,9 +334,9 @@ export default function FlowPage() {
                 <span className="text-[14px] font-label font-bold text-white/20">#4</span>
                 <div className="flex flex-col">
                   <span className="text-[15px] font-semibold text-white/80 flex items-center gap-2">
-                    <span>🇹🇷</span> Turkey
+                    <span>🇺🇸</span> USA
                   </span>
-                  <span className="text-[12px] text-white/25 mt-0.5">Bone structure fit</span>
+                  <span className="text-[12px] text-white/25 mt-0.5">Masculine bone structure</span>
                 </div>
               </div>
               <div className="text-[18px] font-label font-bold text-white/80">8.1</div>
@@ -346,12 +346,36 @@ export default function FlowPage() {
                 <span className="text-[14px] font-label font-bold text-white/20">#5</span>
                 <div className="flex flex-col">
                   <span className="text-[15px] font-semibold text-white/80 flex items-center gap-2">
-                    <span>🇬🇷</span> Greece
+                    <span>🇩🇪</span> Germany
                   </span>
-                  <span className="text-[12px] text-white/25 mt-0.5">Classical proportions</span>
+                  <span className="text-[12px] text-white/25 mt-0.5">Angular facial features</span>
                 </div>
               </div>
               <div className="text-[18px] font-label font-bold text-white/80">7.9</div>
+            </div>
+            <div className="flex items-center justify-between p-4 bg-white/[0.02] rounded-xl group transition-all duration-300">
+              <div className="flex items-center space-x-4">
+                <span className="text-[14px] font-label font-bold text-white/20">#6</span>
+                <div className="flex flex-col">
+                  <span className="text-[15px] font-semibold text-white/80 flex items-center gap-2">
+                    <span>🇬🇧</span> UK
+                  </span>
+                  <span className="text-[12px] text-white/25 mt-0.5">Defined cheekbone structure</span>
+                </div>
+              </div>
+              <div className="text-[18px] font-label font-bold text-white/80">7.7</div>
+            </div>
+            <div className="flex items-center justify-between p-4 bg-white/[0.02] rounded-xl group transition-all duration-300">
+              <div className="flex items-center space-x-4">
+                <span className="text-[14px] font-label font-bold text-white/20">#7</span>
+                <div className="flex flex-col">
+                  <span className="text-[15px] font-semibold text-white/80 flex items-center gap-2">
+                    <span>🇹🇷</span> Turkey
+                  </span>
+                  <span className="text-[12px] text-white/25 mt-0.5">Brow ridge definition</span>
+                </div>
+              </div>
+              <div className="text-[18px] font-label font-bold text-white/80">7.5</div>
             </div>
           </section>
         </div>
