@@ -277,6 +277,7 @@ body::before {
   50% { opacity: 0.6; }
   100% { transform: translateY(400px); opacity: 0; }
 }
+.animate-scan { animation: scan-heatmap 3s linear infinite; }
 .scan-line-analyzing {
   animation: scan 2s linear infinite;
 }
@@ -406,6 +407,27 @@ body::before {
 
 /* Card glow hover for overview */
 .card-glow-hover:hover {
+  box-shadow: 0 0 20px rgba(124, 77, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Gradient background */
+.gradient-bg {
+  background: linear-gradient(135deg, #7C4DFF 0%, #448AFF 100%);
+}
+
+/* Map glow filters */
+.map-glow-purple { filter: drop-shadow(0 0 12px rgba(124, 77, 255, 0.4)); }
+.map-glow-blue { filter: drop-shadow(0 0 12px rgba(68, 138, 255, 0.4)); }
+.map-glow-teal { filter: drop-shadow(0 0 12px rgba(38, 166, 154, 0.4)); }
+
+/* Glow active */
+.glow-active {
+  filter: drop-shadow(0 0 8px rgba(124, 77, 255, 0.4));
+}
+
+/* Card glow hover for scan preview */
+.card-glow:hover {
   box-shadow: 0 0 20px rgba(124, 77, 255, 0.15);
   background-color: rgba(255, 255, 255, 0.05);
 }

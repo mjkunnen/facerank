@@ -21,7 +21,7 @@ export default function Home() {
       {/* Main Canvas (Fixed Height, No Scroll) */}
       <main className="relative h-full w-full flex flex-col items-center justify-center px-7 max-w-[400px] mx-auto text-center" style={{ maxHeight: "844px" }}>
         {/* Ambient Glow Orb */}
-        <div className="absolute inset-0 ambient-glow pointer-events-none -z-10" />
+        <div className="absolute inset-0 ambient-glow pointer-events-none -z-10"></div>
 
         {/* Hero Section */}
         <div className="flex flex-col items-center">
@@ -52,14 +52,11 @@ export default function Home() {
         </div>
 
         {/* Spacer */}
-        <div className="h-[48px]" />
+        <div className="h-[48px]"></div>
 
         {/* CTA & Social Proof */}
         <div className="w-full flex flex-col items-center">
-          <Link
-            href="/scan"
-            className="gradient-cta w-full h-[56px] rounded-full text-white font-bold text-base tracking-tight transition-transform active:scale-95 duration-200 shadow-lg flex items-center justify-center no-underline"
-          >
+          <Link href="/scan" className="gradient-cta w-full h-[56px] rounded-full text-white font-bold text-base tracking-tight transition-transform active:scale-95 duration-200 shadow-lg flex items-center justify-center no-underline">
             Find out now
           </Link>
           <p className="text-[11px] font-medium text-white/20 mt-[10px] tracking-tight">
@@ -68,7 +65,7 @@ export default function Home() {
         </div>
 
         {/* Decorative Background Element */}
-        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-64 h-64 opacity-20 blur-3xl rounded-full bg-primary/20 pointer-events-none -z-20" />
+        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-64 h-64 opacity-20 blur-3xl rounded-full bg-primary/20 pointer-events-none -z-20"></div>
       </main>
 
       {/* Footer */}
@@ -80,7 +77,7 @@ export default function Home() {
             <a className="font-headline text-[13px] tracking-tight text-white/25 hover:text-white transition-opacity" href="#">Science</a>
           </div>
           <p className="font-headline text-[13px] tracking-tight text-white/25 uppercase text-center">
-            &copy; 2024 FACERANK AI. UNCOMPROMISING ANALYSIS.
+            © 2024 FACERANK AI. UNCOMPROMISING ANALYSIS.
           </p>
         </div>
       </footer>

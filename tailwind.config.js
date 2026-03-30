@@ -7,7 +7,13 @@ module.exports = {
       colors: {
         primary: "#7C4DFF",
         secondary: "#448AFF",
+        accent: "#26A69A",
         background: "#08080C",
+        status: {
+          strong: "#4ADE80",
+          average: "#F59E0B",
+          weak: "#EF4444",
+        },
         "surface": "#0e0e12",
         "surface-dim": "#0e0e12",
         "surface-bright": "#2c2b32",
