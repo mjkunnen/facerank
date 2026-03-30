@@ -633,12 +633,24 @@ export default function FlowPage() {
         <input type="file" accept="image/*" capture="user" ref={fileInputRef} className="hidden" onChange={(e) => {
           const file = e.target.files?.[0];
           if (file) {
-            const reader = new FileReader();
-            reader.onload = () => {
-              sessionStorage.setItem("facerank_image", reader.result as string);
+            // Compress image to max 800px and 0.7 quality
+            const img = new Image();
+            img.onload = () => {
+              const canvas = document.createElement("canvas");
+              const max = 800;
+              let w = img.width, h = img.height;
+              if (w > max || h > max) {
+                if (w > h) { h = (h / w) * max; w = max; }
+                else { w = (w / h) * max; h = max; }
+              }
+              canvas.width = w;
+              canvas.height = h;
+              canvas.getContext("2d")!.drawImage(img, 0, 0, w, h);
+              const compressed = canvas.toDataURL("image/jpeg", 0.7);
+              sessionStorage.setItem("facerank_image", compressed);
               router.push("/analyzing");
             };
-            reader.readAsDataURL(file);
+            img.src = URL.createObjectURL(file);
           }
         }} />
         {/* Secondary Actions & Trust */}

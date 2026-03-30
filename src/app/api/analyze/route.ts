@@ -60,13 +60,20 @@ Return ONLY valid JSON, no markdown, no explanation:
 
 Adapt all scores, heritage, countries, hairstyles etc. to the ACTUAL face in the photo. Be specific to what you see. Country scores should reflect where that specific face type is most appreciated. Heritage should reflect actual facial bone structure similarities. Hairstyles should match the face shape you observe.`;
 
+export const maxDuration = 30;
+
 export async function POST(req: Request) {
   try {
-    const { image } = await req.json();
+    const body = await req.json();
+    const image = body?.image;
 
-    if (!image) {
+    if (!image || typeof image !== "string") {
       return NextResponse.json({ error: "No image provided" }, { status: 400 });
     }
+
+    // Truncate if image is too large (keep under 1MB for API)
+    const maxLen = 1_400_000; // ~1MB base64
+    const img = image.length > maxLen ? image.substring(0, maxLen) : image;
 
     const response = await openai.chat.completions.create({
       model: "gpt-4o-mini",
@@ -76,7 +83,7 @@ export async function POST(req: Request) {
           role: "user",
           content: [
             { type: "text", text: "Analyze this face. Return only the JSON." },
-            { type: "image_url", image_url: { url: image, detail: "low" } },
+            { type: "image_url", image_url: { url: img, detail: "low" } },
           ],
         },
       ],
@@ -91,7 +98,8 @@ export async function POST(req: Request) {
 
     return NextResponse.json(data);
   } catch (error: unknown) {
-    console.error("Analysis error:", error);
-    return NextResponse.json({ error: "Analysis failed" }, { status: 500 });
+    const msg = error instanceof Error ? error.message : "Unknown error";
+    console.error("Analysis error:", msg);
+    return NextResponse.json({ error: "Analysis failed", detail: msg }, { status: 500 });
   }
 }
