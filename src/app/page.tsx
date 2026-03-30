@@ -21,7 +21,7 @@ export default function Home() {
       {/* Main Canvas (Fixed Height, No Scroll) */}
       <main className="relative h-full w-full flex flex-col items-center justify-center px-7 max-w-[400px] mx-auto text-center" style={{ maxHeight: "844px" }}>
         {/* Ambient Glow Orb */}
-        <div className="absolute inset-0 ambient-glow pointer-events-none -z-10"></div>
+        <div className="absolute inset-0 ambient-glow pointer-events-none -z-10" />
 
         {/* Hero Section */}
         <div className="flex flex-col items-center">
@@ -52,7 +52,7 @@ export default function Home() {
         </div>
 
         {/* Spacer */}
-        <div className="h-[48px]"></div>
+        <div className="h-[48px]" />
 
         {/* CTA & Social Proof */}
         <div className="w-full flex flex-col items-center">
@@ -68,7 +68,7 @@ export default function Home() {
         </div>
 
         {/* Decorative Background Element */}
-        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-64 h-64 opacity-20 blur-3xl rounded-full bg-primary/20 pointer-events-none -z-20"></div>
+        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-64 h-64 opacity-20 blur-3xl rounded-full bg-primary/20 pointer-events-none -z-20" />
       </main>
 
       {/* Footer */}

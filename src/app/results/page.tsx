@@ -86,7 +86,7 @@ export default function ResultsPage() {
                       <div className="flex items-center gap-2">
                         <span className={`text-sm font-bold ${isBlurred ? "text-white/40 text-blur" : "text-white"} font-label`}>{s.score}</span>
                         <span className={`text-[10px] ${s.labelVisible ? "text-white/60 font-medium" : "text-white/40 text-blur"}`}>
-                          {isBlurred ? s.label : (s.labelVisible ? s.label : s.label)}
+                          {s.label}
                         </span>
                       </div>
                       <div className={`h-[3px] w-full bg-white/5 rounded-full overflow-hidden ${isBlurred ? "opacity-30" : ""}`}>
@@ -176,7 +176,10 @@ export default function ResultsPage() {
       {/* Bottom Actions Container */}
       <div className="fixed bottom-0 w-full max-w-[400px] left-1/2 -translate-x-1/2 z-[60] bg-gradient-to-t from-[#08080C] via-[#08080C]/95 to-transparent px-7 pb-10 pt-10">
         <div className="space-y-3">
-          <button className="w-full h-14 rounded-2xl bg-gradient-to-br from-[#7C4DFF] to-[#448AFF] text-white font-bold text-[14px] shadow-[0_10px_40px_rgba(124,77,255,0.3)] flex flex-col items-center justify-center leading-tight active:scale-95 transition-transform">
+          <button
+            onClick={() => router.push("/pricing")}
+            className="w-full h-14 rounded-2xl bg-gradient-to-br from-[#7C4DFF] to-[#448AFF] text-white font-bold text-[14px] shadow-[0_10px_40px_rgba(124,77,255,0.3)] flex flex-col items-center justify-center leading-tight active:scale-95 transition-transform"
+          >
             <span>Unlock Full Report</span>
             <span className="text-[10px] opacity-70 font-normal mt-0.5">$4.95/week &middot; Cancel anytime in 1 tap</span>
           </button>

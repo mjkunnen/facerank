@@ -25,9 +25,6 @@ export default function PricingPage() {
       >
         {/* Top Navigation Bar */}
         <header className="w-full max-w-[400px] flex items-center justify-between px-[24px] pt-[60px] pb-[20px]">
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-white/40 cursor-pointer">close</span>
-          </div>
           <h1 className="font-headline font-semibold text-[20px] tracking-tight text-white/90">Price Guess</h1>
           <div className="w-6"></div>
         </header>
@@ -149,7 +146,7 @@ export default function PricingPage() {
                 onClick={() => router.push("/results")}
                 className="w-full h-[56px] premium-gradient text-white font-semibold text-[16px] rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-[0.98] transition-transform"
               >
-                Go to your results
+                Go to your scan preview
                 <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
               </button>
               <p className="text-[12px] text-white/25 font-label">

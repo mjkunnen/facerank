@@ -398,40 +398,96 @@ export default function ScanPage() {
           );
         })()}
 
-        {/* ════════ STEP 4: SCORE OVERVIEW (04_score_overview.html) ════════ */}
+        {/* ════════ STEP 4: HERITAGE MATCH (04_heritage_match.html) ════════ */}
         {isFeatures && (
           <>
-            {/* Header Section */}
-            <section className="mb-[32px]">
-              <h2 className="text-[22px] font-semibold tracking-[-0.035em] mb-2">Your complete analysis</h2>
-              <p className="text-[13px] text-white/40 font-medium">6 AI-powered insights about your face</p>
-            </section>
-            {/* Feature Grid (2x3) */}
-            <div className="grid grid-cols-2 gap-[16px]">
-              {FEATURES.map((f) => (
-                <div key={f.title} className="bg-white/[0.03] p-4 rounded-[12px] transition-all duration-300 card-glow-hover border border-white/[0.02]">
-                  <span className="material-symbols-outlined text-[#7C4DFF] mb-3 block text-[24px]">{f.icon}</span>
-                  <h3 className="text-[14px] font-semibold mb-1">{f.title}</h3>
-                  <p className="text-[11px] text-white/40 leading-tight">{f.desc}</p>
-                </div>
-              ))}
-            </div>
-            {/* Visual Teaser */}
-            <div className="mt-[48px] relative overflow-hidden rounded-xl h-[120px] bg-white/[0.02] flex items-center justify-center">
-              <div className="absolute inset-0 opacity-20 premium-gradient blur-3xl"></div>
-              <div className="relative z-10 flex flex-col items-center">
-                <span className="material-symbols-outlined text-white/20 text-[40px]" style={{ fontVariationSettings: "'FILL' 1" }}>face</span>
-                <p className="text-[12px] text-white/20 font-label tracking-widest uppercase mt-2">Ready for analysis</p>
+            {/* Hero Section */}
+            <header className="mb-8">
+              <h2 className="text-[22px] font-semibold text-white tracking-tight">Discover your heritage</h2>
+              <p className="text-[13px] text-white/40 mt-2 leading-relaxed">AI analyzes your facial structure to match ethnicities and ancestries</p>
+            </header>
+            {/* DNA Visualization Placeholder */}
+            <div className="w-full h-32 mb-12 flex items-center justify-center overflow-hidden rounded-2xl relative">
+              <div className="absolute inset-0 opacity-20 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 animate-pulse" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="material-symbols-outlined text-primary text-5xl opacity-80" style={{ fontVariationSettings: "'FILL' 1" }}>genetics</span>
               </div>
             </div>
-            {/* Bottom CTA */}
-            <div className="mt-auto pt-8">
+            {/* Heritage Cards Container */}
+            <div className="space-y-[12px]">
+              {/* Card 1: Greek */}
+              <div className="glass-card p-5 rounded-xl flex flex-col gap-4 border border-white/5">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">{"\u{1F1EC}\u{1F1F7}"}</span>
+                    <span className="text-[15px] font-medium text-white/90">Greek</span>
+                  </div>
+                  <span className="font-label text-sm font-semibold tracking-wider text-primary">34% match</span>
+                </div>
+                <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-full premium-gradient rounded-full" style={{ width: "34%" }} />
+                </div>
+              </div>
+              {/* Card 2: Italian */}
+              <div className="glass-card p-5 rounded-xl flex flex-col gap-4 border border-white/5">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">{"\u{1F1EE}\u{1F1F9}"}</span>
+                    <span className="text-[15px] font-medium text-white/90">Italian</span>
+                  </div>
+                  <span className="font-label text-sm font-semibold tracking-wider text-primary">28% match</span>
+                </div>
+                <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-full premium-gradient rounded-full" style={{ width: "28%" }} />
+                </div>
+              </div>
+              {/* Card 3: Turkish */}
+              <div className="glass-card p-5 rounded-xl flex flex-col gap-4 border border-white/5">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">{"\u{1F1F9}\u{1F1F7}"}</span>
+                    <span className="text-[15px] font-medium text-white/90">Turkish</span>
+                  </div>
+                  <span className="font-label text-sm font-semibold tracking-wider text-primary">18% match</span>
+                </div>
+                <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-full premium-gradient rounded-full" style={{ width: "18%" }} />
+                </div>
+              </div>
+              {/* Card 4: Spanish */}
+              <div className="glass-card p-5 rounded-xl flex flex-col gap-4 border border-white/5">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">{"\u{1F1EA}\u{1F1F8}"}</span>
+                    <span className="text-[15px] font-medium text-white/90">Spanish</span>
+                  </div>
+                  <span className="font-label text-sm font-semibold tracking-wider text-primary">12% match</span>
+                </div>
+                <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-full premium-gradient rounded-full" style={{ width: "12%" }} />
+                </div>
+              </div>
+              {/* Card 5: French */}
+              <div className="glass-card p-5 rounded-xl flex flex-col gap-4 border border-white/5">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">{"\u{1F1EB}\u{1F1F7}"}</span>
+                    <span className="text-[15px] font-medium text-white/90">French</span>
+                  </div>
+                  <span className="font-label text-sm font-semibold tracking-wider text-primary">8% match</span>
+                </div>
+                <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                  <div className="h-full premium-gradient rounded-full" style={{ width: "8%" }} />
+                </div>
+              </div>
+            </div>
+            {/* Action Button */}
+            <div className="mt-12 px-4">
               <button
                 onClick={advance}
-                className="w-full premium-gradient h-[56px] rounded-xl flex items-center justify-center gap-2 shadow-[0_12px_24px_-8px_rgba(124,77,255,0.5)] active:scale-95 transition-all duration-200"
+                className="w-full h-[56px] premium-gradient rounded-[16px] font-semibold text-white tracking-wide shadow-[0_8px_32px_rgba(124,77,255,0.3)] active:scale-95 transition-transform duration-200"
               >
-                <span className="text-[16px] font-semibold tracking-tight">Scan my face</span>
-                <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                Continue
               </button>
             </div>
           </>
@@ -691,6 +747,9 @@ export default function ScanPage() {
                   <div className="w-[1px] h-6 bg-[#F59E0B]/40 mb-1"></div>
                   <span className="zone-label text-[#F59E0B]">Jawline</span>
                 </div>
+                {/* Central UI Element - 3D wireframe head */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="w-full h-full object-contain mix-blend-screen opacity-50 pointer-events-none" alt="3D wireframe head" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-eFKIiwPsvT4EGg01JODxWGXDT2FcbKVQgUcuwmd74EO-PZcjmzbOKS9-T4vhFjAH3ZPm-NtXCajV1b0O8lk13J07QT3HqRHifM9VJnJsxsWekob7Anuf5r3OxxDsaBAXAJg043gCQmUKz31aiZ3AU3TmFkwe6HOYI5I2LDrFkiK7hzxazC72L1dxEk2VOzagunE0sZhTsbgGkpqdwgBRK25F7g54wBwQm6U-skm91RaqSv1_cM1GoKAdMmqOLhElVAEzL6e0E4tX" />
               </div>
               {/* Scanning Line Effect */}
               <div className="absolute inset-x-4 h-[2px] bg-gradient-to-r from-transparent via-[#7C4DFF]/60 to-transparent shadow-[0_0_15px_rgba(124,77,255,0.5)] z-10 pointer-events-none" style={{ animation: "scan-heatmap 3s linear infinite" }}></div>
@@ -801,7 +860,7 @@ export default function ScanPage() {
           </>
         )}
 
-        {/* ════════ STEP 9: UPLOAD (09_selfie_upload.html) ════════ */}
+        {/* ════════ STEP 9: SELFIE UPLOAD (11_selfie_upload.html) ════════ */}
         {isUpload && (
           <div className="flex-1 flex flex-col items-center">
             {!preview ? (
