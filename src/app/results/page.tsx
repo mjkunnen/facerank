@@ -7,24 +7,14 @@ export default function ResultsPage() {
   return (
     <div className="bg-[#08080C] text-white font-body antialiased">
       {/* Top App Bar */}
-      <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-7 h-24 max-w-[400px] mx-auto bg-[#08080C] border-none">
-        <div className="flex items-center gap-4">
-          <span className="material-symbols-outlined text-[#7C4DFF]">menu</span>
-          <h1 className="text-xl font-black tracking-tighter text-white uppercase font-headline">PRIMEMOG</h1>
-        </div>
-        <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10">
-          <img
-            className="w-full h-full object-cover"
-            alt="portrait of a stylish young man with sharp facial features and clean haircut against a dark studio background"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwcAQ4H9y6SKrZkH0ttaPjfJOMUl9Mmmu3ieqybUE_cqauQU5nnfGfv9BygDhOMCuKwLcxvFmwwHLwwzJvQiy3szrRr1ztZz7AXDP9PQc4L-dMLUPMzbu9KXw74QoT2vozYG0C0BFpHMiR0ljKawJXetJcGSvrjKlZJpDhgWPgGooCrNsDF6hjz1NfMXJZzkdTby8cLxN4gxU4PKRL4pODgO4bQHrizXuxG1kwhpmxJW6TRFUA4U29hvV7QzRPW2nlt4L71-ns1nbh"
-          />
-        </div>
+      <header className="fixed top-0 left-0 w-full z-50 flex justify-center items-center h-20 max-w-[400px] mx-auto bg-[#08080C]/90 backdrop-blur-md">
+        <h1 className="text-2xl font-black tracking-tighter text-white uppercase font-headline">PRIMEMOG</h1>
       </header>
 
       {/* Main Content Canvas */}
       <main className="pt-32 pb-48 px-7 max-w-[400px] mx-auto space-y-12">
         {/* SECTION 1: SCORE */}
-        <section className="flex items-end justify-between">
+        <section className="flex items-end justify-between cursor-pointer tap-bounce" onClick={scrollToUnlock}>
           <div className="flex items-baseline gap-0.5">
             <span className="text-[32px] font-bold tracking-tighter leading-none">7.</span>
             <span className="text-[32px] font-bold tracking-tighter leading-none heavy-blur opacity-80">4</span>
@@ -39,7 +29,7 @@ export default function ResultsPage() {
         <hr className="border-white/5" />
 
         {/* SECTION 2: YOUR BEST SCORES */}
-        <section className="space-y-6">
+        <section className="space-y-6 cursor-pointer tap-bounce" onClick={scrollToUnlock}>
           <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">Your facial analysis</h3>
           <div className="grid grid-cols-2 gap-[6px]">
             {/* Visible Stat */}

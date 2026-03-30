@@ -30,9 +30,9 @@ export default function AnalyzingPage() {
     if (image) setImageUrl(image);
     sessionStorage.setItem("facerank_results", JSON.stringify(getMockData()));
 
-    const s = setInterval(() => setStep((v) => (v < STEPS.length - 1 ? v + 1 : v)), 1200);
-    const p = setInterval(() => setProgress((v) => (v >= 100 ? 100 : v + 0.8)), 100);
-    const n = setTimeout(() => router.push("/results"), 13000);
+    const s = setInterval(() => setStep((v) => (v < STEPS.length - 1 ? v + 1 : v)), 600);
+    const p = setInterval(() => setProgress((v) => (v >= 100 ? 100 : v + 1.7)), 100);
+    const n = setTimeout(() => router.push("/results"), 6000);
     return () => { clearInterval(s); clearInterval(p); clearTimeout(n); };
   }, [router]);
 
@@ -43,15 +43,15 @@ export default function AnalyzingPage() {
         {/* Photo Scanner Container */}
         <div className="relative mb-6">
           {/* Corner Brackets */}
-          <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-[#7C4DFF] rounded-tl-sm opacity-60"></div>
-          <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-[#7C4DFF] rounded-tr-sm opacity-60"></div>
-          <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-[#7C4DFF] rounded-bl-sm opacity-60"></div>
-          <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-[#7C4DFF] rounded-br-sm opacity-60"></div>
+          <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-[#4ADE80] rounded-tl-sm opacity-60"></div>
+          <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-[#4ADE80] rounded-tr-sm opacity-60"></div>
+          <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-[#4ADE80] rounded-bl-sm opacity-60"></div>
+          <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-[#4ADE80] rounded-br-sm opacity-60"></div>
           {/* Image Wrap */}
           <div className="w-[144px] h-[144px] rounded-2xl overflow-hidden relative shadow-[0_0_40px_rgba(124,77,255,0.15)] bg-white/5">
             {imageUrl && <img src={imageUrl} alt="User portrait for analysis" className="w-full h-full object-cover" />}
             {/* Scanning Line */}
-            <div className="scan-line-analyzing absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#7C4DFF] to-transparent shadow-[0_0_12px_#7C4DFF] z-10"></div>
+            <div className="scan-line-analyzing absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#4ADE80] to-transparent shadow-[0_0_12px_#4ADE80] z-10"></div>
           </div>
         </div>
 
