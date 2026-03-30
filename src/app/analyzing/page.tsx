@@ -32,7 +32,7 @@ export default function AnalyzingPage() {
 
     const s = setInterval(() => setStep((v) => (v < STEPS.length - 1 ? v + 1 : v)), 600);
     const p = setInterval(() => setProgress((v) => (v >= 100 ? 100 : v + 1.7)), 100);
-    const n = setTimeout(() => router.push("/results"), 6000);
+    const n = setTimeout(() => router.push("/email"), 6000);
     return () => { clearInterval(s); clearInterval(p); clearTimeout(n); };
   }, [router]);
 

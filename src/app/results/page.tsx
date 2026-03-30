@@ -4,10 +4,24 @@ import { useEffect, useState } from "react";
 
 export default function ResultsPage() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [referralCode, setReferralCode] = useState<string | null>(null);
+  const [referralCount, setReferralCount] = useState(0);
+  const [shared, setShared] = useState(false);
 
   useEffect(() => {
     const img = sessionStorage.getItem("facerank_image");
     if (img) setImageUrl(img);
+
+    // Load user data
+    const userData = sessionStorage.getItem("primemog_user");
+    if (userData) {
+      const user = JSON.parse(userData);
+      setReferralCode(user.referral_code);
+      // Check referral count
+      fetch(`https://qfbcxljxskebkyuvprqw.supabase.co/rest/v1/referrals?referrer_id=eq.${user.id}&completed=eq.true&select=count`, {
+        headers: { 'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFmYmN4bGp4c2tlYmt5dXZwcnF3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4NDc5NDIsImV4cCI6MjA5MDQyMzk0Mn0.ih3jjjvYHpPo6_JO7W2vmO0vHskU9HG122FGa6_-5sQ' }
+      }).then(r => r.json()).then(d => { if (d?.[0]?.count) setReferralCount(d[0].count); });
+    }
   }, []);
   const scrollToUnlock = () => {
     document.getElementById("unlock-section")?.scrollIntoView({ behavior: "smooth" });
@@ -366,9 +380,25 @@ export default function ResultsPage() {
             <span>Get My Complete Analysis</span>
             <span className="text-[10px] opacity-70 font-normal">$4.95/week · Cancel anytime in 1 tap</span>
           </button>
-          <button className="w-full h-12 rounded-2xl border border-white/10 font-medium text-[13px] text-white/60 hover:text-white transition-colors active:scale-95 transition-transform bg-white/5">
-            Unlock free by inviting 3 friends
+          <button
+            className="w-full h-12 rounded-2xl border border-white/10 font-medium text-[13px] text-white/60 hover:text-white transition-colors active:scale-95 transition-transform bg-white/5"
+            onClick={async () => {
+              if (!referralCode) return;
+              const url = `https://primemog.com/?ref=${referralCode}`;
+              const text = "I just got my face analyzed by AI. Try it:";
+              if (navigator.share) {
+                try { await navigator.share({ text, url }); setShared(true); } catch {}
+              } else {
+                navigator.clipboard.writeText(`${text} ${url}`);
+                setShared(true);
+              }
+            }}
+          >
+            {shared ? `Link copied! (${referralCount}/3 friends joined)` : `Unlock free by inviting 3 friends`}
           </button>
+          {referralCount > 0 && (
+            <p className="text-[11px] text-center text-white/30">{referralCount}/3 friends completed their scan</p>
+          )}
         </div>
 
       </div>
