@@ -64,15 +64,15 @@ export default function AnalyzingPage() {
         {/* Photo Scanner Container */}
         <div className="relative mb-6">
           {/* Corner Brackets */}
-          <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-[#4ADE80] rounded-tl-sm opacity-60"></div>
-          <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-[#4ADE80] rounded-tr-sm opacity-60"></div>
-          <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-[#4ADE80] rounded-bl-sm opacity-60"></div>
-          <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-[#4ADE80] rounded-br-sm opacity-60"></div>
+          <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-[#7C4DFF] rounded-tl-sm opacity-60"></div>
+          <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-[#7C4DFF] rounded-tr-sm opacity-60"></div>
+          <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-[#7C4DFF] rounded-bl-sm opacity-60"></div>
+          <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-[#7C4DFF] rounded-br-sm opacity-60"></div>
           {imageUrl ? (
             <FaceScanOverlay
               imageUrl={imageUrl}
               size={144}
-              className="rounded-2xl shadow-[0_0_40px_rgba(74,222,128,0.15)]"
+              className="rounded-2xl shadow-[0_0_40px_rgba(124,77,255,0.15)]"
             />
           ) : (
             <div className="w-[144px] h-[144px] rounded-2xl bg-white/5 shadow-[0_0_40px_rgba(124,77,255,0.15)]" />

@@ -83,7 +83,7 @@ export default function ResultsPage() {
             <FaceScanOverlay
               imageUrl={imageUrl}
               size={120}
-              className="rounded-2xl border border-white/10 shadow-[0_0_30px_rgba(74,222,128,0.15)]"
+              className="rounded-2xl border border-white/10 shadow-[0_0_30px_rgba(124,77,255,0.15)]"
             />
           </div>
         )}
