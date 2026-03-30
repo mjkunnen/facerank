@@ -40,7 +40,7 @@ export default function ResultsPage() {
 
         {/* SECTION 2: YOUR BEST SCORES */}
         <section className="space-y-6">
-          <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">Your best scores</h3>
+          <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">Your facial analysis</h3>
           <div className="grid grid-cols-2 gap-[6px]">
             {/* Visible Stat */}
             <div className="glass-card p-4 rounded-xl border border-white/[0.02]">
@@ -86,7 +86,7 @@ export default function ResultsPage() {
 
         {/* SECTION 3: WORLD RANKINGS */}
         <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
-          <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">🌍 Top 5 Countries</h3>
+          <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">🌍 These countries love you the most...</h3>
           <div className="space-y-[5px]">
             <div className="flex items-center justify-between p-3 heavy-blur opacity-20">
               <span>#1 🇺🇸 USA</span>
@@ -102,7 +102,7 @@ export default function ResultsPage() {
                 <span className="text-[14px]">🇪🇸 Spain</span>
               </div>
               <div className="flex items-center gap-4">
-                <span className="text-[10px] opacity-40 italic">&quot;Hunter eyes&quot;</span>
+                <span className="text-[10px] opacity-40 italic heavy-blur">&quot;Hunter eyes&quot;</span>
                 <span className="font-label font-bold text-gradient">8.4</span>
               </div>
             </div>
@@ -121,7 +121,7 @@ export default function ResultsPage() {
 
         {/* SECTION 4: HERITAGE */}
         <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
-          <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">🧬 Heritage</h3>
+          <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">🧬 Your heritage based on facial structure</h3>
           <div className="flex flex-wrap gap-3">
             <div className="px-4 py-2 glass-card rounded-full flex items-center gap-2 border border-white/5">
               <span className="text-sm">🇬🇷</span>
@@ -167,6 +167,39 @@ export default function ResultsPage() {
             {/* PRO Badge */}
             <div className="absolute top-4 right-4 bg-gradient-cta px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase shadow-lg shadow-primary/40">
               🔒 PRO
+            </div>
+          </div>
+          {/* Strong Points */}
+          <div className="space-y-2">
+            <p className="text-[11px] font-label text-green-400 uppercase tracking-widest font-bold">Strong points</p>
+            <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-green-500/10">
+              <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_6px_#4ADE80]"></div>
+              <span className="text-[13px] text-white/70">Eyes — symmetry &amp; depth</span>
+              <span className="text-[12px] font-label text-green-400 ml-auto">8.1</span>
+            </div>
+            <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-green-500/10">
+              <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_6px_#4ADE80]"></div>
+              <span className="text-[13px] text-white/70">Forehead — proportional</span>
+              <span className="text-[12px] font-label text-green-400 ml-auto">7.9</span>
+            </div>
+          </div>
+          {/* Weak Points (blurred) */}
+          <div className="space-y-2">
+            <p className="text-[11px] font-label text-red-400 uppercase tracking-widest font-bold">Weak points</p>
+            <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-red-500/10 heavy-blur">
+              <div className="w-2 h-2 rounded-full bg-red-400"></div>
+              <span className="text-[13px]">Jawline — definition lacking</span>
+              <span className="text-[12px] font-label ml-auto">5.8</span>
+            </div>
+            <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-red-500/10 heavy-blur">
+              <div className="w-2 h-2 rounded-full bg-red-400"></div>
+              <span className="text-[13px]">Skin texture — uneven tone</span>
+              <span className="text-[12px] font-label ml-auto">6.2</span>
+            </div>
+            <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-red-500/10 heavy-blur opacity-50">
+              <div className="w-2 h-2 rounded-full bg-red-400"></div>
+              <span className="text-[13px]">Nose bridge — asymmetry</span>
+              <span className="text-[12px] font-label ml-auto">6.0</span>
             </div>
           </div>
         </section>
