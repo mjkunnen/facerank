@@ -85,7 +85,7 @@ export default function ResultsPage() {
         <hr className="border-white/5" />
 
         {/* SECTION 3: WORLD RANKINGS */}
-        <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
+        <section className="space-y-6 cursor-pointer tap-bounce" onClick={scrollToUnlock}>
           <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">🌍 These countries love you the most...</h3>
           <div className="space-y-[5px]">
             <div className="flex items-center justify-between p-3 heavy-blur opacity-20">
@@ -120,7 +120,7 @@ export default function ResultsPage() {
         <hr className="border-white/5" />
 
         {/* SECTION 4: HERITAGE */}
-        <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
+        <section className="space-y-6 cursor-pointer tap-bounce" onClick={scrollToUnlock}>
           <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">🧬 Your heritage based on facial structure</h3>
           <div className="flex flex-wrap gap-3">
             <div className="px-4 py-2 glass-card rounded-full flex items-center gap-2 border border-white/5">
@@ -148,7 +148,7 @@ export default function ResultsPage() {
         <hr className="border-white/5" />
 
         {/* SECTION 5: HEAT MAP */}
-        <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
+        <section className="space-y-6 cursor-pointer tap-bounce" onClick={scrollToUnlock}>
           <div className="flex justify-between items-center">
             <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">🔥 Heat Map</h3>
             <span className="text-[10px] font-label text-primary tracking-widest uppercase">Analysis: Pro</span>
@@ -209,7 +209,7 @@ export default function ResultsPage() {
         <hr className="border-white/5" />
 
         {/* SECTION 6: GLOW-UP PLAN */}
-        <section className="space-y-8 cursor-pointer" onClick={scrollToUnlock}>
+        <section className="space-y-8 cursor-pointer tap-bounce" onClick={scrollToUnlock}>
           <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">📈 Glow-Up Plan</h3>
           <div className="flex items-center justify-around py-4">
             <div className="flex flex-col items-center gap-2">
@@ -254,7 +254,7 @@ export default function ResultsPage() {
         <hr className="border-white/5" />
 
         {/* SECTION 7: BEST HAIRSTYLE */}
-        <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
+        <section className="space-y-6 cursor-pointer tap-bounce" onClick={scrollToUnlock}>
           <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">💇 Best Hairstyle</h3>
           <p className="text-[12px] text-white/40 -mt-2">These hairstyles fit you best based on our full analysis</p>
           <div className="space-y-3">
@@ -285,21 +285,21 @@ export default function ResultsPage() {
 
         {/* Locked Insight Teasers */}
         <div className="space-y-3 mb-10">
-          <div className="p-4 glass-card rounded-2xl border border-white/5 flex items-center justify-between cursor-pointer" onClick={scrollToUnlock}>
+          <div className="p-4 glass-card rounded-2xl border border-white/5 flex items-center justify-between cursor-pointer tap-bounce" onClick={scrollToUnlock}>
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-primary text-[20px]">warning</span>
               <span className="text-[13px] font-medium heavy-blur">Your biggest facial limiter is ████████</span>
             </div>
             <span className="material-symbols-outlined text-white/20 text-[18px]">lock</span>
           </div>
-          <div className="p-4 glass-card rounded-2xl border border-white/5 flex items-center justify-between cursor-pointer" onClick={scrollToUnlock}>
+          <div className="p-4 glass-card rounded-2xl border border-white/5 flex items-center justify-between cursor-pointer tap-bounce" onClick={scrollToUnlock}>
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-primary text-[20px]">trending_up</span>
               <span className="text-[13px] font-medium heavy-blur">How to gain +0.4 to +0.8 on your score</span>
             </div>
             <span className="material-symbols-outlined text-white/20 text-[18px]">lock</span>
           </div>
-          <div className="p-4 glass-card rounded-2xl border border-white/5 flex items-center justify-between cursor-pointer" onClick={scrollToUnlock}>
+          <div className="p-4 glass-card rounded-2xl border border-white/5 flex items-center justify-between cursor-pointer tap-bounce" onClick={scrollToUnlock}>
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-primary text-[20px]">route</span>
               <span className="text-[13px] font-medium heavy-blur">Your exact glow-up roadmap with timeline</span>
@@ -347,7 +347,7 @@ export default function ResultsPage() {
 
         {/* CTAs */}
         <div className="space-y-3">
-          <button className="w-full h-14 bg-gradient-cta rounded-2xl font-bold text-[15px] flex flex-col items-center justify-center shadow-[0_8px_32px_rgba(124,77,255,0.3)] active:scale-95 transition-transform">
+          <button className="btn-glow w-full h-14 bg-gradient-cta rounded-2xl font-bold text-[15px] flex flex-col items-center justify-center shadow-[0_8px_32px_rgba(124,77,255,0.3)] active:scale-95 transition-transform">
             <span>Get My Complete Analysis</span>
             <span className="text-[10px] opacity-70 font-normal">$4.95/week · Cancel anytime in 1 tap</span>
           </button>

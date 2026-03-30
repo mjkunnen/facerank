@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 export default function FlowPage() {
   const [step, setStep] = useState(0);
   const [priceValue, setPriceValue] = useState(149);
   const router = useRouter();
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const next = () => setStep((s) => s + 1);
 
   // Step 0: Gender (02_gender.html)
@@ -25,18 +26,18 @@ export default function FlowPage() {
         </div>
       </header>
       {/* Main Content */}
-      <main className="max-w-[400px] mx-auto px-7 pt-[140px] pb-[48px] min-h-screen flex flex-col items-center">
+      <main className="max-w-[400px] mx-auto px-7 pt-[110px] pb-[48px] min-h-dvh flex flex-col items-center">
         {/* Dramatic Headline */}
-        <div className="w-full mb-12 text-left">
+        <div className="w-full mb-8 text-left">
           <p className="text-[#7C4DFF] font-label font-bold text-[11px] uppercase tracking-[0.3em] mb-2 opacity-80">Identification</p>
-          <h2 className="text-[64px] font-black text-white tracking-[-0.05em] leading-[0.9] text-glow">
+          <h2 className="text-[48px] font-black text-white tracking-[-0.05em] leading-[0.9] text-glow">
             I am
           </h2>
         </div>
         {/* Character Selection Grid (Vertical Full-Width Cards) */}
         <div className="w-full space-y-6">
           {/* Male Selection Card */}
-          <button className="premium-card w-full rounded-2xl py-12 px-8 flex items-center justify-between group" onClick={next}>
+          <button className="premium-card card-shimmer tap-bounce w-full rounded-2xl py-12 px-8 flex items-center justify-between group" onClick={next}>
             <div className="card-glow"></div>
             <div className="flex flex-col items-start">
               <span className="text-[28px] font-bold text-white group-active:text-white mb-1 transition-colors">Male</span>
@@ -51,7 +52,7 @@ export default function FlowPage() {
             </div>
           </button>
           {/* Female Selection Card */}
-          <button className="premium-card w-full rounded-2xl py-12 px-8 flex items-center justify-between group" onClick={next}>
+          <button className="premium-card card-shimmer tap-bounce w-full rounded-2xl py-12 px-8 flex items-center justify-between group" onClick={next}>
             <div className="card-glow"></div>
             <div className="flex flex-col items-start">
               <span className="text-[28px] font-bold text-white group-active:text-white mb-1 transition-colors">Female</span>
@@ -113,33 +114,33 @@ export default function FlowPage() {
         {/* Age Options Container */}
         <div className="flex flex-col gap-3 flex-grow">
           {/* Option 1 */}
-          <button className="w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+          <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">12 – 15</span>
           </button>
           {/* Option 2 */}
-          <button className="w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+          <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">16 – 20</span>
           </button>
           {/* Option 3 */}
-          <button className="w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+          <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">21 – 25</span>
           </button>
           {/* Option 4 */}
-          <button className="w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+          <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">26 – 30</span>
           </button>
           {/* Option 5 */}
-          <button className="w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+          <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">31 – 40</span>
           </button>
           {/* Option 6 */}
-          <button className="w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
+          <button className="tap-bounce w-full h-[48px] glass-card rounded-lg flex items-center px-6 hover:bg-white/5 transition-all duration-300 group border border-white/5" onClick={next}>
             <span className="text-[15px] font-medium text-white/60 group-hover:text-white transition-colors">40+</span>
           </button>
         </div>
         {/* Bottom CTA */}
         <div className="mt-auto pt-8">
-          <button className="w-full h-[56px] rounded-xl bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] flex items-center justify-center font-semibold text-white tracking-wide active:scale-[0.98] transition-all shadow-[0_8px_24px_rgba(124,77,255,0.3)]" onClick={next}>
+          <button className="btn-glow w-full h-[56px] rounded-xl bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] flex items-center justify-center font-semibold text-white tracking-wide active:scale-[0.98] transition-all shadow-[0_8px_24px_rgba(124,77,255,0.3)]" onClick={next}>
             Continue
           </button>
           <p className="text-[11px] text-white/20 text-center mt-4 font-label uppercase tracking-widest">Step 1 of 4</p>
@@ -168,7 +169,7 @@ export default function FlowPage() {
           <p className="text-[13px] text-white/25">AI matches your facial structure to ancestries</p>
         </div>
         {/* Hero Visual: DNA Helix */}
-        <div className="relative h-[200px] w-full flex items-center justify-center mb-[16px]">
+        <div className="relative h-[160px] w-full flex items-center justify-center mb-[16px]">
           {/* Stylized DNA Graphic */}
           <div className="relative w-full h-full flex justify-center items-center opacity-90 dna-animate">
             {/* DNA Strands Simulation */}
@@ -277,7 +278,7 @@ export default function FlowPage() {
           </div>
         </div>
         {/* Continue Button */}
-        <button className="w-full h-14 bg-gradient-to-r from-primary to-secondary rounded-xl font-semibold text-white mt-12 mb-4 hover:opacity-90 active:scale-[0.98] transition-all" onClick={next}>
+        <button className="btn-glow w-full h-14 bg-gradient-to-r from-primary to-secondary rounded-xl font-semibold text-white mt-12 mb-4 hover:opacity-90 active:scale-[0.98] transition-all" onClick={next}>
           Continue
         </button>
       </main>
@@ -286,7 +287,7 @@ export default function FlowPage() {
 
   // Step 3: World Rankings (05_world.html)
   if (step === 3) return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center min-h-dvh">
       {/* Mobile Container (Fixed Size 390x844) */}
       <main className="relative w-[390px] h-[844px] bg-[#08080C] overflow-hidden flex flex-col">
         {/* TopAppBar */}
@@ -403,7 +404,7 @@ export default function FlowPage() {
         </div>
         {/* Bottom Action */}
         <footer className="px-7 pt-4 pb-12 w-full flex flex-col items-center">
-          <button className="w-full h-[56px] rounded-2xl bg-gradient-to-r from-primary to-secondary text-white font-semibold text-[16px] shadow-[0_8px_24px_rgba(124,77,255,0.3)] active:scale-95 transition-all duration-300" onClick={next}>
+          <button className="btn-glow w-full h-[56px] rounded-2xl bg-gradient-to-r from-primary to-secondary text-white font-semibold text-[16px] shadow-[0_8px_24px_rgba(124,77,255,0.3)] active:scale-95 transition-all duration-300" onClick={next}>
             Continue
           </button>
         </footer>
@@ -518,7 +519,7 @@ export default function FlowPage() {
         </div>
         {/* Primary CTA */}
         <div className="fixed bottom-32 left-0 right-0 px-7 max-w-[400px] mx-auto z-40">
-          <button className="w-full h-14 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] text-white font-semibold rounded-2xl shadow-[0_10px_30px_rgba(124,77,255,0.3)] active:scale-95 transition-all duration-200" onClick={next}>
+          <button className="btn-glow w-full h-14 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] text-white font-semibold rounded-2xl shadow-[0_10px_30px_rgba(124,77,255,0.3)] active:scale-95 transition-all duration-200" onClick={next}>
             Continue
           </button>
         </div>
@@ -574,7 +575,7 @@ export default function FlowPage() {
         </section>
         {/* CTA Section */}
         <footer className="w-full pb-[48px] pt-4">
-          <button className="w-full h-[60px] bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] text-white font-bold text-[17px] rounded-full shadow-[0_12px_40px_rgba(124,77,255,0.4)] active:scale-[0.97] transition-all duration-200 flex items-center justify-center gap-2" onClick={next}>
+          <button className="btn-glow w-full h-[60px] bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] text-white font-bold text-[17px] rounded-full shadow-[0_12px_40px_rgba(124,77,255,0.4)] active:scale-[0.97] transition-all duration-200 flex items-center justify-center gap-2" onClick={next}>
             Reveal the price →
           </button>
         </footer>
@@ -627,7 +628,7 @@ export default function FlowPage() {
           </div>
           {/* Action Cluster */}
           <div className="w-full space-y-[16px] pt-[32px]">
-            <button className="w-full h-[56px] gradient-bg text-white font-semibold text-[16px] rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-[0.98]" onClick={next}>
+            <button className="btn-glow w-full h-[56px] gradient-bg text-white font-semibold text-[16px] rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-[0.98]" onClick={next}>
               Go to your scan preview<span className="material-symbols-outlined text-[20px]">arrow_forward</span>
             </button>
             <p className="text-[12px] text-white/25 font-label">
@@ -719,7 +720,7 @@ export default function FlowPage() {
       </main>
       {/* Fixed Bottom CTA */}
       <div className="fixed bottom-0 left-0 right-0 max-w-[400px] mx-auto px-[28px] pb-[48px] pt-8 bg-gradient-to-t from-[#08080C] via-[#08080C] to-transparent z-50">
-        <button className="w-full premium-gradient h-[56px] rounded-xl flex items-center justify-center gap-2 shadow-[0_12px_24px_-8px_rgba(124,77,255,0.5)] active:scale-95 transition-all duration-200" onClick={next}>
+        <button className="btn-glow w-full premium-gradient h-[56px] rounded-xl flex items-center justify-center gap-2 shadow-[0_12px_24px_-8px_rgba(124,77,255,0.5)] active:scale-95 transition-all duration-200" onClick={next}>
           <span className="text-[16px] font-semibold tracking-tight">Scan my face</span>
           <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
         </button>
@@ -766,7 +767,7 @@ export default function FlowPage() {
           <p className="text-[13px] text-white/40 mt-1">Takes 2 seconds — get your full analysis immediately</p>
         </div>
         {/* Upload Zone */}
-        <div className="relative group cursor-pointer active:scale-95 transition-transform duration-200" onClick={() => router.push("/analyzing")}>
+        <div className="relative group cursor-pointer active:scale-95 transition-transform duration-200" onClick={() => fileInputRef.current?.click()}>
           <div className="w-[170px] aspect-[3/4] upload-dashed flex flex-col items-center justify-center bg-white/[0.03] hover:bg-white/[0.05] transition-colors duration-300">
             <span className="material-symbols-outlined text-white/20 mb-3 text-3xl">add_a_photo</span>
             <span className="text-[13px] font-medium text-white/40">Tap to upload</span>
@@ -774,6 +775,17 @@ export default function FlowPage() {
           {/* Visual Accent: Glass Reflection */}
           <div className="absolute inset-0 rounded-[24px] pointer-events-none bg-gradient-to-br from-white/5 to-transparent opacity-50"></div>
         </div>
+        <input type="file" accept="image/*" capture="user" ref={fileInputRef} className="hidden" onChange={(e) => {
+          const file = e.target.files?.[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+              sessionStorage.setItem("facerank_image", reader.result as string);
+              router.push("/analyzing");
+            };
+            reader.readAsDataURL(file);
+          }
+        }} />
         {/* Secondary Actions & Trust */}
         <div className="mt-8 flex flex-col items-center gap-6">
           <button className="text-[12px] font-medium text-white/15 hover:text-white/40 transition-colors uppercase tracking-widest" onClick={() => router.push("/analyzing")}>

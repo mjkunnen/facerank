@@ -482,3 +482,31 @@ body::before {
 .custom-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Glow pulse animation for CTA buttons */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(124, 77, 255, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(124, 77, 255, 0.5), 0 0 60px rgba(124, 77, 255, 0.2); }
+}
+.btn-glow {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Subtle shimmer on cards */
+@keyframes card-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.card-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(124, 77, 255, 0.03) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: card-shimmer 4s ease-in-out infinite;
+}
+
+/* Active/tap feedback */
+.tap-bounce {
+  transition: transform 0.15s ease;
+}
+.tap-bounce:active {
+  transform: scale(0.96);
+}

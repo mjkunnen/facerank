@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="font-body antialiased" style={{ overflow: "hidden", height: "100vh", width: "100vw" }}>
+    <div className="font-body antialiased">
       {/* TopAppBar */}
       <header className="fixed top-0 w-full z-50 bg-[#08080C]/80 backdrop-blur-md">
         <div className="flex justify-between items-center px-7 py-6 max-w-[400px] mx-auto">
@@ -56,7 +56,7 @@ export default function Home() {
 
         {/* CTA & Social Proof */}
         <div className="w-full flex flex-col items-center">
-          <Link href="/flow" className="gradient-cta w-full h-[56px] rounded-full text-white font-bold text-base tracking-tight transition-transform active:scale-95 duration-200 shadow-lg flex items-center justify-center no-underline">
+          <Link href="/flow" className="gradient-cta btn-glow w-full h-[56px] rounded-full text-white font-bold text-base tracking-tight transition-transform active:scale-95 duration-200 shadow-lg flex items-center justify-center no-underline">
             Find out now
           </Link>
           <p className="text-[11px] font-medium text-white/20 mt-[10px] tracking-tight">
