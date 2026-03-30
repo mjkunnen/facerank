@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
+import FaceScanOverlay from "@/components/FaceScanOverlay";
 
 const STEPS = [
   "Detecting landmarks",
@@ -67,13 +68,15 @@ export default function AnalyzingPage() {
           <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-[#4ADE80] rounded-tr-sm opacity-60"></div>
           <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-[#4ADE80] rounded-bl-sm opacity-60"></div>
           <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-[#4ADE80] rounded-br-sm opacity-60"></div>
-          {/* Image Wrap */}
-          <div className="w-[144px] h-[144px] rounded-2xl overflow-hidden relative shadow-[0_0_40px_rgba(124,77,255,0.15)] bg-white/5">
-            {imageUrl && <img src={imageUrl} alt="User portrait for analysis" className="w-full h-full object-cover" />}
-            {/* Scanning Line */}
-            <div className="scan-line-analyzing absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#4ADE80] to-transparent shadow-[0_0_12px_#4ADE80] z-10"></div>
-            <div className="honeycomb-scan"></div>
-          </div>
+          {imageUrl ? (
+            <FaceScanOverlay
+              imageUrl={imageUrl}
+              size={144}
+              className="rounded-2xl shadow-[0_0_40px_rgba(74,222,128,0.15)]"
+            />
+          ) : (
+            <div className="w-[144px] h-[144px] rounded-2xl bg-white/5 shadow-[0_0_40px_rgba(124,77,255,0.15)]" />
+          )}
         </div>
 
         {/* Progress Details */}
