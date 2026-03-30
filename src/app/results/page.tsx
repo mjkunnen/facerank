@@ -1,6 +1,14 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export default function ResultsPage() {
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    const img = sessionStorage.getItem("facerank_image");
+    if (img) setImageUrl(img);
+  }, []);
   const scrollToUnlock = () => {
     document.getElementById("unlock-section")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -25,6 +33,22 @@ export default function ResultsPage() {
             <p className="text-[10px] font-label opacity-25 uppercase tracking-widest">Attractive</p>
           </div>
         </section>
+
+        {/* USER PHOTO WITH SCAN OVERLAY */}
+        {imageUrl && (
+          <div className="flex justify-center">
+            <div className="relative w-[120px] h-[120px] rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(74,222,128,0.15)]">
+              <img src={imageUrl} alt="Your scan" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#4ADE80]/10 to-transparent mix-blend-overlay"></div>
+              <div className="absolute inset-0 border-2 border-[#4ADE80]/20 rounded-2xl"></div>
+              <div className="scan-line-green"></div>
+              <div className="absolute top-1 left-1 w-3 h-3 border-t border-l border-[#4ADE80]/50"></div>
+              <div className="absolute top-1 right-1 w-3 h-3 border-t border-r border-[#4ADE80]/50"></div>
+              <div className="absolute bottom-1 left-1 w-3 h-3 border-b border-l border-[#4ADE80]/50"></div>
+              <div className="absolute bottom-1 right-1 w-3 h-3 border-b border-r border-[#4ADE80]/50"></div>
+            </div>
+          </div>
+        )}
 
         <hr className="border-white/5" />
 
