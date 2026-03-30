@@ -10,9 +10,8 @@ body {
   font-family: "Sora", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
-  height: 100vh;
-  min-height: max(884px, 100dvh);
+  overflow-x: hidden;
+  min-height: 100dvh;
 }
 
 /* Particle Background Simulation */
