@@ -2,8 +2,22 @@
 
 import { useEffect, useState } from "react";
 
+interface AnalysisData {
+  overall_score: number;
+  percentile: number;
+  tier: string;
+  scores: Record<string, { score: number; label: string }>;
+  countries: { flag: string; name: string; score: number; reason: string }[];
+  heritage: { name: string; percentage: number; features: string }[];
+  strong_points: { area: string; detail: string; score: number }[];
+  weak_points: { area: string; detail: string; score: number }[];
+  glowup: { current: number; potential: number; steps: { name: string; gain: number; tip: string }[] };
+  hairstyles: { rank: number; name: string; note: string }[];
+}
+
 export default function ResultsPage() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [data, setData] = useState<AnalysisData | null>(null);
   const [referralCode, setReferralCode] = useState<string | null>(null);
   const [referralCount, setReferralCount] = useState(0);
   const [shared, setShared] = useState(false);
@@ -12,20 +26,34 @@ export default function ResultsPage() {
     const img = sessionStorage.getItem("facerank_image");
     if (img) setImageUrl(img);
 
-    // Load user data
+    const raw = sessionStorage.getItem("primemog_results");
+    if (raw) setData(JSON.parse(raw));
+
     const userData = sessionStorage.getItem("primemog_user");
     if (userData) {
       const user = JSON.parse(userData);
       setReferralCode(user.referral_code);
-      // Check referral count
       fetch(`https://qfbcxljxskebkyuvprqw.supabase.co/rest/v1/referrals?referrer_id=eq.${user.id}&completed=eq.true&select=count`, {
         headers: { 'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFmYmN4bGp4c2tlYmt5dXZwcnF3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4NDc5NDIsImV4cCI6MjA5MDQyMzk0Mn0.ih3jjjvYHpPo6_JO7W2vmO0vHskU9HG122FGa6_-5sQ' }
       }).then(r => r.json()).then(d => { if (d?.[0]?.count) setReferralCount(d[0].count); });
     }
   }, []);
+
   const scrollToUnlock = () => {
     document.getElementById("unlock-section")?.scrollIntoView({ behavior: "smooth" });
   };
+
+  // Split overall score into integer + decimal
+  const scoreInt = data ? Math.floor(data.overall_score).toString() + "." : "7.";
+  const scoreDec = data ? (data.overall_score % 1).toFixed(1).substring(2) : "4";
+
+  // Get scores as array, first one visible, rest blurred
+  const scoreEntries = data ? Object.values(data.scores) : [];
+
+  // Glow-up current/potential split
+  const glowCurrent = data?.glowup?.current?.toFixed(1) || "7.4";
+  const glowPotential = data?.glowup?.potential?.toFixed(1) || "8.2";
+
   return (
     <div className="bg-[#08080C] text-white font-body antialiased">
       {/* Top App Bar */}
@@ -38,13 +66,13 @@ export default function ResultsPage() {
         {/* SECTION 1: SCORE */}
         <section className="flex items-end justify-between cursor-pointer tap-bounce" onClick={scrollToUnlock}>
           <div className="flex items-baseline gap-0.5">
-            <span className="text-[32px] font-bold tracking-tighter leading-none">7.</span>
-            <span className="text-[32px] font-bold tracking-tighter leading-none heavy-blur opacity-80">4</span>
+            <span className="text-[32px] font-bold tracking-tighter leading-none">{scoreInt}</span>
+            <span className="text-[32px] font-bold tracking-tighter leading-none heavy-blur opacity-80">{scoreDec}</span>
             <span className="text-[14px] font-label opacity-40 ml-2">/ 10</span>
           </div>
           <div className="text-right">
-            <p className="text-[14px] font-medium">Top <span className="heavy-blur">██</span>%</p>
-            <p className="text-[10px] font-label opacity-25 uppercase tracking-widest">Attractive</p>
+            <p className="text-[14px] font-medium">Top <span className="heavy-blur">{data?.percentile || "██"}</span>%</p>
+            <p className="text-[10px] font-label opacity-25 uppercase tracking-widest">{data?.tier || "Attractive"}</p>
           </div>
         </section>
 
@@ -67,47 +95,33 @@ export default function ResultsPage() {
 
         <hr className="border-white/5" />
 
-        {/* SECTION 2: YOUR BEST SCORES */}
+        {/* SECTION 2: FACIAL ANALYSIS */}
         <section className="space-y-6 cursor-pointer tap-bounce" onClick={scrollToUnlock}>
           <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">Your facial analysis</h3>
           <div className="grid grid-cols-2 gap-[6px]">
-            {/* Visible Stat */}
-            <div className="glass-card p-4 rounded-xl border border-white/[0.02]">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-lg font-bold font-label text-gradient">7.4</span>
-                <div className="w-1 h-4 bg-primary rounded-full shadow-[0_0_8px_rgba(124,77,255,0.5)]"></div>
+            {scoreEntries.slice(0, 1).map((s, i) => (
+              <div key={i} className="glass-card p-4 rounded-xl border border-white/[0.02]">
+                <div className="flex justify-between items-start mb-2">
+                  <span className="text-lg font-bold font-label text-gradient">{s.score}</span>
+                  <div className="w-1 h-4 bg-primary rounded-full shadow-[0_0_8px_rgba(124,77,255,0.5)]"></div>
+                </div>
+                <span className="text-[12px] opacity-60">{s.label}</span>
               </div>
-              <span className="text-[12px] opacity-60">Harmony</span>
-            </div>
-            {/* Blurred Stats */}
-            <div className="glass-card p-4 rounded-xl opacity-60">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-lg font-bold font-label">8.1</span>
-                <div className="w-1 h-4 bg-white/20 rounded-full"></div>
+            ))}
+            {scoreEntries.slice(1, 4).map((s, i) => (
+              <div key={i} className="glass-card p-4 rounded-xl opacity-60">
+                <div className="flex justify-between items-start mb-2">
+                  <span className="text-lg font-bold font-label">{s.score}</span>
+                  <div className="w-1 h-4 bg-white/20 rounded-full"></div>
+                </div>
+                <span className="text-[12px] heavy-blur">{s.label}</span>
               </div>
-              <span className="text-[12px] heavy-blur">Symmetry</span>
-            </div>
-            <div className="glass-card p-4 rounded-xl opacity-60">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-lg font-bold font-label">7.8</span>
-                <div className="w-1 h-4 bg-white/20 rounded-full"></div>
+            ))}
+            {scoreEntries.slice(4).map((s, i) => (
+              <div key={i} className="glass-card p-4 rounded-xl opacity-30 flex items-center justify-center">
+                <span className="heavy-blur text-lg font-bold font-label">{s.score} {s.label}</span>
               </div>
-              <span className="text-[12px] heavy-blur">Jawline</span>
-            </div>
-            <div className="glass-card p-4 rounded-xl opacity-60">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-lg font-bold font-label">7.2</span>
-                <div className="w-1 h-4 bg-white/20 rounded-full"></div>
-              </div>
-              <span className="text-[12px] heavy-blur">Skin Health</span>
-            </div>
-            {/* Locked Stats */}
-            <div className="glass-card p-4 rounded-xl opacity-30 flex items-center justify-center">
-              <span className="heavy-blur text-lg font-bold font-label">9.0 Visual</span>
-            </div>
-            <div className="glass-card p-4 rounded-xl opacity-30 flex items-center justify-center">
-              <span className="heavy-blur text-lg font-bold font-label">8.5 Appeal</span>
-            </div>
+            ))}
           </div>
         </section>
 
@@ -117,32 +131,26 @@ export default function ResultsPage() {
         <section className="space-y-6 cursor-pointer tap-bounce" onClick={scrollToUnlock}>
           <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">🌍 These countries love you the most...</h3>
           <div className="space-y-[5px]">
-            <div className="flex items-center justify-between p-3 heavy-blur opacity-20">
-              <span>#1 🇺🇸 USA</span>
-              <span className="font-label">8.9</span>
-            </div>
-            <div className="flex items-center justify-between p-3 heavy-blur opacity-30">
-              <span>#2 🇧🇷 Brazil</span>
-              <span className="font-label">8.7</span>
-            </div>
-            <div className="flex items-center justify-between p-3 glass-card rounded-lg border border-primary/20">
-              <div className="flex items-center gap-3">
-                <span className="text-[12px] font-bold text-primary">#3</span>
-                <span className="text-[14px]">🇪🇸 Spain</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <span className="text-[10px] opacity-40 italic heavy-blur">&quot;Hunter eyes&quot;</span>
-                <span className="font-label font-bold text-gradient">8.4</span>
-              </div>
-            </div>
-            <div className="flex items-center justify-between p-3 heavy-blur opacity-30">
-              <span>#4 🇮🇹 Italy</span>
-              <span className="font-label">8.1</span>
-            </div>
-            <div className="flex items-center justify-between p-3 heavy-blur opacity-20">
-              <span>#5 🇦🇺 Australia</span>
-              <span className="font-label">7.9</span>
-            </div>
+            {(data?.countries || []).map((c, i) => {
+              if (i === 2) return (
+                <div key={i} className="flex items-center justify-between p-3 glass-card rounded-lg border border-primary/20">
+                  <div className="flex items-center gap-3">
+                    <span className="text-[12px] font-bold text-primary">#{i + 1}</span>
+                    <span className="text-[14px]">{c.flag} {c.name}</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <span className="text-[10px] opacity-40 italic heavy-blur">&quot;{c.reason}&quot;</span>
+                    <span className="font-label font-bold text-gradient">{c.score}</span>
+                  </div>
+                </div>
+              );
+              return (
+                <div key={i} className="flex items-center justify-between p-3 heavy-blur opacity-25">
+                  <span>#{i + 1} {c.flag} {c.name}</span>
+                  <span className="font-label">{c.score}</span>
+                </div>
+              );
+            })}
           </div>
         </section>
 
@@ -152,25 +160,17 @@ export default function ResultsPage() {
         <section className="space-y-6 cursor-pointer tap-bounce" onClick={scrollToUnlock}>
           <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">🧬 Your heritage based on facial structure</h3>
           <div className="flex flex-wrap gap-3">
-            <div className="px-4 py-2 glass-card rounded-full flex items-center gap-2 border border-white/5">
-              <span className="text-sm">🇬🇷</span>
-              <span className="text-[13px] font-medium">Greek</span>
-              <span className="text-[13px] font-label text-primary">34%</span>
-            </div>
-            <div className="px-4 py-2 glass-card rounded-full flex items-center gap-2 border border-white/5">
-              <span className="text-sm">🇮🇹</span>
-              <span className="text-[13px] font-medium">Italian</span>
-              <span className="text-[13px] font-label text-primary">28%</span>
-            </div>
-            <div className="px-4 py-2 glass-card rounded-full heavy-blur opacity-40">
-              <span className="text-[13px]">Northern European 15%</span>
-            </div>
-            <div className="px-4 py-2 glass-card rounded-full heavy-blur opacity-20">
-              <span className="text-[13px]">East Asian 12%</span>
-            </div>
-            <div className="px-4 py-2 glass-card rounded-full heavy-blur opacity-10">
-              <span className="text-[13px]">Middle Eastern 11%</span>
-            </div>
+            {(data?.heritage || []).slice(0, 2).map((h, i) => (
+              <div key={i} className="px-4 py-2 glass-card rounded-full flex items-center gap-2 border border-white/5">
+                <span className="text-[13px] font-medium">{h.name}</span>
+                <span className="text-[13px] font-label text-primary">{h.percentage}%</span>
+              </div>
+            ))}
+            {(data?.heritage || []).slice(2).map((h, i) => (
+              <div key={i} className="px-4 py-2 glass-card rounded-full heavy-blur" style={{ opacity: 0.4 - i * 0.1 }}>
+                <span className="text-[13px]">{h.name} {h.percentage}%</span>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -183,17 +183,17 @@ export default function ResultsPage() {
             <span className="text-[10px] font-label text-primary tracking-widest uppercase">Analysis: Pro</span>
           </div>
           <div className="relative h-[200px] w-full glass-card rounded-3xl overflow-hidden flex items-center justify-center border border-white/5">
-            {/* Thermal Overlay Simulation */}
             <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10 opacity-40"></div>
-            <div className="w-32 h-44 rounded-[40px] medium-blur opacity-80 relative">
-              <img
-                className="w-full h-full object-cover rounded-[40px] mix-blend-screen opacity-70"
-                alt="stylized heat map overlay on a human face silhouette with vibrant green, orange, and red spectrums indicating facial symmetry points"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLfZwY2kO0yUHpw5oVUR1lOmCbsSvBZNzT7qxgH5pHg8WJgkkfCV4C3pjJ9MBHV_tjfm-GmDlUjHJRelqTalT6zN4HwSKplNx8_wDz_YQFl9bKvUhQLKIf-cJtICFJ4KnwROz5Qqkgg5hqC7aLxnuBdWLxFy33BKJUghrnrJCfuhMQOrFfT79Y7plEK-z7d8OtPDIVDv4aruJVU5ZQc1W8j9LQSmsS_WAPmaglj72Mt4iG1caTCqtZW0QL8el2iQbIXIBQmAfKeKha"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-orange-500/20 to-red-500/20 mix-blend-overlay"></div>
-            </div>
-            {/* PRO Badge */}
+            {imageUrl ? (
+              <div className="w-32 h-44 rounded-[40px] medium-blur opacity-80 relative">
+                <img className="w-full h-full object-cover rounded-[40px] mix-blend-screen opacity-70" alt="heat map" src={imageUrl} />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-orange-500/20 to-red-500/20 mix-blend-overlay"></div>
+              </div>
+            ) : (
+              <div className="w-32 h-44 rounded-[40px] medium-blur opacity-80 relative bg-white/5">
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-orange-500/20 to-red-500/20"></div>
+              </div>
+            )}
             <div className="absolute top-4 right-4 bg-gradient-cta px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase shadow-lg shadow-primary/40">
               🔒 PRO
             </div>
@@ -201,37 +201,35 @@ export default function ResultsPage() {
           {/* Strong Points */}
           <div className="space-y-2">
             <p className="text-[11px] font-label text-green-400 uppercase tracking-widest font-bold">Strong points</p>
-            <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-green-500/10">
-              <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_6px_#4ADE80]"></div>
-              <span className="text-[13px] text-white/70">Eye area</span>
-              <span className="text-[13px] text-white/70 heavy-blur ml-1">— symmetry &amp; depth</span>
-              <span className="text-[12px] font-label text-green-400 ml-auto heavy-blur">8.1</span>
-            </div>
-            <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-green-500/10">
-              <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_6px_#4ADE80]"></div>
-              <span className="text-[13px] text-white/70 heavy-blur">Forehead — proportional</span>
-              <span className="text-[12px] font-label text-green-400 ml-auto heavy-blur">7.9</span>
-            </div>
+            {(data?.strong_points || []).map((p, i) => (
+              <div key={i} className="flex items-center gap-2 p-3 glass-card rounded-xl border border-green-500/10">
+                <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_6px_#4ADE80]"></div>
+                <span className="text-[13px] text-white/70">{p.area}</span>
+                <span className="text-[13px] text-white/70 heavy-blur ml-1">— {p.detail}</span>
+                <span className="text-[12px] font-label text-green-400 ml-auto heavy-blur">{p.score}</span>
+              </div>
+            ))}
           </div>
           {/* Weak Points */}
           <div className="space-y-2">
             <p className="text-[11px] font-label text-red-400 uppercase tracking-widest font-bold">Weak points</p>
-            <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-red-500/10">
-              <div className="w-2 h-2 rounded-full bg-red-400 shadow-[0_0_6px_#EF4444]"></div>
-              <span className="text-[13px] text-white/70">Mid face area</span>
-              <span className="text-[13px] text-white/70 heavy-blur ml-1">— proportion imbalance</span>
-              <span className="text-[12px] font-label text-red-400 ml-auto heavy-blur">5.8</span>
-            </div>
-            <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-red-500/10 heavy-blur">
-              <div className="w-2 h-2 rounded-full bg-red-400"></div>
-              <span className="text-[13px]">Skin texture — uneven tone</span>
-              <span className="text-[12px] font-label ml-auto">6.2</span>
-            </div>
-            <div className="flex items-center gap-2 p-3 glass-card rounded-xl border border-red-500/10 heavy-blur opacity-50">
-              <div className="w-2 h-2 rounded-full bg-red-400"></div>
-              <span className="text-[13px]">Jawline — definition lacking</span>
-              <span className="text-[12px] font-label ml-auto">6.0</span>
-            </div>
+            {(data?.weak_points || []).map((p, i) => (
+              <div key={i} className={`flex items-center gap-2 p-3 glass-card rounded-xl border border-red-500/10 ${i === 0 ? "" : "heavy-blur"} ${i > 1 ? "opacity-50" : ""}`}>
+                <div className="w-2 h-2 rounded-full bg-red-400 shadow-[0_0_6px_#EF4444]"></div>
+                {i === 0 ? (
+                  <>
+                    <span className="text-[13px] text-white/70">{p.area}</span>
+                    <span className="text-[13px] text-white/70 heavy-blur ml-1">— {p.detail}</span>
+                    <span className="text-[12px] font-label text-red-400 ml-auto heavy-blur">{p.score}</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-[13px]">{p.area} — {p.detail}</span>
+                    <span className="text-[12px] font-label ml-auto">{p.score}</span>
+                  </>
+                )}
+              </div>
+            ))}
           </div>
         </section>
 
@@ -243,40 +241,28 @@ export default function ResultsPage() {
           <div className="flex items-center justify-around py-4">
             <div className="flex flex-col items-center gap-2">
               <div className="w-20 h-20 rounded-full border-2 border-white/10 flex items-center justify-center glass-card">
-                <span className="text-lg font-bold font-label">7.<span className="heavy-blur">4</span></span>
+                <span className="text-lg font-bold font-label">{glowCurrent.split(".")[0]}.<span className="heavy-blur">{glowCurrent.split(".")[1]}</span></span>
               </div>
               <span className="text-[11px] opacity-40">Current</span>
             </div>
             <span className="material-symbols-outlined text-primary text-3xl">trending_flat</span>
             <div className="flex flex-col items-center gap-2">
               <div className="w-20 h-20 rounded-full border-2 border-primary/30 flex items-center justify-center bg-primary/5 shadow-[0_0_20px_rgba(124,77,255,0.1)]">
-                <span className="text-lg font-bold font-label text-gradient">8.<span className="heavy-blur">2</span></span>
+                <span className="text-lg font-bold font-label text-gradient">{glowPotential.split(".")[0]}.<span className="heavy-blur">{glowPotential.split(".")[1]}</span></span>
               </div>
               <span className="text-[11px] font-medium text-primary">Potential</span>
             </div>
           </div>
           <div className="space-y-3">
-            <div className="p-4 glass-card rounded-2xl border border-white/[0.02]">
-              <div className="flex items-center justify-between">
-                <span className="text-[14px] text-white">Debloat</span>
-                <span className="text-[13px] font-label font-bold text-green-400">+0.4</span>
+            {(data?.glowup?.steps || []).map((s, i) => (
+              <div key={i} className="p-4 glass-card rounded-2xl border border-white/[0.02]">
+                <div className="flex items-center justify-between">
+                  <span className={`text-[14px] ${i === 0 ? "text-white" : "heavy-blur"}`}>{s.name}</span>
+                  <span className="text-[13px] font-label font-bold text-green-400">+{s.gain}</span>
+                </div>
+                <p className={`text-[12px] text-white/40 mt-2 ${i === 0 ? "" : "heavy-blur"}`}>{s.tip}</p>
               </div>
-              <p className="text-[12px] text-white/40 mt-2">Use gua sha facial massages</p>
-            </div>
-            <div className="p-4 glass-card rounded-2xl border border-white/[0.02]">
-              <div className="flex items-center justify-between">
-                <span className="text-[14px] heavy-blur">Optimize Skin Clarity</span>
-                <span className="text-[13px] font-label font-bold text-green-400">+0.7</span>
-              </div>
-              <p className="text-[12px] text-white/40 mt-2 heavy-blur">Retinol + SPF daily routine for 8 weeks</p>
-            </div>
-            <div className="p-4 glass-card rounded-2xl border border-white/[0.02]">
-              <div className="flex items-center justify-between">
-                <span className="text-[14px] heavy-blur">Facial Fat Reduction</span>
-                <span className="text-[13px] font-label font-bold text-green-400">+1.1</span>
-              </div>
-              <p className="text-[12px] text-white/40 mt-2 heavy-blur">Targeted exercises and diet adjustments</p>
-            </div>
+            ))}
           </div>
         </section>
 
@@ -287,31 +273,32 @@ export default function ResultsPage() {
           <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">💇 Best Hairstyle</h3>
           <p className="text-[12px] text-white/40 -mt-2">These hairstyles fit you best based on our full analysis</p>
           <div className="space-y-3">
-            <div className="flex items-center gap-3 p-4 glass-card rounded-2xl opacity-40 heavy-blur">
-              <span className="text-[12px] font-bold font-label text-white/60">#1</span>
-              <span className="text-[14px]">Buzz Cut — masculine aesthetic</span>
-            </div>
-            <div className="flex items-center gap-3 p-4 glass-card rounded-2xl opacity-40 heavy-blur">
-              <span className="text-[12px] font-bold font-label text-white/60">#2</span>
-              <span className="text-[14px]">Slicked Back — sharp professional</span>
-            </div>
-            <div className="p-5 glass-card rounded-2xl border border-primary/20 bg-primary/[0.02] shadow-[0_0_15px_rgba(124,77,255,0.05)]">
-              <div className="flex items-center gap-3">
-                <span className="text-[12px] font-bold font-label text-primary">#3</span>
-                <span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
-                <div>
-                  <p className="text-[15px] font-semibold">Textured Fringe</p>
-                  <p className="text-[11px] opacity-40">Perfect for oval face shape</p>
+            {(data?.hairstyles || []).map((h, i) => {
+              if (i === 2) return (
+                <div key={i} className="p-5 glass-card rounded-2xl border border-primary/20 bg-primary/[0.02] shadow-[0_0_15px_rgba(124,77,255,0.05)]">
+                  <div className="flex items-center gap-3">
+                    <span className="text-[12px] font-bold font-label text-primary">#{h.rank}</span>
+                    <span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                    <div>
+                      <p className="text-[15px] font-semibold">{h.name}</p>
+                      <p className="text-[11px] opacity-40">{h.note}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              );
+              return (
+                <div key={i} className="flex items-center gap-3 p-4 glass-card rounded-2xl opacity-40 heavy-blur">
+                  <span className="text-[12px] font-bold font-label text-white/60">#{h.rank}</span>
+                  <span className="text-[14px]">{h.name} — {h.note}</span>
+                </div>
+              );
+            })}
           </div>
         </section>
       </main>
 
       {/* PREMIUM UNLOCK SECTION */}
       <div id="unlock-section" className="w-full max-w-[400px] mx-auto px-7 pt-8 pb-20">
-
         {/* Locked Insight Teasers */}
         <div className="space-y-3 mb-10">
           <div className="p-4 glass-card rounded-2xl border border-white/5 flex items-center justify-between cursor-pointer tap-bounce" onClick={scrollToUnlock}>
@@ -324,7 +311,7 @@ export default function ResultsPage() {
           <div className="p-4 glass-card rounded-2xl border border-white/5 flex items-center justify-between cursor-pointer tap-bounce" onClick={scrollToUnlock}>
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-primary text-[20px]">trending_up</span>
-              <span className="text-[13px] font-medium heavy-blur">How to gain +0.4 to +0.8 on your score</span>
+              <span className="text-[13px] font-medium heavy-blur">How to gain +{data?.glowup?.steps?.[0]?.gain || "0.4"} to +{data?.glowup?.steps?.[2]?.gain || "1.1"} on your score</span>
             </div>
             <span className="material-symbols-outlined text-white/20 text-[18px]">lock</span>
           </div>
@@ -400,7 +387,6 @@ export default function ResultsPage() {
             <p className="text-[11px] text-center text-white/30">{referralCount}/3 friends completed their scan</p>
           )}
         </div>
-
       </div>
     </div>
   );
