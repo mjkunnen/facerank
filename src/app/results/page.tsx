@@ -31,7 +31,7 @@ export default function ResultsPage() {
             <span className="text-[14px] font-label opacity-40 ml-2">/ 10</span>
           </div>
           <div className="text-right">
-            <p className="text-[14px] font-medium heavy-blur">Top ██%</p>
+            <p className="text-[14px] font-medium">Top <span className="heavy-blur">██</span>%</p>
             <p className="text-[10px] font-label opacity-25 uppercase tracking-widest">Attractive</p>
           </div>
         </section>
@@ -192,9 +192,12 @@ export default function ResultsPage() {
             </div>
           </div>
           <div className="space-y-3">
-            <div className="flex items-center justify-between p-4 glass-card rounded-2xl border border-white/[0.02]">
-              <span className="text-[14px] heavy-blur">Improve Jawline Definition</span>
-              <span className="text-[10px] font-label px-3 py-1 bg-green-500/10 text-green-400 rounded-full uppercase tracking-tighter">Easy</span>
+            <div className="p-4 glass-card rounded-2xl border border-white/[0.02]">
+              <div className="flex items-center justify-between">
+                <span className="text-[14px] text-white">Debloat</span>
+                <span className="text-[10px] font-label px-3 py-1 bg-green-500/10 text-green-400 rounded-full uppercase tracking-tighter">Easy</span>
+              </div>
+              <p className="text-[12px] text-white/40 mt-2">Use gua sha facial massages and you will reach +0.7</p>
             </div>
             <div className="flex items-center justify-between p-4 glass-card rounded-2xl border border-white/[0.02]">
               <span className="text-[14px] heavy-blur">Optimize Skin Clarity</span>
