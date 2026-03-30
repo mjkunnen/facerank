@@ -52,6 +52,7 @@ export default function AnalyzingPage() {
             {imageUrl && <img src={imageUrl} alt="User portrait for analysis" className="w-full h-full object-cover" />}
             {/* Scanning Line */}
             <div className="scan-line-analyzing absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#4ADE80] to-transparent shadow-[0_0_12px_#4ADE80] z-10"></div>
+            <div className="honeycomb-scan"></div>
           </div>
         </div>
 

@@ -42,6 +42,7 @@ export default function ResultsPage() {
               <div className="absolute inset-0 bg-gradient-to-b from-[#4ADE80]/10 to-transparent mix-blend-overlay"></div>
               <div className="absolute inset-0 border-2 border-[#4ADE80]/20 rounded-2xl"></div>
               <div className="scan-line-green"></div>
+              <div className="honeycomb-scan"></div>
               <div className="absolute top-1 left-1 w-3 h-3 border-t border-l border-[#4ADE80]/50"></div>
               <div className="absolute top-1 right-1 w-3 h-3 border-t border-r border-[#4ADE80]/50"></div>
               <div className="absolute bottom-1 left-1 w-3 h-3 border-b border-l border-[#4ADE80]/50"></div>
