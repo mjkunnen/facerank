@@ -808,7 +808,7 @@ export default function FlowPage() {
         </div>
         {/* Secondary Actions & Trust */}
         <div className="mt-8 flex flex-col items-center gap-6">
-          <button className="text-[12px] font-medium text-white/15 hover:text-white/40 transition-colors uppercase tracking-widest">
+          <button className="text-[12px] font-medium text-white/15 hover:text-white/40 transition-colors uppercase tracking-widest" onClick={() => router.push("/analyzing")}>
             Try with demo photo
           </button>
           <div className="flex items-center gap-3">
