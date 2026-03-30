@@ -1,6 +1,9 @@
 "use client";
 
 export default function ResultsPage() {
+  const scrollToUnlock = () => {
+    document.getElementById("unlock-section")?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className="bg-[#08080C] text-white font-body antialiased">
       {/* Top App Bar */}
@@ -82,7 +85,7 @@ export default function ResultsPage() {
         <hr className="border-white/5" />
 
         {/* SECTION 3: WORLD RANKINGS */}
-        <section className="space-y-6">
+        <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
           <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">🌍 Top 5 Countries</h3>
           <div className="space-y-[5px]">
             <div className="flex items-center justify-between p-3 heavy-blur opacity-20">
@@ -117,7 +120,7 @@ export default function ResultsPage() {
         <hr className="border-white/5" />
 
         {/* SECTION 4: HERITAGE */}
-        <section className="space-y-6">
+        <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
           <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">🧬 Heritage</h3>
           <div className="flex flex-wrap gap-3">
             <div className="px-4 py-2 glass-card rounded-full flex items-center gap-2 border border-white/5">
@@ -145,7 +148,7 @@ export default function ResultsPage() {
         <hr className="border-white/5" />
 
         {/* SECTION 5: HEAT MAP */}
-        <section className="space-y-6">
+        <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
           <div className="flex justify-between items-center">
             <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">🔥 Heat Map</h3>
             <span className="text-[10px] font-label text-primary tracking-widest uppercase">Analysis: Pro</span>
@@ -171,7 +174,7 @@ export default function ResultsPage() {
         <hr className="border-white/5" />
 
         {/* SECTION 6: GLOW-UP PLAN */}
-        <section className="space-y-8">
+        <section className="space-y-8 cursor-pointer" onClick={scrollToUnlock}>
           <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">📈 Glow-Up Plan</h3>
           <div className="flex items-center justify-around py-4">
             <div className="flex flex-col items-center gap-2">
@@ -207,7 +210,7 @@ export default function ResultsPage() {
         <hr className="border-white/5" />
 
         {/* SECTION 7: BEST HAIRSTYLE */}
-        <section className="space-y-6">
+        <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
           <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">💇 Best Hairstyle</h3>
           <div className="space-y-3">
             <div className="p-4 glass-card rounded-2xl opacity-40 heavy-blur">
@@ -229,8 +232,8 @@ export default function ResultsPage() {
         </section>
       </main>
 
-      {/* SECTION 8: STICKY BOTTOM ACTIONS */}
-      <div className="fixed bottom-0 left-0 w-full z-50 max-w-[400px] mx-auto bg-gradient-to-t from-[#08080C] via-[#08080C] to-transparent pt-12 pb-10 px-7 flex flex-col gap-3">
+      {/* UNLOCK SECTION */}
+      <div id="unlock-section" className="w-full max-w-[400px] mx-auto pt-12 pb-16 px-7 flex flex-col gap-3">
         <button className="w-full h-14 bg-gradient-cta rounded-2xl font-bold text-[15px] flex flex-col items-center justify-center shadow-[0_8px_32px_rgba(124,77,255,0.3)] active:scale-95 transition-transform">
           <span>Unlock Full Report</span>
           <span className="text-[10px] opacity-70 font-normal">$4.95/week · Cancel anytime in 1 tap</span>
@@ -239,22 +242,6 @@ export default function ResultsPage() {
           or invite 3 friends to unlock free
         </button>
       </div>
-
-      {/* Bottom Nav Bar */}
-      <nav className="fixed bottom-0 left-0 w-full z-40 hidden md:flex justify-around items-center px-8 pb-10 pt-6 max-w-[400px] mx-auto bg-[#08080C]/80 backdrop-blur-xl border-t border-white/5 rounded-t-[32px]">
-        <div className="flex flex-col items-center text-[#7C4DFF] drop-shadow-[0_0_8px_rgba(124,77,255,0.5)]">
-          <span className="material-symbols-outlined">shutter_speed</span>
-        </div>
-        <div className="flex flex-col items-center text-white/30">
-          <span className="material-symbols-outlined">analytics</span>
-        </div>
-        <div className="flex flex-col items-center text-white/30">
-          <span className="material-symbols-outlined">military_tech</span>
-        </div>
-        <div className="flex flex-col items-center text-white/30">
-          <span className="material-symbols-outlined">person</span>
-        </div>
-      </nav>
     </div>
   );
 }

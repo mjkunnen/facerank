@@ -156,7 +156,7 @@ export default function FlowPage() {
     <div className="font-body">
       {/* Top Navigation (Shell) */}
       <header className="bg-[#08080C] flex items-center justify-between w-full px-[28px] py-6 max-w-[400px] mx-auto fixed top-0 left-0 right-0 z-50">
-        <span className="material-symbols-outlined text-white/60 hover:opacity-80 transition-opacity duration-300 cursor-pointer active:scale-95" onClick={() => setStep(1)}>close</span>
+        <span className="material-symbols-outlined text-white/60 hover:opacity-80 transition-opacity duration-300 cursor-pointer active:scale-95" onClick={() => setStep(1)}>arrow_back</span>
         <h1 className="font-headline font-semibold text-[26px] tracking-[-0.035em] text-white">Heritage Match</h1>
         <div className="w-6"></div>
       </header>
@@ -170,18 +170,18 @@ export default function FlowPage() {
         {/* Hero Visual: DNA Helix */}
         <div className="relative h-[200px] w-full flex items-center justify-center mb-[16px]">
           {/* Stylized DNA Graphic */}
-          <div className="relative w-full h-full flex justify-center items-center opacity-90">
+          <div className="relative w-full h-full flex justify-center items-center opacity-90 dna-animate">
             {/* DNA Strands Simulation */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-32 h-48 border-l-4 border-r-4 border-primary/20 rounded-[40%] rotate-12"></div>
               <div className="absolute w-32 h-48 border-l-4 border-r-4 border-secondary/20 rounded-[40%] -rotate-12"></div>
               {/* Nodes */}
               <div className="absolute w-full h-full flex flex-col justify-between items-center py-4">
-                <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF]"></div>
-                <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF] translate-x-8"></div>
-                <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF] -translate-x-8"></div>
-                <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF] translate-x-4"></div>
-                <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF] -translate-x-4"></div>
+                <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF] dna-node-1"></div>
+                <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF] dna-node-2"></div>
+                <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF] dna-node-3"></div>
+                <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF] dna-node-4"></div>
+                <div className="w-2 h-2 rounded-full dna-gradient shadow-[0_0_15px_#7C4DFF] dna-node-5"></div>
               </div>
             </div>
             {/* Center Core Glow */}
@@ -281,21 +281,6 @@ export default function FlowPage() {
           Continue
         </button>
       </main>
-      {/* Bottom Navigation Shell */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center px-[28px] pb-8 pt-4 max-w-[400px] mx-auto bg-[#08080C]/90 backdrop-blur-xl rounded-t-[32px] shadow-[0_-8px_30px_rgb(124,77,255,0.1)]">
-        <div className="flex items-center justify-center text-[#7C4DFF] shadow-[0_0_20px_rgba(124,77,255,0.3)] bg-white/5 rounded-full p-3 transition-all duration-300">
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>genetics</span>
-        </div>
-        <div className="flex items-center justify-center text-white/25 p-3 hover:text-white/80 transition-all duration-300">
-          <span className="material-symbols-outlined">history</span>
-        </div>
-        <div className="flex items-center justify-center text-white/25 p-3 hover:text-white/80 transition-all duration-300">
-          <span className="material-symbols-outlined">analytics</span>
-        </div>
-        <div className="flex items-center justify-center text-white/25 p-3 hover:text-white/80 transition-all duration-300">
-          <span className="material-symbols-outlined">person</span>
-        </div>
-      </nav>
     </div>
   );
 
@@ -438,12 +423,10 @@ export default function FlowPage() {
       {/* Top Navigation Shell */}
       <header className="fixed top-0 w-full z-50 flex justify-between items-center px-7 h-24 max-w-[400px] mx-auto left-0 right-0 bg-[#08080C]">
         <div className="flex items-center gap-2">
-          <span className="material-symbols-outlined text-white/40 hover:opacity-80 transition-opacity active:scale-95 duration-200 cursor-pointer" onClick={() => setStep(3)}>close</span>
+          <span className="material-symbols-outlined text-white/40 hover:opacity-80 transition-opacity active:scale-95 duration-200 cursor-pointer" onClick={() => setStep(3)}>arrow_back</span>
         </div>
         <h1 className="font-headline font-semibold text-[26px] tracking-tight text-[#7C4DFF]">FaceRank AI</h1>
-        <div className="flex items-center">
-          <span className="material-symbols-outlined text-white/40 hover:opacity-80 transition-opacity active:scale-95 duration-200 cursor-pointer">more_vert</span>
-        </div>
+        <div className="w-6"></div>
       </header>
       <main className="max-w-[400px] mx-auto pt-32 pb-44 px-7 flex flex-col items-center">
         {/* Header Section */}
@@ -536,25 +519,10 @@ export default function FlowPage() {
         {/* Primary CTA */}
         <div className="fixed bottom-32 left-0 right-0 px-7 max-w-[400px] mx-auto z-40">
           <button className="w-full h-14 bg-gradient-to-r from-[#7C4DFF] to-[#448AFF] text-white font-semibold rounded-2xl shadow-[0_10px_30px_rgba(124,77,255,0.3)] active:scale-95 transition-all duration-200" onClick={next}>
-            View Full Report
+            Continue
           </button>
         </div>
       </main>
-      {/* Bottom Navigation Shell */}
-      <nav className="fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-8 pb-10 pt-4 max-w-[400px] mx-auto bg-[#08080C]/80 backdrop-blur-xl rounded-t-[32px] border-t border-white/5 shadow-[0_-10px_40px_rgba(124,77,255,0.1)]">
-        <div className="flex items-center justify-center bg-gradient-to-br from-[#7C4DFF] to-[#448AFF] text-white rounded-full p-3 shadow-[0_0_20px_rgba(124,77,255,0.4)] transition-all hover:text-white/60 active:scale-110">
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>face</span>
-        </div>
-        <div className="flex items-center justify-center text-white/30 p-3 transition-all hover:text-white/60 active:scale-110">
-          <span className="material-symbols-outlined">analytics</span>
-        </div>
-        <div className="flex items-center justify-center text-white/30 p-3 transition-all hover:text-white/60 active:scale-110">
-          <span className="material-symbols-outlined">history</span>
-        </div>
-        <div className="flex items-center justify-center text-white/30 p-3 transition-all hover:text-white/60 active:scale-110">
-          <span className="material-symbols-outlined">person</span>
-        </div>
-      </nav>
     </div>
   );
 
