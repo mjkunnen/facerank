@@ -27,17 +27,8 @@ export default function AnalyzingPage() {
     if (hasStarted.current) return;
     hasStarted.current = true;
     const image = sessionStorage.getItem("facerank_image");
-    if (!image) { router.replace("/scan"); return; }
-    setImageUrl(image);
-
-    const analyze = async () => {
-      try {
-        const res = await fetch("/api/analyze", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ image }) });
-        if (res.ok) { sessionStorage.setItem("facerank_results", JSON.stringify(await res.json())); return; }
-      } catch {}
-      sessionStorage.setItem("facerank_results", JSON.stringify(getMockData()));
-    };
-    analyze();
+    if (image) setImageUrl(image);
+    sessionStorage.setItem("facerank_results", JSON.stringify(getMockData()));
 
     const s = setInterval(() => setStep((v) => (v < STEPS.length - 1 ? v + 1 : v)), 1200);
     const p = setInterval(() => setProgress((v) => (v >= 100 ? 100 : v + 0.8)), 100);
