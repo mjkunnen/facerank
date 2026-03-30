@@ -41,7 +41,7 @@ export default function AnalyzingPage() {
 
     const s = setInterval(() => setStep((v) => (v < STEPS.length - 1 ? v + 1 : v)), 1200);
     const p = setInterval(() => setProgress((v) => (v >= 100 ? 100 : v + 0.8)), 100);
-    const n = setTimeout(() => router.push("/pricing"), 13000);
+    const n = setTimeout(() => router.push("/results"), 13000);
     return () => { clearInterval(s); clearInterval(p); clearTimeout(n); };
   }, [router]);
 

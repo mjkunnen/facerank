@@ -1,241 +1,257 @@
 "use client";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-
 export default function ResultsPage() {
-  const router = useRouter();
-
-  useEffect(() => {
-    const raw = sessionStorage.getItem("facerank_results");
-    if (!raw) {
-      router.replace("/scan");
-    }
-  }, [router]);
-
   return (
-    <div className="bg-[#08080C] text-white font-body selection:bg-primary/30">
-      {/* Top AppBar */}
-      <header className="fixed top-0 w-full z-50 flex items-center justify-between px-7 h-24 max-w-[400px] mx-auto left-1/2 -translate-x-1/2 bg-[#08080C]/80 backdrop-blur-xl">
+    <div className="bg-[#08080C] text-white font-body antialiased">
+      {/* Top App Bar */}
+      <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-7 h-24 max-w-[400px] mx-auto bg-[#08080C] border-none">
         <div className="flex items-center gap-4">
-          <span className="material-symbols-outlined text-white/60 hover:opacity-80 transition-opacity cursor-pointer">menu</span>
+          <span className="material-symbols-outlined text-[#7C4DFF]">menu</span>
           <h1 className="text-xl font-black tracking-tighter text-white uppercase font-headline">FACERANK</h1>
         </div>
         <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt="User profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgsbs8x3hE9vkfVN6LM8g0s9pzj90D2dPg8trH_LhKkXE07Hh8Sl_FVnqDGP6nkXh3ka5rmMxpDt3-SK_DVGyDWUDB7pUZME-zOQPpnTPNSK9DLJxkBCzUQ1gFIPNtR2dhPOj5yspAIkKgYvfwsZHpW4Ua6Dd8evbSrzG6OC7TSZoccLlpMOSOSAY4vDcrLYfcmP-EgubPkJwCrBNfW9nVSqO992_b-Tw3oPYn6m_gemLCncgfE0gdDq8OoUOfHhK8-P2rbAby467C" className="w-full h-full object-cover" />
+          <img
+            className="w-full h-full object-cover"
+            alt="portrait of a stylish young man with sharp facial features and clean haircut against a dark studio background"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwcAQ4H9y6SKrZkH0ttaPjfJOMUl9Mmmu3ieqybUE_cqauQU5nnfGfv9BygDhOMCuKwLcxvFmwwHLwwzJvQiy3szrRr1ztZz7AXDP9PQc4L-dMLUPMzbu9KXw74QoT2vozYG0C0BFpHMiR0ljKawJXetJcGSvrjKlZJpDhgWPgGooCrNsDF6hjz1NfMXJZzkdTby8cLxN4gxU4PKRL4pODgO4bQHrizXuxG1kwhpmxJW6TRFUA4U29hvV7QzRPW2nlt4L71-ns1nbh"
+          />
         </div>
       </header>
 
-      {/* Main Content Scroll Area */}
-      <main className="relative w-full max-w-[400px] mx-auto pt-28 pb-48 px-7 min-h-screen">
-        {/* FIFA Card Section */}
-        <div className="relative rounded-[32px] overflow-hidden bg-gradient-to-b from-white/5 to-transparent p-[1px]">
-          <div className="rounded-[32px] bg-[#0A0A0F] p-8 fifa-shimmer border border-white/5">
-            {/* Score Header */}
-            <div className="flex items-end justify-between mb-2">
-              <div className="flex items-baseline gap-0">
-                <span className="text-[32px] font-bold text-white tracking-tighter leading-none">7.</span>
-                <span className="text-[32px] font-bold text-white/40 heavy-blur leading-none">4</span>
-                <span className="text-[14px] text-white/25 ml-2 font-label">/ 10</span>
+      {/* Main Content Canvas */}
+      <main className="pt-32 pb-48 px-7 max-w-[400px] mx-auto space-y-12">
+        {/* SECTION 1: SCORE */}
+        <section className="flex items-end justify-between">
+          <div className="flex items-baseline gap-0.5">
+            <span className="text-[32px] font-bold tracking-tighter leading-none">7.</span>
+            <span className="text-[32px] font-bold tracking-tighter leading-none heavy-blur opacity-80">4</span>
+            <span className="text-[14px] font-label opacity-40 ml-2">/ 10</span>
+          </div>
+          <div className="text-right">
+            <p className="text-[14px] font-medium heavy-blur">Top ██%</p>
+            <p className="text-[10px] font-label opacity-25 uppercase tracking-widest">Attractive</p>
+          </div>
+        </section>
+
+        <hr className="border-white/5" />
+
+        {/* SECTION 2: YOUR BEST SCORES */}
+        <section className="space-y-6">
+          <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">Your best scores</h3>
+          <div className="grid grid-cols-2 gap-[6px]">
+            {/* Visible Stat */}
+            <div className="glass-card p-4 rounded-xl border border-white/[0.02]">
+              <div className="flex justify-between items-start mb-2">
+                <span className="text-lg font-bold font-label text-gradient">7.4</span>
+                <div className="w-1 h-4 bg-primary rounded-full shadow-[0_0_8px_rgba(124,77,255,0.5)]"></div>
               </div>
-              <div className="text-right">
-                <div className="text-[10px] text-white/30 uppercase tracking-widest font-label flex items-center justify-end gap-1">
-                  Top <span className="text-blur">2</span>%
-                </div>
-                <div className="text-[10px] text-white/30 uppercase tracking-widest font-label">Attractive</div>
-              </div>
+              <span className="text-[12px] opacity-60">Harmony</span>
             </div>
-
-            <div className="h-[1px] w-full bg-white/5 my-6"></div>
-
-            {/* Best Scores Grid */}
-            <div className="space-y-4">
-              <p className="text-[10px] text-white/25 uppercase tracking-[0.2em] font-label">Your best scores</p>
-              <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-                {/* Stat 1 */}
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold text-white font-label">8.1</span>
-                    <span className="text-[10px] text-white/40 text-blur">Jawline</span>
-                  </div>
-                  <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
-                    <div className="h-full w-[81%] bg-gradient-to-r from-primary to-secondary"></div>
-                  </div>
-                </div>
-                {/* Stat 2 */}
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold text-white font-label">7.8</span>
-                    <span className="text-[10px] text-white/40 text-blur">Eyes</span>
-                  </div>
-                  <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
-                    <div className="h-full w-[78%] bg-gradient-to-r from-primary to-secondary"></div>
-                  </div>
-                </div>
-                {/* Stat 3 (Visible Highlight) */}
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold text-white font-label">7.4</span>
-                    <span className="text-[10px] text-white/60 font-medium">Harmony</span>
-                  </div>
-                  <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
-                    <div className="h-full w-[74%] bg-gradient-to-r from-primary to-secondary"></div>
-                  </div>
-                </div>
-                {/* Stat 4 */}
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold text-white font-label">7.2</span>
-                    <span className="text-[10px] text-white/40 text-blur">Cheeks</span>
-                  </div>
-                  <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
-                    <div className="h-full w-[72%] bg-gradient-to-r from-primary to-secondary"></div>
-                  </div>
-                </div>
-                {/* Stat 5 (Blurred) */}
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold text-white/40 text-blur font-label">6.9</span>
-                    <span className="text-[10px] text-white/40 text-blur">█████</span>
-                  </div>
-                  <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden opacity-30">
-                    <div className="h-full w-[69%] bg-white/20"></div>
-                  </div>
-                </div>
-                {/* Stat 6 (Blurred) */}
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold text-white/40 text-blur font-label">6.5</span>
-                    <span className="text-[10px] text-white/40 text-blur">█████</span>
-                  </div>
-                  <div className="h-[3px] w-full bg-white/5 rounded-full overflow-hidden opacity-30">
-                    <div className="h-full w-[65%] bg-white/20"></div>
-                  </div>
-                </div>
+            {/* Blurred Stats */}
+            <div className="glass-card p-4 rounded-xl opacity-60">
+              <div className="flex justify-between items-start mb-2">
+                <span className="text-lg font-bold font-label">8.1</span>
+                <div className="w-1 h-4 bg-white/20 rounded-full"></div>
               </div>
+              <span className="text-[12px] heavy-blur">Symmetry</span>
             </div>
-
-            <div className="h-[1px] w-full bg-white/5 my-8"></div>
-
-            {/* Countries Section */}
-            <div className="space-y-5">
-              <p className="text-[10px] text-white/25 uppercase tracking-[0.2em] font-label">🌍 Top 5 Countries</p>
-              <div className="space-y-4">
-                {/* Rank 1 */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[14px] text-blur opacity-50">🇺🇸</span>
-                    <span className="text-[13px] text-white/40 text-blur font-medium">United States</span>
-                  </div>
-                  <span className="text-xs font-bold font-label">8.9</span>
-                </div>
-                {/* Rank 2 */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[14px] text-blur opacity-50">🇧🇷</span>
-                    <span className="text-[13px] text-white/40 text-blur font-medium">Brazil</span>
-                  </div>
-                  <span className="text-xs font-bold font-label">8.7</span>
-                </div>
-                {/* Rank 3 (Visible) */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[14px]">🇪🇸</span>
-                    <span className="text-[13px] text-white/80 font-medium">Spain</span>
-                  </div>
-                  <span className="text-xs font-bold font-label">8.4</span>
-                </div>
-                {/* Rank 4 */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[14px] text-blur opacity-50">🇮🇹</span>
-                    <span className="text-[13px] text-white/40 text-blur font-medium">Italy</span>
-                  </div>
-                  <span className="text-xs font-bold font-label">8.1</span>
-                </div>
-                {/* Rank 5 */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[14px] text-blur opacity-50">🇫🇷</span>
-                    <span className="text-[13px] text-white/40 text-blur font-medium">France</span>
-                  </div>
-                  <span className="text-xs font-bold font-label">7.9</span>
-                </div>
+            <div className="glass-card p-4 rounded-xl opacity-60">
+              <div className="flex justify-between items-start mb-2">
+                <span className="text-lg font-bold font-label">7.8</span>
+                <div className="w-1 h-4 bg-white/20 rounded-full"></div>
               </div>
+              <span className="text-[12px] heavy-blur">Jawline</span>
             </div>
-
-            <div className="h-[1px] w-full bg-white/5 my-8"></div>
-
-            {/* Heritage Section */}
-            <div className="space-y-4">
-              <p className="text-[10px] text-white/25 uppercase tracking-[0.2em] font-label">🧬 Heritage</p>
-              <div className="flex items-center gap-3 text-[13px] font-medium overflow-hidden whitespace-nowrap">
-                <span className="flex items-center gap-1.5">🇬🇷 <span className="text-white/80">34%</span></span>
-                <span className="text-white/10">·</span>
-                <span className="flex items-center gap-1.5">🇮🇹 <span className="text-white/80">28%</span></span>
-                <span className="text-white/10">·</span>
-                <span className="text-white/20 text-blur">██% ██% ██%</span>
+            <div className="glass-card p-4 rounded-xl opacity-60">
+              <div className="flex justify-between items-start mb-2">
+                <span className="text-lg font-bold font-label">7.2</span>
+                <div className="w-1 h-4 bg-white/20 rounded-full"></div>
               </div>
+              <span className="text-[12px] heavy-blur">Skin Health</span>
             </div>
-
-            <div className="mt-10 space-y-3">
-              {/* Heat Map Card */}
-              <div className="relative h-[60px] w-full rounded-2xl overflow-hidden border border-white/5 group cursor-pointer">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="Heatmap overlay" className="absolute inset-0 w-full h-full object-cover blur-xl opacity-40 scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChRqe3-LUOaMmPgKPqoTr6gsLaEVsUUf6D5fDGEk-we73Xzxpv5xt1QJ4VQ3W6hCsY2aJRc_GqQXstjVVeUOLIvfLizMazo39_lt0AzH3xR6nVc49Q66sEGcu9_gnOp5U4jTCcXqDIWIM4BL9J1OlfZ4GyyEVTXrH8YU5KeQEpnpXiyQE1wG8hLXnCcbInJwcBa3YN77F0aRhNLCf4jGow0nkZISbZbGC4026woG4wfdx4L0OHifJVR8bfgFNgnFulNe4S7cm2E7dc" />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-between px-5">
-                  <span className="text-[11px] font-bold uppercase tracking-widest font-label">🔥 Heat Map</span>
-                  <span className="material-symbols-outlined text-sm text-white/40">lock</span>
-                </div>
-              </div>
-              {/* Glow Up Card */}
-              <div className="flex items-center justify-between px-5 h-12 rounded-2xl bg-white/[0.03] border border-white/5">
-                <span className="text-[11px] font-bold uppercase tracking-widest font-label">📈 Glow-Up</span>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-label text-white/60">7.<span className="text-blur">8</span> → 8.<span className="text-blur">2</span> potential</span>
-                  <span className="material-symbols-outlined text-sm text-white/40">lock</span>
-                </div>
-              </div>
-              {/* Hairstyle Card */}
-              <div className="flex items-center justify-between px-5 h-12 rounded-2xl bg-white/[0.03] border border-white/5">
-                <span className="text-[11px] font-bold uppercase tracking-widest font-label">💇 Hairstyle</span>
-                <div className="flex items-center gap-3">
-                  <span className="text-[10px] text-white/20 text-blur">██</span>
-                  <span className="text-[10px] font-medium text-primary">#2 Textured Fringe</span>
-                  <span className="text-[10px] text-white/20 text-blur">██</span>
-                </div>
-              </div>
+            {/* Locked Stats */}
+            <div className="glass-card p-4 rounded-xl opacity-30 flex items-center justify-center">
+              <span className="heavy-blur text-lg font-bold font-label">9.0 Visual</span>
+            </div>
+            <div className="glass-card p-4 rounded-xl opacity-30 flex items-center justify-center">
+              <span className="heavy-blur text-lg font-bold font-label">8.5 Appeal</span>
             </div>
           </div>
-        </div>
+        </section>
+
+        <hr className="border-white/5" />
+
+        {/* SECTION 3: WORLD RANKINGS */}
+        <section className="space-y-6">
+          <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">🌍 Top 5 Countries</h3>
+          <div className="space-y-[5px]">
+            <div className="flex items-center justify-between p-3 heavy-blur opacity-20">
+              <span>#1 🇺🇸 USA</span>
+              <span className="font-label">8.9</span>
+            </div>
+            <div className="flex items-center justify-between p-3 heavy-blur opacity-30">
+              <span>#2 🇧🇷 Brazil</span>
+              <span className="font-label">8.7</span>
+            </div>
+            <div className="flex items-center justify-between p-3 glass-card rounded-lg border border-primary/20">
+              <div className="flex items-center gap-3">
+                <span className="text-[12px] font-bold text-primary">#3</span>
+                <span className="text-[14px]">🇪🇸 Spain</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-[10px] opacity-40 italic">&quot;Hunter eyes&quot;</span>
+                <span className="font-label font-bold text-gradient">8.4</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-between p-3 heavy-blur opacity-30">
+              <span>#4 🇮🇹 Italy</span>
+              <span className="font-label">8.1</span>
+            </div>
+            <div className="flex items-center justify-between p-3 heavy-blur opacity-20">
+              <span>#5 🇦🇺 Australia</span>
+              <span className="font-label">7.9</span>
+            </div>
+          </div>
+        </section>
+
+        <hr className="border-white/5" />
+
+        {/* SECTION 4: HERITAGE */}
+        <section className="space-y-6">
+          <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">🧬 Heritage</h3>
+          <div className="flex flex-wrap gap-3">
+            <div className="px-4 py-2 glass-card rounded-full flex items-center gap-2 border border-white/5">
+              <span className="text-sm">🇬🇷</span>
+              <span className="text-[13px] font-medium">Greek</span>
+              <span className="text-[13px] font-label text-primary">34%</span>
+            </div>
+            <div className="px-4 py-2 glass-card rounded-full flex items-center gap-2 border border-white/5">
+              <span className="text-sm">🇮🇹</span>
+              <span className="text-[13px] font-medium">Italian</span>
+              <span className="text-[13px] font-label text-primary">28%</span>
+            </div>
+            <div className="px-4 py-2 glass-card rounded-full heavy-blur opacity-40">
+              <span className="text-[13px]">Northern European 15%</span>
+            </div>
+            <div className="px-4 py-2 glass-card rounded-full heavy-blur opacity-20">
+              <span className="text-[13px]">East Asian 12%</span>
+            </div>
+            <div className="px-4 py-2 glass-card rounded-full heavy-blur opacity-10">
+              <span className="text-[13px]">Middle Eastern 11%</span>
+            </div>
+          </div>
+        </section>
+
+        <hr className="border-white/5" />
+
+        {/* SECTION 5: HEAT MAP */}
+        <section className="space-y-6">
+          <div className="flex justify-between items-center">
+            <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">🔥 Heat Map</h3>
+            <span className="text-[10px] font-label text-primary tracking-widest uppercase">Analysis: Pro</span>
+          </div>
+          <div className="relative h-[200px] w-full glass-card rounded-3xl overflow-hidden flex items-center justify-center border border-white/5">
+            {/* Thermal Overlay Simulation */}
+            <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10 opacity-40"></div>
+            <div className="w-32 h-44 rounded-[40px] medium-blur opacity-80 relative">
+              <img
+                className="w-full h-full object-cover rounded-[40px] mix-blend-screen opacity-70"
+                alt="stylized heat map overlay on a human face silhouette with vibrant green, orange, and red spectrums indicating facial symmetry points"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLfZwY2kO0yUHpw5oVUR1lOmCbsSvBZNzT7qxgH5pHg8WJgkkfCV4C3pjJ9MBHV_tjfm-GmDlUjHJRelqTalT6zN4HwSKplNx8_wDz_YQFl9bKvUhQLKIf-cJtICFJ4KnwROz5Qqkgg5hqC7aLxnuBdWLxFy33BKJUghrnrJCfuhMQOrFfT79Y7plEK-z7d8OtPDIVDv4aruJVU5ZQc1W8j9LQSmsS_WAPmaglj72Mt4iG1caTCqtZW0QL8el2iQbIXIBQmAfKeKha"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-orange-500/20 to-red-500/20 mix-blend-overlay"></div>
+            </div>
+            {/* PRO Badge */}
+            <div className="absolute top-4 right-4 bg-gradient-cta px-3 py-1 rounded-full text-[10px] font-black tracking-widest uppercase shadow-lg shadow-primary/40">
+              🔒 PRO
+            </div>
+          </div>
+        </section>
+
+        <hr className="border-white/5" />
+
+        {/* SECTION 6: GLOW-UP PLAN */}
+        <section className="space-y-8">
+          <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">📈 Glow-Up Plan</h3>
+          <div className="flex items-center justify-around py-4">
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-20 h-20 rounded-full border-2 border-white/10 flex items-center justify-center glass-card">
+                <span className="text-lg font-bold font-label">7.<span className="soft-blur">4</span></span>
+              </div>
+              <span className="text-[11px] opacity-40">Current</span>
+            </div>
+            <span className="material-symbols-outlined text-primary text-3xl">trending_flat</span>
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-20 h-20 rounded-full border-2 border-primary/30 flex items-center justify-center bg-primary/5 shadow-[0_0_20px_rgba(124,77,255,0.1)]">
+                <span className="text-lg font-bold font-label text-gradient">8.<span className="soft-blur">2</span></span>
+              </div>
+              <span className="text-[11px] font-medium text-primary">Potential</span>
+            </div>
+          </div>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between p-4 glass-card rounded-2xl border border-white/[0.02]">
+              <span className="text-[14px] heavy-blur">Improve Jawline Definition</span>
+              <span className="text-[10px] font-label px-3 py-1 bg-green-500/10 text-green-400 rounded-full uppercase tracking-tighter">Easy</span>
+            </div>
+            <div className="flex items-center justify-between p-4 glass-card rounded-2xl border border-white/[0.02]">
+              <span className="text-[14px] heavy-blur">Optimize Skin Clarity</span>
+              <span className="text-[10px] font-label px-3 py-1 bg-orange-500/10 text-orange-400 rounded-full uppercase tracking-tighter">Medium</span>
+            </div>
+            <div className="flex items-center justify-between p-4 glass-card rounded-2xl border border-white/[0.02]">
+              <span className="text-[14px] heavy-blur">Facial Fat Reduction</span>
+              <span className="text-[10px] font-label px-3 py-1 bg-red-500/10 text-red-400 rounded-full uppercase tracking-tighter">Hard</span>
+            </div>
+          </div>
+        </section>
+
+        <hr className="border-white/5" />
+
+        {/* SECTION 7: BEST HAIRSTYLE */}
+        <section className="space-y-6">
+          <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">💇 Best Hairstyle</h3>
+          <div className="space-y-3">
+            <div className="p-4 glass-card rounded-2xl opacity-40 heavy-blur">
+              Buzz Cut — masculine aesthetic
+            </div>
+            <div className="p-5 glass-card rounded-2xl border border-primary/20 bg-primary/[0.02] shadow-[0_0_15px_rgba(124,77,255,0.05)]">
+              <div className="flex items-center gap-3">
+                <span className="material-symbols-outlined text-primary">check_circle</span>
+                <div>
+                  <p className="text-[15px] font-semibold">Textured Fringe</p>
+                  <p className="text-[11px] opacity-40">Perfect for oval face shape</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-4 glass-card rounded-2xl opacity-40 heavy-blur">
+              Slicked Back — sharp professional
+            </div>
+          </div>
+        </section>
       </main>
 
-      {/* Bottom Actions Container */}
-      <div className="fixed bottom-0 w-full max-w-[400px] left-1/2 -translate-x-1/2 z-[60] bg-gradient-to-t from-[#08080C] via-[#08080C]/95 to-transparent px-7 pb-10 pt-10">
-        <div className="space-y-3">
-          <button className="w-full h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary text-white font-bold text-[14px] shadow-[0_10px_40px_rgba(124,77,255,0.3)] flex flex-col items-center justify-center leading-tight active:scale-95 transition-transform">
-            <span>Unlock Full Report</span>
-            <span className="text-[10px] opacity-70 font-normal mt-0.5">$4.95/week · Cancel anytime in 1 tap</span>
-          </button>
-          <button className="w-full h-14 rounded-2xl border border-white/10 bg-white/[0.02] text-white/60 font-medium text-[13px] hover:bg-white/[0.05] transition-colors active:scale-95">
-            or invite 3 friends to unlock free
-          </button>
-        </div>
+      {/* SECTION 8: STICKY BOTTOM ACTIONS */}
+      <div className="fixed bottom-0 left-0 w-full z-50 max-w-[400px] mx-auto bg-gradient-to-t from-[#08080C] via-[#08080C] to-transparent pt-12 pb-10 px-7 flex flex-col gap-3">
+        <button className="w-full h-14 bg-gradient-cta rounded-2xl font-bold text-[15px] flex flex-col items-center justify-center shadow-[0_8px_32px_rgba(124,77,255,0.3)] active:scale-95 transition-transform">
+          <span>Unlock Full Report</span>
+          <span className="text-[10px] opacity-70 font-normal">$4.95/week · Cancel anytime in 1 tap</span>
+        </button>
+        <button className="w-full h-12 rounded-2xl border border-white/10 font-medium text-[13px] text-white/60 hover:text-white transition-colors active:scale-95 transition-transform bg-white/5">
+          or invite 3 friends to unlock free
+        </button>
       </div>
 
-      {/* Hidden Navigation Shell (Suppressed based on transactional focused nature but keeping bottom space) */}
-      <nav className="fixed bottom-0 w-full z-40 flex justify-around items-center px-8 pb-8 pt-4 max-w-[400px] left-1/2 -translate-x-1/2 opacity-0 pointer-events-none">
-        <div className="flex flex-col items-center justify-center text-white/30 p-3">
-          <span className="material-symbols-outlined">genetics</span>
+      {/* Bottom Nav Bar */}
+      <nav className="fixed bottom-0 left-0 w-full z-40 hidden md:flex justify-around items-center px-8 pb-10 pt-6 max-w-[400px] mx-auto bg-[#08080C]/80 backdrop-blur-xl border-t border-white/5 rounded-t-[32px]">
+        <div className="flex flex-col items-center text-[#7C4DFF] drop-shadow-[0_0_8px_rgba(124,77,255,0.5)]">
+          <span className="material-symbols-outlined">shutter_speed</span>
         </div>
-        <div className="flex flex-col items-center justify-center bg-gradient-to-br from-[#7C4DFF] to-[#448AFF] text-white rounded-2xl p-3 shadow-[0_0_15px_rgba(124,77,255,0.4)]">
-          <span className="material-symbols-outlined">style</span>
+        <div className="flex flex-col items-center text-white/30">
+          <span className="material-symbols-outlined">analytics</span>
         </div>
-        <div className="flex flex-col items-center justify-center text-white/30 p-3">
-          <span className="material-symbols-outlined">star</span>
+        <div className="flex flex-col items-center text-white/30">
+          <span className="material-symbols-outlined">military_tech</span>
         </div>
-        <div className="flex flex-col items-center justify-center text-white/30 p-3">
+        <div className="flex flex-col items-center text-white/30">
           <span className="material-symbols-outlined">person</span>
         </div>
       </nav>
