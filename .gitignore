@@ -5,3 +5,5 @@ stitch/
 stitch_*.html
 
 .vercel
+.env.local
+.env

@@ -28,11 +28,31 @@ export default function AnalyzingPage() {
     hasStarted.current = true;
     const image = sessionStorage.getItem("facerank_image");
     if (image) setImageUrl(image);
-    sessionStorage.setItem("facerank_results", JSON.stringify(getMockData()));
+
+    // Start AI analysis
+    const analyze = async () => {
+      try {
+        if (image) {
+          const res = await fetch("/api/analyze", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ image }),
+          });
+          if (res.ok) {
+            const data = await res.json();
+            sessionStorage.setItem("primemog_results", JSON.stringify(data));
+            return;
+          }
+        }
+      } catch {}
+      // Fallback to mock data
+      sessionStorage.setItem("primemog_results", JSON.stringify(getMockData()));
+    };
+    analyze();
 
     const s = setInterval(() => setStep((v) => (v < STEPS.length - 1 ? v + 1 : v)), 600);
     const p = setInterval(() => setProgress((v) => (v >= 100 ? 100 : v + 1.7)), 100);
-    const n = setTimeout(() => router.push("/email"), 6000);
+    const n = setTimeout(() => router.push("/email"), 8000);
     return () => { clearInterval(s); clearInterval(p); clearTimeout(n); };
   }, [router]);
 
