@@ -235,15 +235,82 @@ export default function ResultsPage() {
         </section>
       </main>
 
-      {/* UNLOCK SECTION */}
-      <div id="unlock-section" className="w-full max-w-[400px] mx-auto pt-12 pb-16 px-7 flex flex-col gap-3">
-        <button className="w-full h-14 bg-gradient-cta rounded-2xl font-bold text-[15px] flex flex-col items-center justify-center shadow-[0_8px_32px_rgba(124,77,255,0.3)] active:scale-95 transition-transform">
-          <span>Unlock Full Report</span>
-          <span className="text-[10px] opacity-70 font-normal">$4.95/week · Cancel anytime in 1 tap</span>
-        </button>
-        <button className="w-full h-12 rounded-2xl border border-white/10 font-medium text-[13px] text-white/60 hover:text-white transition-colors active:scale-95 transition-transform bg-white/5">
-          or invite 3 friends to unlock free
-        </button>
+      {/* PREMIUM UNLOCK SECTION */}
+      <div id="unlock-section" className="w-full max-w-[400px] mx-auto px-7 pt-8 pb-20">
+
+        {/* Locked Insight Teasers */}
+        <div className="space-y-3 mb-10">
+          <div className="p-4 glass-card rounded-2xl border border-white/5 flex items-center justify-between cursor-pointer" onClick={scrollToUnlock}>
+            <div className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-primary text-[20px]">warning</span>
+              <span className="text-[13px] font-medium heavy-blur">Your biggest facial limiter is ████████</span>
+            </div>
+            <span className="material-symbols-outlined text-white/20 text-[18px]">lock</span>
+          </div>
+          <div className="p-4 glass-card rounded-2xl border border-white/5 flex items-center justify-between cursor-pointer" onClick={scrollToUnlock}>
+            <div className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-primary text-[20px]">trending_up</span>
+              <span className="text-[13px] font-medium heavy-blur">How to gain +0.4 to +0.8 on your score</span>
+            </div>
+            <span className="material-symbols-outlined text-white/20 text-[18px]">lock</span>
+          </div>
+          <div className="p-4 glass-card rounded-2xl border border-white/5 flex items-center justify-between cursor-pointer" onClick={scrollToUnlock}>
+            <div className="flex items-center gap-3">
+              <span className="material-symbols-outlined text-primary text-[20px]">route</span>
+              <span className="text-[13px] font-medium heavy-blur">Your exact glow-up roadmap with timeline</span>
+            </div>
+            <span className="material-symbols-outlined text-white/20 text-[18px]">lock</span>
+          </div>
+        </div>
+
+        {/* Premium Value Block */}
+        <div className="text-center mb-8">
+          <h2 className="text-[22px] font-bold tracking-tight text-white mb-2">Get My Complete Analysis</h2>
+          <p className="text-[13px] text-white/40 leading-relaxed">See exactly what helps your face, what hurts it, and how to improve fast.</p>
+        </div>
+
+        {/* Value List */}
+        <div className="space-y-4 mb-8">
+          <div className="flex items-center gap-3">
+            <span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+            <span className="text-[13px] text-white/70">Full facial strengths &amp; weaknesses</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+            <span className="text-[13px] text-white/70">Your biggest appearance limiter</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+            <span className="text-[13px] text-white/70">Best hairstyle for your exact face shape</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+            <span className="text-[13px] text-white/70">Your highest-ROI glow-up upgrades</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+            <span className="text-[13px] text-white/70">Your personalized improvement roadmap</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+            <span className="text-[13px] text-white/70">Your realistic score improvement potential</span>
+          </div>
+        </div>
+
+        {/* Support Line */}
+        <p className="text-[11px] text-white/20 text-center mb-6 tracking-wide">Personalized from your scan · Instant access · Cancel anytime</p>
+
+        {/* CTAs */}
+        <div className="space-y-3">
+          <button className="w-full h-14 bg-gradient-cta rounded-2xl font-bold text-[15px] flex flex-col items-center justify-center shadow-[0_8px_32px_rgba(124,77,255,0.3)] active:scale-95 transition-transform">
+            <span>Get My Complete Analysis</span>
+            <span className="text-[10px] opacity-70 font-normal">$4.95/week · Cancel anytime in 1 tap</span>
+          </button>
+          <button className="w-full h-12 rounded-2xl border border-white/10 font-medium text-[13px] text-white/60 hover:text-white transition-colors active:scale-95 transition-transform bg-white/5">
+            Unlock free by inviting 3 friends
+          </button>
+        </div>
+
       </div>
     </div>
   );
