@@ -40,7 +40,7 @@ export default function ResultsPage() {
 
         {/* SECTION 2: YOUR BEST SCORES */}
         <section className="space-y-6">
-          <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">Your best scores</h3>
+          <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">Your best scores</h3>
           <div className="grid grid-cols-2 gap-[6px]">
             {/* Visible Stat */}
             <div className="glass-card p-4 rounded-xl border border-white/[0.02]">
@@ -86,7 +86,7 @@ export default function ResultsPage() {
 
         {/* SECTION 3: WORLD RANKINGS */}
         <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
-          <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">🌍 Top 5 Countries</h3>
+          <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">🌍 Top 5 Countries</h3>
           <div className="space-y-[5px]">
             <div className="flex items-center justify-between p-3 heavy-blur opacity-20">
               <span>#1 🇺🇸 USA</span>
@@ -121,7 +121,7 @@ export default function ResultsPage() {
 
         {/* SECTION 4: HERITAGE */}
         <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
-          <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">🧬 Heritage</h3>
+          <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">🧬 Heritage</h3>
           <div className="flex flex-wrap gap-3">
             <div className="px-4 py-2 glass-card rounded-full flex items-center gap-2 border border-white/5">
               <span className="text-sm">🇬🇷</span>
@@ -150,7 +150,7 @@ export default function ResultsPage() {
         {/* SECTION 5: HEAT MAP */}
         <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
           <div className="flex justify-between items-center">
-            <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">🔥 Heat Map</h3>
+            <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">🔥 Heat Map</h3>
             <span className="text-[10px] font-label text-primary tracking-widest uppercase">Analysis: Pro</span>
           </div>
           <div className="relative h-[200px] w-full glass-card rounded-3xl overflow-hidden flex items-center justify-center border border-white/5">
@@ -175,18 +175,18 @@ export default function ResultsPage() {
 
         {/* SECTION 6: GLOW-UP PLAN */}
         <section className="space-y-8 cursor-pointer" onClick={scrollToUnlock}>
-          <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">📈 Glow-Up Plan</h3>
+          <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">📈 Glow-Up Plan</h3>
           <div className="flex items-center justify-around py-4">
             <div className="flex flex-col items-center gap-2">
               <div className="w-20 h-20 rounded-full border-2 border-white/10 flex items-center justify-center glass-card">
-                <span className="text-lg font-bold font-label">7.<span className="soft-blur">4</span></span>
+                <span className="text-lg font-bold font-label">7.<span className="heavy-blur">4</span></span>
               </div>
               <span className="text-[11px] opacity-40">Current</span>
             </div>
             <span className="material-symbols-outlined text-primary text-3xl">trending_flat</span>
             <div className="flex flex-col items-center gap-2">
               <div className="w-20 h-20 rounded-full border-2 border-primary/30 flex items-center justify-center bg-primary/5 shadow-[0_0_20px_rgba(124,77,255,0.1)]">
-                <span className="text-lg font-bold font-label text-gradient">8.<span className="soft-blur">2</span></span>
+                <span className="text-lg font-bold font-label text-gradient">8.<span className="heavy-blur">2</span></span>
               </div>
               <span className="text-[11px] font-medium text-primary">Potential</span>
             </div>
@@ -214,7 +214,7 @@ export default function ResultsPage() {
 
         {/* SECTION 7: BEST HAIRSTYLE */}
         <section className="space-y-6 cursor-pointer" onClick={scrollToUnlock}>
-          <h3 className="text-[10px] font-label opacity-25 uppercase tracking-widest">💇 Best Hairstyle</h3>
+          <h3 className="text-[14px] font-bold font-label uppercase tracking-widest text-white/60">💇 Best Hairstyle</h3>
           <div className="space-y-3">
             <div className="p-4 glass-card rounded-2xl opacity-40 heavy-blur">
               Buzz Cut — masculine aesthetic
